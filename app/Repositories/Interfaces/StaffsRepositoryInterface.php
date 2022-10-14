@@ -11,7 +11,7 @@
 
 namespace App\Repositories\Interfaces;
 
-interface ManagementExecutiveRepositoryInterface
+interface StaffsRepositoryInterface
 {
     public function all();
 
@@ -21,5 +21,5 @@ interface ManagementExecutiveRepositoryInterface
 
     public function update($request,  $managementExecutives);
 
-    public function destroy($managementExecutives);
+    public function destroy($staff);
 }

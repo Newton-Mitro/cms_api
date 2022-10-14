@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Http\Controllers;
+
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
+use App\Models\Post;
+use App\Repositories\Interfaces\PostRepositoryInterface;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil 
@@ -8,13 +15,6 @@
  * @createdOn      : 10-03-2022 
  * @description    : This Controller handle all user request  
  *========================================================================**/
-
-namespace App\Http\Controllers;
-
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
-use App\Models\Post;
-use App\Repositories\Interfaces\PostRepositoryInterface;
 
 class PostController extends Controller
 {

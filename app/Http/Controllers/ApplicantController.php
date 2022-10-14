@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Http\Controllers;
+
+use App\Http\Requests\StoreApplicantRequest;
+use App\Http\Requests\UpdateApplicantRequest;
+use App\Models\Applicant;
+use App\Repositories\Interfaces\ApplicantRepositoryInterface;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil 
@@ -8,13 +15,6 @@
  * @createdOn      : 10-03-2022 
  * @description    : This Controller handle all user request  
  *========================================================================**/
-
-namespace App\Http\Controllers;
-
-use App\Http\Requests\StoreApplicantRequest;
-use App\Http\Requests\UpdateApplicantRequest;
-use App\Models\Applicant;
-use App\Repositories\Interfaces\ApplicantRepositoryInterface;
 
 class ApplicantController extends Controller
 {
@@ -27,20 +27,17 @@ class ApplicantController extends Controller
 
     public function index()
     {
-        $Applicant = $this->ApplicantRepository->all();
-        return $Applicant;
+        return $this->ApplicantRepository->all();
     }
 
     public function store(StoreApplicantRequest $request)
     {
-        $Applicant = $this->ApplicantRepository->store($request);
-        return $Applicant;
+        return $this->ApplicantRepository->store($request);
     }
 
     public function show(Applicant $applicant)
     {
-        $applicant = $this->ApplicantRepository->show($applicant);
-        return $applicant;
+        return $this->ApplicantRepository->show($applicant);
     }
 
     public function update(UpdateApplicantRequest $request, Applicant $applicant)

@@ -15,7 +15,7 @@ use App\Repositories\Interfaces\ExecutiveSocialLinkRepositoryInterface;
 use App\Repositories\Interfaces\JobCircularRepositoryInterface;
 use App\Repositories\Interfaces\JobHistoryRepositoryInterface;
 use App\Repositories\Interfaces\JobPositionRepositoryInterface;
-use App\Repositories\Interfaces\ManagementExecutiveRepositoryInterface;
+use App\Repositories\Interfaces\StaffsRepositoryInterface;
 use App\Repositories\Interfaces\MenuRepositoryInterface;
 use App\Repositories\Interfaces\PostRepositoryInterface;
 use App\Repositories\Interfaces\PostTypeRepositoryInterface;
@@ -25,7 +25,7 @@ use App\Repositories\Interfaces\TrainingRepositoryInterface;
 use App\Repositories\JobCircularRepository;
 use App\Repositories\JobHistoryRepository;
 use App\Repositories\JobPositionRepository;
-use App\Repositories\ManagementExecutiveRepository;
+use App\Repositories\StaffsRepository;
 use App\Repositories\MenuRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\PostTypeRepository;
@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind(ManagementExecutiveRepositoryInterface::class, ManagementExecutiveRepository::class);
+        $this->app->bind(StaffsRepositoryInterface::class, StaffsRepository::class);
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
         $this->app->bind(ExecutiveSocialLinkRepositoryInterface::class, ExecutiveSocialLinkRepository::class);
         $this->app->bind(MenuRepositoryInterface::class, MenuRepository::class);

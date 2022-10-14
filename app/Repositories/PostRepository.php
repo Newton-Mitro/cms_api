@@ -18,19 +18,20 @@ use App\Http\Resources\Post\PostCollection;
 use App\Repositories\Interfaces\PostRepositoryInterface;
 
 
-class PostRepository implements PostRepositoryInterface
-{
+class PostRepository implements PostRepositoryInterface {
 
-    public function all()
-    {
-        return PostCollection::collection(Post::all());
+    public function all() {
+        return PostCollection::collection(Post::paginate(
+            10, // per page (may be get it from request)
+            ['*'], // columns to select from table (default *, means all fields)
+            'page', // page name that holds the page number in the query string
+            10 // current page, default 1
+        ));
     }
-    public function show($post)
-    {
+    public function show($post) {
         return new PostResource($post);
     }
-    public function store($request)
-    {
+    public function store($request) {
         $post = new Post();
         $post->post_slug = Str::slug($post->title, '-');
         $post->post_image = base64_decode($request->PostImage);
@@ -41,8 +42,7 @@ class PostRepository implements PostRepositoryInterface
 
         return response()->json(['message ' => "you are successfully store post"]);
     }
-    public function update($request, $post)
-    {
+    public function update($request, $post) {
         $post = Post::find($post->id);
         $post->post_slug = Str::slug($post->title, '-');
         $post->post_image = base64_decode($request->PostImage);
@@ -53,8 +53,7 @@ class PostRepository implements PostRepositoryInterface
 
         return response()->json(['message' => 'You are successfully Update']);
     }
-    public function destroy($post)
-    {
+    public function destroy($post) {
         $post = Post::find($post->id);
         $post->delete();
 

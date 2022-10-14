@@ -12,6 +12,7 @@
 
 namespace App\Http\Resources\Post;
 
+use App\Utilities\LinkObject;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
@@ -26,6 +27,11 @@ class PostResource extends JsonResource
             'postTitle' => $this->post_title,
             'postContent' => $this->post_content,
             'postTypeId' => $this->post_type_id,
+            'links' => [
+                new LinkObject("CreatePost", "Create Post", route('posts.store'),"POST"),
+                new LinkObject("UpdatePost", "Update Post", route('posts.update', $this->id),"PUT"),
+                new LinkObject("DeletePost", "Delete Post", route('posts.destroy', $this->id),"DELETE"),
+            ],
         ];
     }
 }

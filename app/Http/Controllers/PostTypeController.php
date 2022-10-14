@@ -27,9 +27,4 @@ class PostTypeController extends Controller
     {
         return $this->postTypeRepository->all();
     }
-
-    public function show(PostType $postType)
-    {
-        return $this->postTypeRepository->show($postType);
-    }
 }

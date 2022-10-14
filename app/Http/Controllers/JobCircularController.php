@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Http\Controllers;
+
+use App\Models\JobCircular;
+use App\Http\Requests\StoreJobCircularRequest;
+use App\Http\Requests\UpdateJobCircularRequest;
+use App\Repositories\Interfaces\JobCircularRepositoryInterface;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil 
@@ -8,13 +15,6 @@
  * @createdOn      : 10-03-2022 
  * @description    : This Controller handle all user request  
  *========================================================================**/
-
-namespace App\Http\Controllers;
-
-use App\Models\JobCircular;
-use App\Http\Requests\StoreJobCircularRequest;
-use App\Http\Requests\UpdateJobCircularRequest;
-use App\Repositories\Interfaces\JobCircularRepositoryInterface;
 
 class JobCircularController extends Controller
 {
