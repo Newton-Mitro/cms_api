@@ -20,13 +20,14 @@ class PostCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'postSlug' => $this->post_slug,
-            'postTitle' => $this->post_title,
-            'postContent' => $this->post_content,
-            'postTypeId' => $this->post_type_id,
-            'links' => [
-                new LinkObject("ViewPost", "View Post", route('posts.show', $this->id), "GET"),
-                new LinkObject("DeletePost", "Delete Post", route('posts.destroy', $this->id), "DELETE"),
+            'postSlug'      => $this->post_slug,
+            'postTitle'     => $this->post_title,
+            'postIcon'      => $this->post_icon,
+            'postContent'   => $this->post_content,
+            'postType'      => $this->postType->post_type_name,
+            'links'         => [
+                new LinkObject("PostResource", "View Post", route('posts.show', $this->id), "GET"),
+                new LinkObject("PostResource", "Delete Post", route('posts.destroy', $this->id), "DELETE"),
             ],
         ];
     }

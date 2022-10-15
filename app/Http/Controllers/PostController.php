@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\PostType;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use App\Models\Post;
+use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\Post\PostCollection;
 use App\Repositories\Interfaces\PostRepositoryInterface;
 
 /**========================================================================
@@ -19,15 +22,20 @@ use App\Repositories\Interfaces\PostRepositoryInterface;
  *========================================================================**/
 
 class PostController extends Controller {
-    
+
     private $postRepository;
 
     public function __construct(PostRepositoryInterface $postRepository) {
+        $this->middleware('auth:api', ['except' => ['getPostsByPostType', 'getPostByPostSlug']]);
         $this->postRepository = $postRepository;
     }
 
-    public function index() {
-        return $this->postRepository->all();
+    public function index($post_type) {
+        return PostCollection::collection($this->postRepository->all($post_type));
+    }
+
+    public function getPostsByPostType($post_type) {
+        return PostCollection::collection($this->postRepository->getPostsByPostType($post_type));
     }
 
     public function store(StorePostRequest $request) {
@@ -35,7 +43,11 @@ class PostController extends Controller {
     }
 
     public function show(Post $post) {
-        return $this->postRepository->show($post);
+        return new PostResource($this->postRepository->show($post));
+    }
+
+    public function getPostByPostSlug($post_slug) {
+        return new PostResource($this->postRepository->getPostByPostSlug($post_slug));
     }
 
     public function update(UpdatePostRequest $request, Post $post) {

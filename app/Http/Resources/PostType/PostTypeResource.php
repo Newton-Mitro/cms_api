@@ -19,8 +19,8 @@ class PostTypeResource extends JsonResource {
 
     public function toArray($request) {
         return [
-            'PostTypeId' => $this->id,
-            'PostTypeName' => $this->post_type_name,
+            'postTypeId'    => $this->id,
+            'postTypeName'  => $this->post_type_name,
         ];
     }
 }

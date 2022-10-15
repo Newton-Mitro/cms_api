@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Post;
+use App\Models\PostType;
 use Illuminate\Support\Str;
 use App\Repositories\Interfaces\PostRepositoryInterface;
 
@@ -20,16 +21,20 @@ use App\Repositories\Interfaces\PostRepositoryInterface;
 class PostRepository implements PostRepositoryInterface {
 
     public function all() {
-        return Post::paginate(
-            10, // per page (may be get it from request)
-            ['*'], // columns to select from table (default *, means all fields)
-            'page', // page name that holds the page number in the query string
-            10 // current page, default 1
-        );
+        return Post::paginate(10);
+    }
+
+    public function getPostsByPostType($post_type_name) {
+        $postType = PostType::where('post_type_name', $post_type_name)->first();
+        return Post::where('post_type_id', $postType->id)->paginate(10);
     }
 
     public function show($post) {
         return $post;
+    }
+
+    public function getPostByPostSlug($post_slug) {
+        return Post::where('post_slug', $post_slug)->get()->first();
     }
 
     public function store($request) {

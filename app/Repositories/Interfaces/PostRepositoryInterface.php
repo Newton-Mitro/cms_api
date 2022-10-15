@@ -18,7 +18,9 @@ use App\Http\Requests\UpdatePostRequest;
 
 interface PostRepositoryInterface {
     public function all();
+    public function getPostsByPostType($post_type);
     public function show($post);
+    public function getPostByPostSlug($post_slug);
     public function store($request);
     public function update(UpdatePostRequest $request, Post $post);
     public function destroy($post);

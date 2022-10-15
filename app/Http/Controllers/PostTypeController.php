@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PostType\PostTypeCollection;
 use App\Repositories\Interfaces\PostTypeRepositoryInterface;
 
 /**========================================================================
@@ -16,14 +17,15 @@ use App\Repositories\Interfaces\PostTypeRepositoryInterface;
  *========================================================================**/
 
 class PostTypeController extends Controller {
-    
+
     private $postTypeRepository;
 
     public function __construct(PostTypeRepositoryInterface $postTypeRepository) {
+        $this->middleware('auth:api');
         $this->postTypeRepository = $postTypeRepository;
     }
 
     public function index() {
-        return $this->postTypeRepository->all();
+        return PostTypeCollection::collection($this->postTypeRepository->all());
     }
 }
