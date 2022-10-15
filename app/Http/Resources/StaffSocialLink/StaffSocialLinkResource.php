@@ -4,6 +4,17 @@ namespace App\Http\Resources\ExecutiveSocialLink;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**========================================================================
+ * ?                                ABOUT
+ * @author         : Israfil
+ * @email          : israfil@cccul.com
+ * @repo           :
+ * @createdOn      : 3-10-2022
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : job circular resource collection.
+ *========================================================================**/
+
 class StaffSocialLinkResource extends JsonResource {
 
     public function toArray($request) {

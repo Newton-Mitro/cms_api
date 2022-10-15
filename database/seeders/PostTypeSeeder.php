@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
  * @email          :  israfil@cccul.com
  * @repo           :  
  * @createdOn      :  3-10-2022
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
  * @description    :  PostType seeder 
  *========================================================================**/
 

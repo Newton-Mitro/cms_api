@@ -7,10 +7,11 @@ use Illuminate\Foundation\Http\FormRequest;
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
- * @updatedBy      : Newton Mitro
  * @email          : israfil@cccul.com
  * @repo           :
  * @createdOn      : 3-10-2022
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
  * @description    : User update request information validation..
  *========================================================================**/
 

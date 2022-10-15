@@ -12,7 +12,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @email          :  israfil@cccul.com
  * @repo           :  
  * @createdOn      :  03-10-2022
- * @description    :  Posttype model.
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
+ * @description    :  Post type model.
  *========================================================================**/
 
 class PostType extends Model {

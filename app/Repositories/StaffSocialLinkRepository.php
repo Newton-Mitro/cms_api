@@ -5,6 +5,17 @@ namespace App\Repositories;
 use App\Models\StaffSocialLink;
 use App\Repositories\Interfaces\StaffSocialLinkRepositoryInterface;
 
+/**========================================================================
+ * ?                                ABOUT
+ * @author         :  Israfil
+ * @email          :  israfil@cccul.com
+ * @repo           :  
+ * @createdOn      :  03-10-2022
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
+ * @description    :  Implements post interface
+ *========================================================================**/
+
 class StaffSocialLinkRepository implements StaffSocialLinkRepositoryInterface {
 
     public function all() {

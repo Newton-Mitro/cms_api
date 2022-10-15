@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
- * @updatedBy      :  Newton Mitro
  * @email          :  israfil@cccul.com 
  * @repo           :  
  * @createdOn      :  03-10-2022
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
  * @description    :  Applicant model
  *========================================================================**/
 

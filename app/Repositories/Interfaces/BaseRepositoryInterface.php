@@ -2,24 +2,23 @@
 
 namespace App\Repositories\Interfaces;
 
-use App\Models\JobCircular;
-use App\Http\Requests\UpdateJobCircularRequest;
+use App\Http\Requests\UpdateEventRequest;
 
 /**========================================================================
  * ?                                ABOUT
- * @author         :  Israfil
- * @email          :  israfil@cccul.com
+ * @author         :  Newton Mitro
+ * @email          :  newtonmitro@gmail.com
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
  * @UpdatedAt      :  15-10-2022
- * @description    :  Job circular interface 
+ * @description    :  Event Repository Interface
  *========================================================================**/
 
-interface JobCircularRepositoryInterface {
+interface EventRepositoryInterface {
     public function all();
-    public function show($jobCircular);
     public function store($request);
-    public function update(UpdateJobCircularRequest $request, JobCircular $jobCircular);
-    public function destroy($jobCircular);
+    public function update(UpdateEventRequest $request,  $event);
+    public function destroy($event);
+    public function show($event);
 }

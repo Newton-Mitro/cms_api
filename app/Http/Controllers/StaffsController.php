@@ -6,8 +6,19 @@ use App\Http\Requests\StoreStaffsRequest;
 use App\Http\Requests\UpdateStaffsRequest;
 use App\Repositories\Interfaces\StaffsRepositoryInterface;
 
+/**========================================================================
+ * ?                                ABOUT
+ * @author         : Isrfil
+ * @email          : israfil@cccul.com
+ * @repo           : 
+ * @createdOn      : 03-10-2022
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : Application stage seeder
+ *========================================================================**/
+
 class StaffsController extends Controller {
-    
+
     private $StaffsRepository;
 
     public function __construct(StaffsRepositoryInterface $staffsRepository) {

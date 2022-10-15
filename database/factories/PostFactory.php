@@ -7,6 +7,17 @@ use App\Models\PostType;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**========================================================================
+ * ?                                ABOUT
+ * @author         : Isrfil
+ * @email          : israfil@cccul.com
+ * @repo           : 
+ * @createdOn      : 03-10-2022
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : Application stage seeder
+ *========================================================================**/
+
 class PostFactory extends Factory {
 
     protected $model = Post::class;

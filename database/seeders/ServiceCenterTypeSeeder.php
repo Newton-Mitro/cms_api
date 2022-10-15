@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\DB;
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
- * @updatedBy      :  Newton Mitro
  * @email          :  israfil@cccul.com
  * @repo           :  
  * @createdOn      :  04-10-2022
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
  * @description    :  Database seeder service center types
  *========================================================================**/
 

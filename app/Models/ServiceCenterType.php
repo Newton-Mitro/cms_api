@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  * @email          :  israfil@cccul.com
  * @repo           :  
  * @createdOn      :  04-10-2022
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
  * @description    :  All service center working area 
  *========================================================================**/
 

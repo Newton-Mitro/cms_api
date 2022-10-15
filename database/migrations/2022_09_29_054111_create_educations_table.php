@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Schema;
  * @email          :  israfil@cccul.com
  * @repo           :  
  * @createdOn      :  03-10-2022
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
  * @description    :  Applicants eduction migration table
  *========================================================================**/
 

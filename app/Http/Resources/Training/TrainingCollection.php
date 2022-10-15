@@ -6,11 +6,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 /**========================================================================
  * ?                                ABOUT
- * @author         :  Israfil
- * @email          :  israfil@cccul.com
- * @repo           :  
- * @createdOn      :  3-10-2022 
- * @description    :  Traning Collection resource
+ * @author         : Israfil
+ * @email          : israfil@cccul.com
+ * @repo           : 
+ * @createdOn      : 3-10-2022 
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : Training Collection resource
  *========================================================================**/
 
 class TrainingCollection extends JsonResource {

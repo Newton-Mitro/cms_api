@@ -6,6 +6,17 @@ use App\Models\StaffSocialLink;
 use App\Http\Requests\StoreExecutiveSocialLinkRequest;
 use App\Repositories\Interfaces\StaffSocialLinkRepositoryInterface;
 
+/**========================================================================
+ * ?                                ABOUT
+ * @author         : Isrfil
+ * @email          : israfil@cccul.com
+ * @repo           : 
+ * @createdOn      : 03-10-2022
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : Application stage seeder
+ *========================================================================**/
+
 class StaffSocialLinkController extends Controller {
 
     private $ExecutiveSocialLinkRepository;
@@ -26,7 +37,7 @@ class StaffSocialLinkController extends Controller {
         return  $this->ExecutiveSocialLinkRepository->show($executiveSocialLink);
     }
 
-    public function update(UpdateStaffSocialLinkRequest $request,StaffSocialLink $executiveSocialLink) {
+    public function update(UpdateStaffSocialLinkRequest $request, StaffSocialLink $executiveSocialLink) {
         //
     }
 

@@ -5,8 +5,19 @@ namespace Database\Factories;
 use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**========================================================================
+ * ?                                ABOUT
+ * @author         : Isrfil
+ * @email          : israfil@cccul.com
+ * @repo           : 
+ * @createdOn      : 03-10-2022
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : Application stage seeder
+ *========================================================================**/
+
 class EventFactory extends Factory {
-    
+
     protected $model = Event::class;
 
     public function definition() {

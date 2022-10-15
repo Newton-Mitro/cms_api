@@ -5,6 +5,17 @@ namespace App\Repositories;
 use App\Models\Menu;
 use App\Repositories\Interfaces\MenuRepositoryInterface;
 
+/**========================================================================
+ * ?                                ABOUT
+ * @author         : Israfil
+ * @email          : israfil@cccul.com
+ * @repo           :
+ * @createdOn      : 3-10-2022
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : job circular resource collection.
+ *========================================================================**/
+
 class MenuRepository implements MenuRepositoryInterface {
 
     public function all() {

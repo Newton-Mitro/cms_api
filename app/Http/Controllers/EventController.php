@@ -6,8 +6,19 @@ use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Repositories\Interfaces\EventRepositoryInterface;
 
+/**========================================================================
+ * ?                                ABOUT
+ * @author         : Isrfil
+ * @email          : israfil@cccul.com
+ * @repo           : 
+ * @createdOn      : 03-10-2022
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : Application stage seeder
+ *========================================================================**/
+
 class EventController extends Controller {
-    
+
     private $EventRepository;
 
     public function __construct(EventRepositoryInterface $EventRepository) {

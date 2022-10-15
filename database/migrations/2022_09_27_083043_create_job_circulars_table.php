@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Schema;
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
- * @updatedBy      :  Newton Mitro
  * @email          :  israfil@cccul.com
  * @repo           :  
  * @createdOn      :  03-10-2022
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
  * @description    :  Job circulars migration table
  *========================================================================**/
 

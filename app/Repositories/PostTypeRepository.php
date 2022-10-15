@@ -3,8 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\PostType;
-use App\Http\Resources\PostType\PostTypeResource;
-use App\Http\Resources\PostType\PostTypeCollection;
 use App\Repositories\Interfaces\PostTypeRepositoryInterface;
 
 /**========================================================================
@@ -13,6 +11,8 @@ use App\Repositories\Interfaces\PostTypeRepositoryInterface;
  * @email          :  israfil@cccul.com
  * @repo           :  
  * @createdOn      :  03-10-2022
+ * @updatedBy      :  Newton Mitro
+ * @UpdatedAt      :  15-10-2022
  * @description    :  Implements postType interface 
  *========================================================================**/
 

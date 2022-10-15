@@ -1,18 +1,19 @@
 <?php
 
+namespace App\Http\Resources\JobCircular;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
  * @email          : israfil@cccul.com
  * @repo           :
  * @createdOn      : 3-10-2022
- * @description    : jobcircular resource collection.
+ * @updatedBy      : Newton Mitro
+ * @UpdatedAt      : 15-10-2022
+ * @description    : job circular resource collection.
  *========================================================================**/
-
-
-namespace App\Http\Resources\JobCircular;
-
-use Illuminate\Http\Resources\Json\JsonResource;
 
 class JobCircularCollection extends JsonResource {
 

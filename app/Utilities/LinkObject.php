@@ -1,6 +1,14 @@
 <?php
 
 namespace App\Utilities;
+/**==============================================
+ * ?                    ABOUT
+ * @author      : Newton Mitro
+ * @email       : newtonmitro@gmail.com
+ * @repo        : 
+ * @createdOn   : 15-10-2022
+ * @description : Link Object for Hypermedia REST API
+ *=============================================**/
 
 class LinkObject {
     public $rel;
