@@ -14,15 +14,13 @@ use Illuminate\Foundation\Http\FormRequest;
  * @description    : User store request information validation.
  *========================================================================**/
 
-class StoreApplicantRequest extends FormRequest
-{
-    public function authorize()
-    {
+class StoreApplicantRequest extends FormRequest {
+    
+    public function authorize() {
         return true;
     }
 
-    public function rules()
-    {
+    public function rules() {
         return [
             'applicant.Image' => 'required',
             'applicant.FullName' => 'required|max:255',

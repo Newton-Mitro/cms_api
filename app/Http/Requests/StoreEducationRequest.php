@@ -13,15 +13,13 @@ use Illuminate\Foundation\Http\FormRequest;
  * @description    : User store request information validation.
  *========================================================================**/
 
-class StoreEducationRequest extends FormRequest
-{
-    public function authorize()
-    {
+class StoreEducationRequest extends FormRequest {
+    
+    public function authorize() {
         return false;
     }
 
-    public function rules()
-    {
+    public function rules() {
         return [
             //
         ];

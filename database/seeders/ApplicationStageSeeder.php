@@ -15,10 +15,9 @@ use Illuminate\Support\Facades\DB;
  * @description    :  Application stage seeder
  *========================================================================**/
 
-class ApplicationStageSeeder extends Seeder
-{
-    public function run()
-    {
+class ApplicationStageSeeder extends Seeder {
+    
+    public function run() {
         $application_stages = array("Applied", "Rejected/Canceled", "Selected For Interview", "Called For Interview", "Agreed To Join");
 
         foreach ($application_stages as $application_stage) {

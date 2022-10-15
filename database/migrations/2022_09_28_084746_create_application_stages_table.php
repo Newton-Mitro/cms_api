@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Application stage migration table
  *========================================================================**/
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class extends Migration {
+    
+    public function up() {
         Schema::create('application_stages', function (Blueprint $table) {
             $table->id();
             $table->string('stage_name');
@@ -25,8 +24,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('application_stages');
     }
 };

@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,22 +11,9 @@
  * @description    :  Applicant repository interface
  *========================================================================**/
 
-namespace App\Repositories\Interfaces;
-
-use App\Models\Applicant;
-use App\Http\Requests\UpdateApplicantRequest;
-
-
-interface ApplicantRepositoryInterface
-{
-
+interface ApplicantRepositoryInterface {
     public function all();
-
     public function store($request);
-
-    public function  update(UpdateApplicantRequest $request, Applicant $applicant);
-
     public function destroy($applicant);
-
     public function show($applicant);
 }

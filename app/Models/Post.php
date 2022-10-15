@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  israfil
@@ -9,17 +14,10 @@
  * @description    :  This is the Post model 
  *========================================================================**/
 
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Post extends Model
-{
+class Post extends Model {
     use HasFactory;
 
-    public function postType()
-    {
+    public function postType() {
         return $this->belongsTo(PostType::class);
     }
 }

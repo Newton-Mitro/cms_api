@@ -14,11 +14,9 @@ namespace App\Http\Resources\JobCircular;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class JobCircularCollection extends JsonResource
-{
+class JobCircularCollection extends JsonResource {
 
-    public function toArray($request)
-    {
+    public function toArray($request) {
         return [
             'JobCircularPostId' => $this->id,
             'JobPositionId' => $this->job_position_id,

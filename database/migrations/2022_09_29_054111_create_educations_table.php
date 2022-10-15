@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Applicants eduction migration table
  *========================================================================**/
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class extends Migration {
+    
+    public function up() {
         Schema::create('educations', function (Blueprint $table) {
             $table->id();
             $table->string('name_of_degree');
@@ -31,8 +30,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('educations');
     }
 };

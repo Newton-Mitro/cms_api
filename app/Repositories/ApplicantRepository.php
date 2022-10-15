@@ -1,5 +1,15 @@
 <?php
 
+
+
+namespace App\Repositories;
+
+use App\Models\Training;
+use App\Models\Applicant;
+use App\Models\Education;
+use App\Models\JobHistory;
+use App\Repositories\Interfaces\ApplicantRepositoryInterface;
+
 /**------------------------------------------------------------------------
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,31 +19,15 @@
  * @description    :  Implements applicant interface
  *------------------------------------------------------------------------**/
 
-namespace App\Repositories;
+class ApplicantRepository implements ApplicantRepositoryInterface {
 
-use App\Models\Training;
-use App\Models\Applicant;
-use App\Models\Education;
-use App\Models\JobHistory;
-use App\Http\Requests\UpdateApplicantRequest;
-use App\Http\Resources\Applicant\ApplicantResource;
-use App\Http\Resources\Applicant\ApplicantCollection;
-use App\Repositories\Interfaces\ApplicantRepositoryInterface;
-
-class ApplicantRepository implements ApplicantRepositoryInterface
-{
-
-    public function all()
-    {
-        return ApplicantCollection::collection(Applicant::all());
+    public function all() {
+        return Applicant::all();
     }
 
-    public function store($request)
-    {
+    public function store($request) {
         $applicant = new Applicant;
         $applicant->image = base64_decode($request->applicant['Image']);
-
-        // $applicant->photo = base64_decode($request->applicant['Photo']);
         $applicant->name = $request->applicant['FullName'];
         $applicant->email = $request->applicant['Email'];
         $applicant->phone_number = $request->applicant['PhoneNumber'];
@@ -53,92 +47,55 @@ class ApplicantRepository implements ApplicantRepositoryInterface
         $applicant->date_of_birth = $request->applicant['DateOfBirth'];
         $applicant->gender = $request->applicant['Gender'];
         $applicant->religion = $request->applicant['Religion'];
-
         $applicant->nationality = $request->applicant['Nationality'];
-
         $applicant->marital_status = $request->applicant['MaritalStatus'];
-
         $applicant->job_circular_id = $request->applicant['job_circular_id'];
-
         $applicant->expected_salary = $request->applicant['ExpectedSalary'];
-
         $applicant->cv = $request->applicant['Cv'];
-
         $applicant->save();
 
         foreach ($request->educations as $educations) {
-
             $education = new Education;
-
             $education->name_of_degree = $educations['NameOfDegree'];
-
             $education->institute_name = $educations['InstituteName'];
-
             $education->major = $educations['Major'];
-
             $education->board = $educations['EductionBoard'];
-
             $education->result = $educations['Result'];
-
             $education->applicant_id = $applicant['id'];
-
             $education->save();
         }
 
         foreach ($request->jobHistories as $jobHistories) {
-
             $history = new JobHistory;
-
             $history->organization_name = $jobHistories['OrganizationName'];
-
             $history->designation = $jobHistories['Designation'];
-
             $history->responsibilities = $jobHistories['Responsibilities'];
-
             $history->resignation_for_leaving = $jobHistories['ReasonForLeaving'];
-
             $history->salary = $jobHistories['Salary'];
-
             $history->applicant_id = $applicant['id'];
-
             $history->save();
         }
+
         foreach ($request->training as $requestTraining) {
-
             $training = new Training;
-
             $training->training_title = $requestTraining['TrainingTitle'];
-
             $training->topic = $requestTraining['NameTopic'];
-
             $training->institute_name = $requestTraining['InstituteName'];
-
             $training->year = $requestTraining['Year'];
-
             $training->duration = $requestTraining['Duration'];
-
             $training->applicant_id = $applicant['id'];
-
             $training->save();
         }
+
         return response()->json(['message' => 'You are successfully Applied']);
     }
-    public function update($request,  $applicant)
-    {
-        $applicant = Applicant::find($applicant);
 
-        return $applicant;
-    }
-    public function destroy($applicant)
-    {
+    public function destroy($applicant) {
         $applicant = Applicant::find($applicant);
-
         $applicant->delete();
-
-        return response()->json(['Delate Post ' => "You are successfully delate job apply Person"]);
     }
-    public function show($applicant)
-    {
-        return new ApplicantResource($applicant);
+
+    public function show($applicant) {
+        return $applicant;
     }
 }

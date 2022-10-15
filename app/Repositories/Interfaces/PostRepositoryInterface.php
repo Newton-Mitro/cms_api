@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
+use App\Models\Post;
+use App\Http\Requests\UpdatePostRequest;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,24 +14,10 @@
  * @description    :  Post repository interface
  *========================================================================**/
 
-namespace App\Repositories\Interfaces;
-
-use App\Models\Post;
-use App\Http\Requests\UpdatePostRequest;
-
-
-
-
-interface PostRepositoryInterface
-{
-
+interface PostRepositoryInterface {
     public function all();
-
     public function show($post);
-
     public function store($request);
-
     public function update(UpdatePostRequest $request, Post $post);
-
     public function destroy($post);
 }

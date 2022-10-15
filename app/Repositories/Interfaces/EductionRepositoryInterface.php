@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Repositories\Interfaces;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,8 +11,6 @@ namespace App\Repositories\Interfaces;
  * @description    :  Eduction Repository Interface
  *========================================================================**/
 
-Interface EductionRepositoryInterface{
-
-public function show($education);
-
+interface EductionRepositoryInterface {
+    public function show($education);
 }

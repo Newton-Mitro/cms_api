@@ -18,22 +18,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @description    :  Applicant model
  *========================================================================**/
 
-class Applicant extends Model
-{
+class Applicant extends Model {
     use HasFactory;
 
-    public function educations()
-    {
+    public function educations() {
         return $this->hasMany(Education::class);
     }
 
-    public function jobHistories()
-    {
+    public function jobHistories() {
         return $this->hasMany(JobHistory::class);
     }
 
-    public function trainings()
-    {
+    public function trainings() {
         return $this->hasMany(Training::class);
     }
 }

@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Post  migration table
  *========================================================================**/
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class extends Migration {
+    
+    public function up() {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('post_slug')->unique();
@@ -31,8 +30,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('posts');
     }
 };

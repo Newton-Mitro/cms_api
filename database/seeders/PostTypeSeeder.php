@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\DB;
  * @description    :  PostType seeder 
  *========================================================================**/
 
-class PostTypeSeeder extends Seeder
-{
-    public function run()
-    {
+class PostTypeSeeder extends Seeder {
+    
+    public function run() {
         $post_types = array(
             "Post", "Page", "Deposit Product", "Loan Product", "Service", "Project", "Notification", "News",
             "Agm Report", "Our-policies", "Members", "Defaulter-list"

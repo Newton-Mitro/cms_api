@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Repositories;
+
+use App\Models\JobHistory;
+use App\Http\Resources\JobHistory\JobHistoryCollection;
+use App\Repositories\Interfaces\JobHistoryRepositoryInterface;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,17 +15,9 @@
  * @description    :  Implements history interface
  *========================================================================**/
 
-namespace App\Repositories;
+class JobHistoryRepository implements JobHistoryRepositoryInterface {
 
-use App\Models\JobHistory;
-use App\Http\Resources\JobHistory\JobHistoryCollection;
-use App\Repositories\Interfaces\JobHistoryRepositoryInterface;
-
-class JobHistoryRepository implements JobHistoryRepositoryInterface
-{
-
-   public function show($jobHistory)
-   {
-      return JobHistoryCollection::collection(JobHistory::where('applicant_id', $jobHistory)->get());
+   public function show($jobHistory) {
+      return JobHistory::where('applicant_id', $jobHistory)->get();
    }
 }

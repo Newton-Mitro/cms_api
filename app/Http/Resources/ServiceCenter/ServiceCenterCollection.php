@@ -4,12 +4,9 @@ namespace App\Http\Resources\ServiceCenter;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+class ServiceCenterCollection extends JsonResource {
 
-class ServiceCenterCollection extends JsonResource
-{
-
-    public function toArray($request)
-    {
+    public function toArray($request) {
         return [
             'ServiceCenterId' => $this->id,
             'ServiceCenterName' => $this->service_center_name,

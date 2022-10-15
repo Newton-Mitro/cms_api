@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
 /**------------------------------------------------------------------------
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,12 +11,9 @@
  * @description    :  Executive Social Link Repository Interface
  *------------------------------------------------------------------------**/
 
-namespace App\Repositories\Interfaces;
-
-interface ExecutiveSocialLinkRepositoryInterface
-{
+interface StaffSocialLinkRepositoryInterface {
     public function all();
     public function store($request);
-    public function show($executiveSocialLink);
-    public function destroy($executiveSocialLink);
+    public function show($staffSocialLink);
+    public function destroy($staffSocialLink);
 }

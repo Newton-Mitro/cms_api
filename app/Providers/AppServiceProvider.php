@@ -6,12 +6,12 @@ use App\Repositories\ApplicantRepository;
 use App\Repositories\AuthRepository;
 use App\Repositories\EductionRepository;
 use App\Repositories\EventRepository;
-use App\Repositories\ExecutiveSocialLinkRepository;
+use App\Repositories\StaffSocialLinkRepository;
 use App\Repositories\Interfaces\ApplicantRepositoryInterface;
 use App\Repositories\Interfaces\AuthRepositoryInterface;
 use App\Repositories\Interfaces\EductionRepositoryInterface;
 use App\Repositories\Interfaces\EventRepositoryInterface;
-use App\Repositories\Interfaces\ExecutiveSocialLinkRepositoryInterface;
+use App\Repositories\Interfaces\StaffSocialLinkRepositoryInterface;
 use App\Repositories\Interfaces\JobCircularRepositoryInterface;
 use App\Repositories\Interfaces\JobHistoryRepositoryInterface;
 use App\Repositories\Interfaces\JobPositionRepositoryInterface;
@@ -34,13 +34,12 @@ use App\Repositories\TestimonialRepository;
 use App\Repositories\TrainingRepository;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
-{
-    public function register()
-    {
+class AppServiceProvider extends ServiceProvider {
+    
+    public function register() {
         $this->app->bind(StaffsRepositoryInterface::class, StaffsRepository::class);
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
-        $this->app->bind(ExecutiveSocialLinkRepositoryInterface::class, ExecutiveSocialLinkRepository::class);
+        $this->app->bind(StaffSocialLinkRepositoryInterface::class, StaffSocialLinkRepository::class);
         $this->app->bind(MenuRepositoryInterface::class, MenuRepository::class);
         $this->app->bind(TestimonialRepositoryInterface::class, TestimonialRepository::class);
         $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
@@ -55,8 +54,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(PostRepositoryInterface::class, PostRepository::class);
     }
 
-    public function boot()
-    {
+    public function boot() {
         //
     }
 }

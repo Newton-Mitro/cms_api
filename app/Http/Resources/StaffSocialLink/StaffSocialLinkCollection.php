@@ -4,11 +4,9 @@ namespace App\Http\Resources\ExecutiveSocialLink;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ExecutiveSocialLinkCollection extends JsonResource
-{
+class StaffSocialLinkCollection extends JsonResource {
 
-    public function toArray($request)
-    {
+    public function toArray($request) {
         return [
             'ID' => $this->id,
             'ManagementExecutiveId' => $this->management_executive_id,

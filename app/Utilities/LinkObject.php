@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Utilities;
 
 class LinkObject {
@@ -9,7 +10,7 @@ class LinkObject {
     public $active;
     public $icon;
 
-    function __construct($rel=null, $label, $url, $method, $active=false, $icon=null) {
+    function __construct($rel = null, $label, $url, $method, $active = false, $icon = null) {
         $this->rel = $rel;
         $this->label = $label;
         $this->url = $url;

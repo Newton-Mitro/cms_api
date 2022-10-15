@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Resources\JobCircular;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
@@ -9,15 +13,9 @@
  * @description    : jobcircular resource.
  *========================================================================**/
 
-namespace App\Http\Resources\JobCircular;
+class JobCircularResource extends JsonResource {
 
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class JobCircularResource extends JsonResource
-{
-
-    public function toArray($request)
-    {
+    public function toArray($request) {
         return [
             'JobCircularPostId' => $this->id,
             'JobPositionId' => $this->job_position_id,

@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
@@ -9,21 +13,14 @@
  * @description    : User update request information validation..
  *========================================================================**/
 
-namespace App\Http\Requests;
+class UpdateMenuRequest extends FormRequest {
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class UpdateMenuRequest extends FormRequest
-{
-
-    public function authorize()
-    {
+    public function authorize() {
         return false;
     }
 
 
-    public function rules()
-    {
+    public function rules() {
         return [
             //
         ];

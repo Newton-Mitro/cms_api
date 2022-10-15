@@ -5,10 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SocialMediaTypeSeeder extends Seeder
-{
-    public function run()
-    {
+class SocialMediaTypeSeeder extends Seeder {
+    
+    public function run() {
         $social_medias = array("Facebook", "Youtube", "LinkedIn", "Twitter", "Pinterest", "Github");
 
         foreach ($social_medias as $social_media) {

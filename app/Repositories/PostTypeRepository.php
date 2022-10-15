@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Repositories;
+
+use App\Models\PostType;
+use App\Http\Resources\PostType\PostTypeResource;
+use App\Http\Resources\PostType\PostTypeCollection;
+use App\Repositories\Interfaces\PostTypeRepositoryInterface;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,24 +16,14 @@
  * @description    :  Implements postType interface 
  *========================================================================**/
 
-namespace App\Repositories;
 
-use App\Models\PostType;
-use App\Http\Resources\PostType\PostTypeResource;
-use App\Http\Resources\PostType\PostTypeCollection;
-use App\Repositories\Interfaces\PostTypeRepositoryInterface;
+class PostTypeRepository implements PostTypeRepositoryInterface {
 
-
-class PostTypeRepository implements PostTypeRepositoryInterface
-{
-
-    public function all()
-    {
-
-        return PostTypeCollection::collection(PostType::all());
+    public function all() {
+        return PostType::all();
     }
-    public function show($postType)
-    {
-        return new PostTypeResource($postType);
+
+    public function show($postType) {
+        return $postType;
     }
 }

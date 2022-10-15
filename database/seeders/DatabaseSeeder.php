@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\MenuSeeder;
 use Database\Seeders\PostSeeder;
+use Database\Seeders\UserSeeder;
 use Database\Seeders\EventSeeder;
 use Database\Seeders\StaffSeeder;
 use Database\Seeders\PostTypeSeeder;
@@ -23,11 +24,11 @@ use Database\Seeders\ServiceCenterTypeSeeder;
  * @description    :  Database main seeder file
  *========================================================================**/
 
-class DatabaseSeeder extends Seeder
-{
-    public function run()
-    {
+class DatabaseSeeder extends Seeder {
+    
+    public function run() {
         $this->call([
+            UserSeeder::class,
             SocialMediaTypeSeeder::class,
             ServiceCenterTypeSeeder::class,
             ApplicationStageSeeder::class,

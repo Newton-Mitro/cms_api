@@ -7,37 +7,31 @@ use App\Http\Requests\UpdateTestimonialRequest;
 use App\Repositories\Interfaces\TestimonialRepositoryInterface;
 
 
-class TestimonialController extends Controller
-{
+class TestimonialController extends Controller {
+    
     private $TestimonialRepository;
 
-    public function __construct(TestimonialRepositoryInterface $TestimonialRepository)
-    {
+    public function __construct(TestimonialRepositoryInterface $TestimonialRepository) {
         $this->TestimonialRepository = $TestimonialRepository;
     }
 
-    public function index()
-    {
+    public function index() {
         return $this->TestimonialRepository->all();
     }
 
-    public function store(StoreTestimonialRequest $request)
-    {
+    public function store(StoreTestimonialRequest $request) {
         return $this->TestimonialRepository->store($request);
     }
 
-    public function show($testimonial)
-    {
+    public function show($testimonial) {
         return $this->TestimonialRepository->show($testimonial);
     }
 
-    public function update(UpdateTestimonialRequest $request,  $testimonial)
-    {
+    public function update(UpdateTestimonialRequest $request,  $testimonial) {
         return $this->TestimonialRepository->update($request,  $testimonial);
     }
 
-    public function destroy($testimonial)
-    {
+    public function destroy($testimonial) {
         return $this->TestimonialRepository->destroy($testimonial);
     }
 }

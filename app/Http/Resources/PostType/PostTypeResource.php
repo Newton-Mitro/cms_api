@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Resources\PostType;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
@@ -9,16 +13,9 @@
  * @description    : Post type resource .
  *========================================================================**/
 
+class PostTypeResource extends JsonResource {
 
-namespace App\Http\Resources\PostType;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class PostTypeResource extends JsonResource
-{
-
-    public function toArray($request)
-    {
+    public function toArray($request) {
         return [
             'PostTypeId' => $this->id,
             'PostTypeName' => $this->post_type_name,

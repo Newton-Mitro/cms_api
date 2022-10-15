@@ -14,15 +14,13 @@ use Illuminate\Foundation\Http\FormRequest;
  * @description    : User store request information validation.
  *========================================================================**/
 
-class StoreJobCircularRequest extends FormRequest
-{
-    public function authorize()
-    {
+class StoreJobCircularRequest extends FormRequest {
+    
+    public function authorize() {
         return true;
     }
 
-    public function rules()
-    {
+    public function rules() {
         return [
             'JobPositionId' => 'required',
             'TotalNumberVacancy' => 'required',

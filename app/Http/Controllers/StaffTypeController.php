@@ -6,40 +6,25 @@ use App\Models\StaffType;
 use App\Http\Requests\StoreStaffTypeRequest;
 use App\Http\Requests\UpdateStaffTypeRequest;
 
-class StaffTypeController extends Controller
-{
-    public function index()
-    {
+class StaffTypeController extends Controller {
+
+    public function index() {
         //
     }
 
-    public function create()
-    {
+    public function store(StoreStaffTypeRequest $request) {
         //
     }
 
-    public function store(StoreStaffTypeRequest $request)
-    {
+    public function show(StaffType $staffType) {
         //
     }
 
-    public function show(StaffType $staffType)
-    {
+    public function update(UpdateStaffTypeRequest $request, StaffType $staffType) {
         //
     }
 
-    public function edit(StaffType $staffType)
-    {
-        //
-    }
-
-    public function update(UpdateStaffTypeRequest $request, StaffType $staffType)
-    {
-        //
-    }
-
-    public function destroy(StaffType $staffType)
-    {
+    public function destroy(StaffType $staffType) {
         //
     }
 }

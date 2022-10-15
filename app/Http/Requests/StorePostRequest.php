@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
@@ -9,21 +13,13 @@
  * @description    : User store request information validation.
  *========================================================================**/
 
-namespace App\Http\Requests;
+class StorePostRequest extends FormRequest {
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class StorePostRequest extends FormRequest
-{
-
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
-
-    public function rules()
-    {
+    public function rules() {
         return [
             'PostImage' => 'required',
             'PostTitle' => 'required',

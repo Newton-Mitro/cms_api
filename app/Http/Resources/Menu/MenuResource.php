@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Resources\Menu;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
@@ -9,14 +13,8 @@
  * @description    : Menu resource collection.
  *========================================================================**/
 
-namespace App\Http\Resources\Menu;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class MenuResource extends JsonResource
-{
-    public function toArray($request)
-    {
+class MenuResource extends JsonResource {
+    public function toArray($request) {
         return [
             'Id' => $this->id,
             'MenuTitle' => $this->menu_name,

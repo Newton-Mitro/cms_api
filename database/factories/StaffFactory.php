@@ -6,12 +6,11 @@ use App\Models\Staff;
 use App\Models\StaffType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class StaffFactory extends Factory
-{
+class StaffFactory extends Factory {
+    
     protected $model = Staff::class;
 
-    public function definition()
-    {
+    public function definition() {
         $slug = $this->faker->realText(10);
 
         $paragraphs = $this->faker->paragraphs(rand(2, 6));

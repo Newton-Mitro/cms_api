@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
 /**------------------------------------------------------------------------
  * ?                                ABOUT
  * @author         :  Israfil
@@ -8,9 +10,7 @@
  * @createdOn      :  03-10-2022
  * @description    :  Training Interface
  *------------------------------------------------------------------------**/
-namespace App\Repositories\Interfaces;
 
-interface TrainingRepositoryInterface
-{
+interface TrainingRepositoryInterface {
     public function show($training);
 }

@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,12 +14,6 @@
  * @description    :  All service center working area 
  *========================================================================**/
 
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class ServiceCenterType extends Model
-{
+class ServiceCenterType extends Model {
     use HasFactory;
 }

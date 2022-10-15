@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Resources\Applicant;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
@@ -9,15 +13,9 @@
  * @description    : Job apply applicant resource collection.
  *========================================================================**/
 
-namespace App\Http\Resources\Applicant;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class ApplicantCollection extends JsonResource
-{
-
-    public function toArray($request)
-    {
+class ApplicantCollection extends JsonResource {
+    
+    public function toArray($request) {
         return [
             'Id' => $this->id,
             'Image' => base64_encode($this->image),

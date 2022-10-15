@@ -4,17 +4,9 @@ namespace App\Http\Resources\Testimonial;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+class TestimonialCollection extends JsonResource {
 
-class TestimonialCollection extends JsonResource
-{
-    /**
-     * Transform the resource collection into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
-    public function toArray($request)
-    {
+    public function toArray($request) {
         return [
             'Id' => $this->id,
             'Name' => $this->name,

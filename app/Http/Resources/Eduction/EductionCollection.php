@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Resources\Eduction;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
@@ -9,16 +13,9 @@
  * @description    : Job apply applicant Eduction resource collection.
  *========================================================================**/
 
-namespace App\Http\Resources\Eduction;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-
-class EductionCollection extends JsonResource
-{
-
-    public function toArray($request)
-    {
+class EductionCollection extends JsonResource {
+    
+    public function toArray($request) {
         return [
             'NameOfDegree' => $this->name_of_degree,
             'InstituteName' => $this->institute_name,

@@ -16,37 +16,31 @@ use App\Repositories\Interfaces\PostRepositoryInterface;
  * @description    : This Controller handle all user request  
  *========================================================================**/
 
-class PostController extends Controller
-{
+class PostController extends Controller {
+    
     private $postRepository;
 
-    public function __construct(PostRepositoryInterface $postRepository)
-    {
+    public function __construct(PostRepositoryInterface $postRepository) {
         $this->postRepository = $postRepository;
     }
 
-    public function index()
-    {
+    public function index() {
         return $this->postRepository->all();
     }
 
-    public function store(StorePostRequest $request)
-    {
+    public function store(StorePostRequest $request) {
         return $this->postRepository->store($request);
     }
 
-    public function show(Post $post)
-    {
+    public function show(Post $post) {
         return $this->postRepository->show($post);
     }
 
-    public function update(UpdatePostRequest $request, Post $post)
-    {
+    public function update(UpdatePostRequest $request, Post $post) {
         return $this->postRepository->update($request, $post);
     }
 
-    public function destroy(Post $post)
-    {
+    public function destroy(Post $post) {
         return $this->postRepository->destroy($post);
     }
 }

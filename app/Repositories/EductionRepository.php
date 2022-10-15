@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Repositories;
+
+use App\Models\Education;
+use App\Repositories\Interfaces\EductionRepositoryInterface;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,18 +14,9 @@
  * @description    :  Implements eduction interface
  *========================================================================**/
 
-namespace App\Repositories;
+class EductionRepository implements EductionRepositoryInterface {
 
-use App\Models\Education;
-use App\Http\Resources\Eduction\EductionCollection;
-use App\Repositories\Interfaces\EductionRepositoryInterface;
-
-
-class EductionRepository implements EductionRepositoryInterface
-{
-
-  public function show($education)
-  {
-    return EductionCollection::Collection(Education::where('applicant_id', $education)->get());
+  public function show($education) {
+    return Education::where('applicant_id', $education)->get();
   }
 }

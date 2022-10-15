@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @description    :  Job position model
  *========================================================================**/
 
-class JobPosition extends Model
-{
+class JobPosition extends Model {
     use HasFactory;
 }

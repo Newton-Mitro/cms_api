@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
+use App\Http\Requests\UpdateServiceCenterRequest;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,20 +13,10 @@
  * @description    :  Service Center Repository Interface
  *========================================================================**/
 
-namespace App\Repositories\Interfaces;
-
-use App\Http\Requests\UpdateServiceCenterRequest;
-
-interface ServiceCenterRepositoryInterface
-{
-
+interface ServiceCenterRepositoryInterface {
     public function all();
-
     public function store($request);
-
-    public function  update(UpdateServiceCenterRequest $request, $serviceCenter);
-
+    public function update(UpdateServiceCenterRequest $request, $serviceCenter);
     public function destroy($serviceCenter);
-
     public function show($serviceCenter);
 }

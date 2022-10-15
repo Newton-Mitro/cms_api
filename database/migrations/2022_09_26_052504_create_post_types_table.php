@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Post type migration table
  *========================================================================**/
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class extends Migration {
+    
+    public function up() {
         Schema::create('post_types', function (Blueprint $table) {
             $table->id();
             $table->string('post_type_name');
@@ -24,8 +23,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('post_types');
     }
 };

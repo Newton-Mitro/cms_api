@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Event;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class EventSeeder extends Seeder {
-    
+class UserSeeder extends Seeder {
+
     public function run() {
-        Event::factory(50)->create();
+        User::factory(5)->create();
     }
 }

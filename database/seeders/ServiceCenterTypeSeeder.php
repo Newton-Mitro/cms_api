@@ -15,10 +15,9 @@ use Illuminate\Support\Facades\DB;
  * @description    :  Database seeder service center types
  *========================================================================**/
 
-class ServiceCenterTypeSeeder extends Seeder
-{
-    public function run()
-    {
+class ServiceCenterTypeSeeder extends Seeder {
+    
+    public function run() {
         $service_center_types = array("Head Office", "Service Center", "Collection Point");
 
         foreach ($service_center_types as $service_center_type) {

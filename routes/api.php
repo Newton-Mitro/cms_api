@@ -14,7 +14,7 @@ use App\Http\Controllers\JobHistoryController;
 use App\Http\Controllers\JobCircularController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ServiceCenterController;
-use App\Http\Controllers\ExecutiveSocialLinkController;
+use App\Http\Controllers\StaffSocialLinkController;
 use App\Http\Controllers\ManagementExecutivesController;
 
 /**========================================================================
@@ -48,7 +48,7 @@ Route::ApiResource('events', EventController::class);
 // Route::ApiResource('testimonials', TestimonialController::class);
 Route::ApiResource('managements', ManagementExecutivesController::class);
 
-Route::ApiResource('social-link', ExecutiveSocialLinkController::class);
+Route::ApiResource('social-link', StaffSocialLinkController::class);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

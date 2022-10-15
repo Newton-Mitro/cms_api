@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @description    :  Eduction model for applicant
  *========================================================================**/
 
-class Education extends Model
-{
+class Education extends Model {
     use HasFactory;
 }

@@ -15,10 +15,9 @@ use Illuminate\Support\Facades\DB;
  * @description    :  MenuSeeder 
  *========================================================================**/
 
-class MenuSeeder extends Seeder
-{
-    public function run()
-    {
+class MenuSeeder extends Seeder {
+    
+    public function run() {
         DB::table('menus')->insert([
             'menu_name' => 'Home',
             'link_to' => 'home',

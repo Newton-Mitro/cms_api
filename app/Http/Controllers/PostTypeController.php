@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Controllers;
+
+use App\Repositories\Interfaces\PostTypeRepositoryInterface;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil 
@@ -9,22 +13,15 @@
  * @description    : This Controller handle all user request  
  *========================================================================**/
 
-namespace App\Http\Controllers;
-
-use App\Models\PostType;
-use App\Repositories\Interfaces\PostTypeRepositoryInterface;
-
-class PostTypeController extends Controller
-{
+class PostTypeController extends Controller {
+    
     private $postTypeRepository;
 
-    public function __construct(PostTypeRepositoryInterface $postTypeRepository)
-    {
+    public function __construct(PostTypeRepositoryInterface $postTypeRepository) {
         $this->postTypeRepository = $postTypeRepository;
     }
 
-    public function index()
-    {
+    public function index() {
         return $this->postTypeRepository->all();
     }
 }

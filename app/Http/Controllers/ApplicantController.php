@@ -16,37 +16,27 @@ use App\Repositories\Interfaces\ApplicantRepositoryInterface;
  * @description    : This Controller handle all user request  
  *========================================================================**/
 
-class ApplicantController extends Controller
-{
+class ApplicantController extends Controller {
+    
     private $ApplicantRepository;
 
-    public function __construct(ApplicantRepositoryInterface $ApplicantRepository)
-    {
+    public function __construct(ApplicantRepositoryInterface $ApplicantRepository) {
         $this->ApplicantRepository = $ApplicantRepository;
     }
 
-    public function index()
-    {
+    public function index() {
         return $this->ApplicantRepository->all();
     }
 
-    public function store(StoreApplicantRequest $request)
-    {
+    public function store(StoreApplicantRequest $request) {
         return $this->ApplicantRepository->store($request);
     }
 
-    public function show(Applicant $applicant)
-    {
+    public function show(Applicant $applicant) {
         return $this->ApplicantRepository->show($applicant);
     }
 
-    public function update(UpdateApplicantRequest $request, Applicant $applicant)
-    {
-        return $this->ApplicantRepository->update($request, $applicant);
-    }
-
-    public function destroy($applicant)
-    {
+    public function destroy($applicant) {
         return $this->ApplicantRepository->destroy($applicant);
     }
 }

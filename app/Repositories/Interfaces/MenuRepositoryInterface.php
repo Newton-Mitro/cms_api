@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
 /**------------------------------------------------------------------------
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,10 +11,7 @@
  * @description    :  Menu Repository Interface
  *------------------------------------------------------------------------**/
 
-namespace App\Repositories\Interfaces;
-
-interface MenuRepositoryInterface
-{
+interface MenuRepositoryInterface {
     public function all();
     public function store($request);
     public function show($menu);

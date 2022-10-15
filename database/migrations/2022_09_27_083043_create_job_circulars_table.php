@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Job circulars migration table
  *========================================================================**/
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class extends Migration {
+    
+    public function up() {
         Schema::create('job_circulars', function (Blueprint $table) {
             $table->id();
             $table->string('job_position');
@@ -35,8 +34,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('job_circulars');
     }
 };

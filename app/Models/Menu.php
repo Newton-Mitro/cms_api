@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,22 +14,14 @@
  * @description    :  Menu model 
  *========================================================================**/
 
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Menu extends Model
-{
+class Menu extends Model {
     use HasFactory;
 
-    public function children()
-    {
+    public function children() {
         return $this->hasMany('App\Models\Menu', 'parent_id', 'id');
     }
 
-    public function parent()
-    {
+    public function parent() {
         return $this->hasOne('App\Models\Menu', 'id', 'parent_id');
     }
 }

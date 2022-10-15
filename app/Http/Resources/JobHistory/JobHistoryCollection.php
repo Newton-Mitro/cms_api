@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Resources\JobHistory;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         : Israfil
@@ -9,16 +13,9 @@
  * @description    : Job apply applicant jobhistory  resource collection.
  *========================================================================**/
 
-namespace App\Http\Resources\JobHistory;
+class JobHistoryCollection extends JsonResource {
 
-use Illuminate\Http\Resources\Json\JsonResource;
-
-
-class JobHistoryCollection extends JsonResource
-{
-
-    public function toArray($request)
-    {
+    public function toArray($request) {
         return [
             'OrganizationName' => $this->organization_name,
             'Designation' => $this->designation,

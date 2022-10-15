@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Migration table in database service center types  
  *------------------------------------------------------------------------**/
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class extends Migration {
+    
+    public function up() {
         Schema::create('service_center_types', function (Blueprint $table) {
             $table->id();
             $table->string('service_center_type');
@@ -24,8 +23,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('service_center_types');
     }
 };

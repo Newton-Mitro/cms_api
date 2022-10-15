@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Applicants migration table
  *------------------------------------------------------------------------**/
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class extends Migration {
+    
+    public function up() {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
             $table->binary('applicant_photo');
@@ -53,8 +52,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('applicants');
     }
 };

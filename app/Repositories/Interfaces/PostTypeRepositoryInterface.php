@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -8,10 +10,8 @@
  * @createdOn      :  03-10-2022
  * @description    :  Post Type interface
  *========================================================================**/
-namespace App\Repositories\Interfaces;
 
-Interface PostTypeRepositoryInterface{
+interface PostTypeRepositoryInterface {
     public function all();
-    
     public function show($postType);
 }

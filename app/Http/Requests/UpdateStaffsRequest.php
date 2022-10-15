@@ -4,20 +4,18 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateStaffsRequest extends FormRequest
-{
-    public function authorize()
-    {
+class UpdateStaffsRequest extends FormRequest {
+
+    public function authorize() {
         return true;
     }
 
-    public function rules()
-    {
+    public function rules() {
         return [
-            'name' => 'required',
-            'designation' => 'required',
-            'content' => 'required',
-            'image' => 'required',
+            'name'          => 'required',
+            'designation'   => 'required',
+            'content'       => 'required',
+            'image'         => 'required',
         ];
     }
 }

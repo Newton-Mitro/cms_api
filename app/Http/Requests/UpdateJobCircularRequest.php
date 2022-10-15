@@ -14,27 +14,25 @@ use Illuminate\Foundation\Http\FormRequest;
  * @description    : User update request information validation..
  *========================================================================**/
 
-class UpdateJobCircularRequest extends FormRequest
-{
-    public function authorize()
-    {
+class UpdateJobCircularRequest extends FormRequest {
+
+    public function authorize() {
         return true;
     }
 
-    public function rules()
-    {
+    public function rules() {
         return [
-            'JobPositionId' => 'required',
-            'TotalNumberVacancy' => 'required',
-            'JobResponsibility' => 'required',
-            'EmploymentStatus' => 'required',
-            'EducationalRequirement' => 'required',
-            'ExperienceRequirements' => 'required',
-            'AdditionalRequirements' => 'required',
-            'Salary' => 'required',
-            'CompensationAndOtherBenefits' => 'required',
-            'ApplicationDeadline' => 'required',
-            'PublishedDate' => 'required',
+            'JobPositionId'                 => 'required',
+            'TotalNumberVacancy'            => 'required',
+            'JobResponsibility'             => 'required',
+            'EmploymentStatus'              => 'required',
+            'EducationalRequirement'        => 'required',
+            'ExperienceRequirements'        => 'required',
+            'AdditionalRequirements'        => 'required',
+            'Salary'                        => 'required',
+            'CompensationAndOtherBenefits'  => 'required',
+            'ApplicationDeadline'           => 'required',
+            'PublishedDate'                 => 'required',
         ];
     }
 }

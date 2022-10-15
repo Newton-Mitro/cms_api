@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @description    :  Job History model 
  *========================================================================**/
 
-class JobHistory extends Model
-{
+class JobHistory extends Model {
     use HasFactory;
 }

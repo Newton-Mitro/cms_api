@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Models;
 
-use App\Models\Applicant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @description    :  Applicant training model
  *========================================================================**/
 
-class Training extends Model
-{
+class Training extends Model {
     use HasFactory;
 }

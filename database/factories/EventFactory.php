@@ -5,12 +5,11 @@ namespace Database\Factories;
 use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class EventFactory extends Factory
-{
+class EventFactory extends Factory {
+    
     protected $model = Event::class;
 
-    public function definition()
-    {
+    public function definition() {
         $slug = $this->faker->realText(10);
 
         $paragraphs = $this->faker->paragraphs(rand(2, 6));

@@ -15,31 +15,27 @@ use App\Models\Staff;
  * @description    :  This repository will handle all database operation for Staffs data.
  *------------------------------------------------------------------------**/
 
-class StaffsRepository implements StaffsRepositoryInterface
-{
-    public function all()
-    {
+class StaffsRepository implements StaffsRepositoryInterface {
+
+    public function all() {
         return Staff::all();
     }
 
-    public function store($request)
-    {
+    public function store($request) {
         $staff = new Staff();
         $staff->name = $request->Name;
         $staff->image = base64_decode($request->Image);
         $staff->designation = $request->Designation;
         $staff->content = $request->Content;
         $staff->save();
-        return response()->json(['message ' => "you are successfully insert Management Executive"]);
+        return $staff->save();
     }
 
-    public function show($staff)
-    {
+    public function show($staff) {
         return Staff::find($staff);
     }
 
-    public function update($request,  $staff)
-    {
+    public function update($request,  $staff) {
         $staff = Staff::find($staff);
         $staff->name = $request->Name;
         $staff->designation = $request->Designation;
@@ -47,13 +43,11 @@ class StaffsRepository implements StaffsRepositoryInterface
         $staff->link_type_id = $request->Link_Type_Id;
         $staff->image = base64_decode($request->Image);
         $staff->update();
-        return response()->json(['message ' => "you are successfully update Management Executive"]);
+        return  $staff->update();
     }
 
-    public function destroy($staff)
-    {
+    public function destroy($staff) {
         $staff = Staff::find($staff);
         $staff->delete();
-        return response()->json(['message ' => "you are successfully delate Management Executive"]);
     }
 }

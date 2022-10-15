@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Resources\Training;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,15 +13,9 @@
  * @description    :  Traning Collection resource
  *========================================================================**/
 
-namespace App\Http\Resources\Training;
+class TrainingCollection extends JsonResource {
 
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class TrainingCollection extends JsonResource
-{
-
-    public function toArray($request)
-    {
+    public function toArray($request) {
         return [
             'TrainingTitle' => $this->training_title,
             'NameTopic' => $this->topic,

@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
+use App\Http\Requests\UpdateEventRequest;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,22 +13,10 @@
  * @description    :  Event Repository Interface
  *========================================================================**/
 
-namespace App\Repositories\Interfaces;
-
-use App\Http\Requests\UpdateEventRequest;
-
-
-
-interface EventRepositoryInterface
-{
-
+interface EventRepositoryInterface {
     public function all();
-
     public function store($request);
-
     public function  update(UpdateEventRequest $request,  $event);
-
     public function destroy($event);
-
     public function show($event);
 }

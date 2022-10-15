@@ -1,4 +1,10 @@
 <?php
+
+namespace App\Repositories\Interfaces;
+
+use App\Models\JobCircular;
+use App\Http\Requests\UpdateJobCircularRequest;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -8,19 +14,10 @@
  * @description    :  Job circular interface 
  *========================================================================**/
 
-namespace App\Repositories\Interfaces;
-
-use App\Models\JobCircular;
-use App\Http\Requests\UpdateJobCircularRequest;
-
-Interface JobCircularRepositoryInterface{
+interface JobCircularRepositoryInterface {
     public function all();
-    
     public function show($jobCircular);
-
     public function store($request);
-
     public function update(UpdateJobCircularRequest $request, JobCircular $jobCircular);
-    
     public function destroy($jobCircular);
 }

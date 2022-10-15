@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,11 +11,6 @@
  * @description    :  Job history interface
  *========================================================================**/
 
-namespace App\Repositories\Interfaces;
-
-
-
-interface JobHistoryRepositoryInterface
-{
+interface JobHistoryRepositoryInterface {
     public function show($jobHistory);
 }

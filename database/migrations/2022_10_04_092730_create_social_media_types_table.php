@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Schema;
  * @description : 
  *=============================================**/
 
-class CreateSocialMediaTypesTable extends Migration
-{
+class CreateSocialMediaTypesTable extends Migration {
 
-    public function up()
-    {
+    public function up() {
         Schema::create('social_media_types', function (Blueprint $table) {
             $table->id();
             $table->string('social_media_type_name');
@@ -26,8 +24,7 @@ class CreateSocialMediaTypesTable extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('social_media_types');
     }
 }

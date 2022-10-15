@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Applicant training migration table
  *========================================================================**/
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class extends Migration {
+    
+    public function up() {
         Schema::create('service_centers', function (Blueprint $table) {
             $table->id();
             $table->string('service_center_name');
@@ -38,8 +37,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('service_centers');
     }
 };

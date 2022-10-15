@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories\Interfaces;
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -9,17 +11,10 @@
  * @description    :  Management Executive Repository Interface
  *========================================================================**/
 
-namespace App\Repositories\Interfaces;
-
-interface StaffsRepositoryInterface
-{
+interface StaffsRepositoryInterface {
     public function all();
-
     public function store($request);
-
     public function show($managementExecutives);
-
     public function update($request,  $managementExecutives);
-
     public function destroy($staff);
 }

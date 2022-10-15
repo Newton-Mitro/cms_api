@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @description    :  Job Circular model 
  *========================================================================**/
 
-class JobCircular extends Model
-{
+class JobCircular extends Model {
     use HasFactory;
 }

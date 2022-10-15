@@ -7,15 +7,11 @@ use App\Models\PostType;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
- */
-class PostFactory extends Factory
-{
+class PostFactory extends Factory {
+
     protected $model = Post::class;
 
-    public function definition()
-    {
+    public function definition() {
         $slug = $this->faker->words(3, true);
 
         $paragraphs = $this->faker->paragraphs(rand(2, 6));
