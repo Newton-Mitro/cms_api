@@ -26,7 +26,7 @@ class PostController extends Controller {
     private $postRepository;
 
     public function __construct(PostRepositoryInterface $postRepository) {
-        $this->middleware('auth:api', ['except' => ['getPostsByPostType', 'getPostByPostSlug']]);
+        // $this->middleware('auth:api', ['except' => ['getPostsByPostType', 'getPostByPostSlug']]);
         $this->postRepository = $postRepository;
     }
 

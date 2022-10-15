@@ -26,7 +26,7 @@ class PostCollection extends JsonResource {
             'postContent'   => $this->post_content,
             'postType'      => $this->postType->post_type_name,
             'links'         => [
-                new LinkObject("PostResource", "View Post", route('posts.show', $this->id), "GET"),
+                new LinkObject("PostResource", "View Post", route('posts.getPostByPostSlug', $this->post_slug), "GET"),
                 new LinkObject("PostResource", "Delete Post", route('posts.destroy', $this->id), "DELETE"),
             ],
         ];

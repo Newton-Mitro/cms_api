@@ -41,8 +41,8 @@ Route::ApiResource('users', UserController::class);
 Route::ApiResource('post-types', PostTypeController::class);
 
 Route::ApiResource('posts', PostController::class);
-Route::get('post-types/{PostType}/posts', [PostController::class, 'getPostsByPostType']);
-Route::get('post-types/posts/{slug}', [PostController::class, 'getPostByPostSlug']);
+Route::get('post-types/{PostType}/posts', [PostController::class, 'getPostsByPostType'])->name('posts.getPostsByPostType');
+Route::get('post-types/posts/{slug}', [PostController::class, 'getPostByPostSlug'])->name('posts.getPostByPostSlug');
 
 Route::ApiResource('job-circulars', JobCircularController::class);
 Route::ApiResource('applicants', ApplicantController::class);

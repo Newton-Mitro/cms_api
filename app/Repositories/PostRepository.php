@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\PostType;
 use Illuminate\Support\Str;
 use App\Repositories\Interfaces\PostRepositoryInterface;
+use Exception;
 
 /**========================================================================
  * ?                                ABOUT
@@ -38,23 +39,31 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     public function store($request) {
-        $post = new Post();
-        $post->post_slug = Str::slug($post->title, '-');
-        $post->post_image = base64_decode($request->PostImage);
-        $post->post_title = $request->PostTitle;
-        $post->post_content = $request->PostContent;
-        $post->post_type_id = $request->PostTypeId;
-        return  $post->save();
+        try {
+            $post = new Post();
+            $post->post_slug = Str::slug($request->PostTitle, '-');
+            $post->post_image = base64_decode($request->PostImage);
+            $post->post_icon = $request->PostIcon;
+            $post->post_title = $request->PostTitle;
+            $post->post_content = $request->PostContent;
+            $post->post_type_id = $request->PostTypeId;
+            $post->save();
+            return $post;
+        } catch (Exception $exception) {
+            return $exception->getMessage();
+        }
     }
 
     public function update($request, $post) {
         $post = Post::find($post->id);
         $post->post_slug = Str::slug($post->title, '-');
         $post->post_image = base64_decode($request->PostImage);
+        $post->post_icon = $request->PostIcon;
         $post->post_title = $request->Post_Title;
         $post->post_content = $request->Post_Content;
         $post->post_type_id = $request->Post_Type_id;
-        return $post->update();
+        $post->update();
+        return $post;
     }
 
     public function destroy($post) {
