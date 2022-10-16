@@ -4,7 +4,11 @@ namespace App\Exceptions;
 
 use Exception;
 use Throwable;
+use ParseError;
+use PDOException;
+use ErrorException;
 use Illuminate\Http\Response;
+use Illuminate\Database\Eloquent\JsonEncodingException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -50,19 +54,57 @@ class Handler extends ExceptionHandler {
             if ($request->expectsJson()) {
                 if ($exception instanceof ModelNotFoundException) {
                     return response()->json([
-                        'errors' => 'Model not found'
+                        "data" => null,
+                        "message" => 'Model not found',
+                        'errors' => null,
                     ], Response::HTTP_NOT_FOUND);
                 }
 
                 if ($exception instanceof NotFoundHttpException) {
                     return response()->json([
-                        'errors' => 'Route not found'
-                    ], Response::HTTP_NOT_FOUND);
+                        "data" => null,
+                        "message" => $exception->getMessage(),
+                        'errors' => null,
+                    ], Response::HTTP_NO_CONTENT);
                 }
 
                 if ($exception instanceof AccessDeniedHttpException) {
                     return response()->json([
-                        'errors' => 'You do not have enough permission'
+                        "data" => null,
+                        "message" => 'You do not have enough permission',
+                        'errors' => null,
+                    ], Response::HTTP_UNAUTHORIZED);
+                }
+
+                if ($exception instanceof PDOException) {
+                    return response()->json([
+                        "data" => null,
+                        "message" => $exception->errorInfo[2],
+                        'errors' => null
+                    ], Response::HTTP_NOT_FOUND);
+                }
+
+                if ($exception instanceof JsonEncodingException) {
+                    return response()->json([
+                        "data" => null,
+                        "message" => $exception->getMessage(),
+                        'errors' => null,
+                    ], Response::HTTP_NOT_FOUND);
+                }
+
+                if ($exception instanceof ErrorException) {
+                    return response()->json([
+                        "data" => null,
+                        "message" => $exception->getMessage(),
+                        'errors' => null,
+                    ], Response::HTTP_NOT_FOUND);
+                }
+
+                if ($exception instanceof ParseError) {
+                    return response()->json([
+                        "data" => null,
+                        "message" => $exception->getMessage(),
+                        'errors' => null,
                     ], Response::HTTP_NOT_FOUND);
                 }
             }

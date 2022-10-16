@@ -37,7 +37,7 @@ class StaffFactory extends Factory {
                 return StaffType::all()->random();
             },
             'about_the_staff' => $about,
-            'staff_image' => base64_decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII='),
+            'staff_image' => '/storage/images/cat.jpg',
         ];
     }
 }

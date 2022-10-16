@@ -39,7 +39,7 @@ class PostController extends Controller {
     }
 
     public function store(StorePostRequest $request) {
-        return $this->postRepository->store($request);
+        return new PostResource($this->postRepository->store($request));
     }
 
     public function show(Post $post) {
@@ -51,7 +51,7 @@ class PostController extends Controller {
     }
 
     public function update(UpdatePostRequest $request, Post $post) {
-        return $this->postRepository->update($request, $post);
+        return new PostResource($this->postRepository->update($request, $post));
     }
 
     public function destroy(Post $post) {

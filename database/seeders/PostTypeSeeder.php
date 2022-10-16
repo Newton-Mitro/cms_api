@@ -17,11 +17,10 @@ use Illuminate\Support\Facades\DB;
  *========================================================================**/
 
 class PostTypeSeeder extends Seeder {
-    
+
     public function run() {
         $post_types = array(
-            "Post", "Page", "Deposit Product", "Loan Product", "Service", "Project", "Notification", "News",
-            "Agm Report", "Our-policies", "Members", "Defaulter-list"
+            "Post", "Page", "Deposit Product", "Loan Product", "Service", "Project", "Notification", "News", "Our-policies"
         );
 
         foreach ($post_types as $post_type) {

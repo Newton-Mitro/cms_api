@@ -30,11 +30,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/logout', [AuthController::class, 'logout']);
-Route::get('/user', [AuthController::class, 'user']);
-Route::get('/refresh', [AuthController::class, 'refresh']);
+Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers',], function () {
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/user', [AuthController::class, 'user']);
+    Route::get('/refresh', [AuthController::class, 'refresh']);
+});
 
 Route::ApiResource('users', UserController::class);
 

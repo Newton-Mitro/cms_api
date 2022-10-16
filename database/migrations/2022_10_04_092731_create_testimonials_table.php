@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Schema;
  *========================================================================**/
 
 return new class extends Migration {
-    
+
     public function up() {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->string('client_name');
             $table->text('client_testimonial');
             $table->integer('rating');
-            $table->binary('client_image');
+            $table->string('client_image');
             $table->timestamps();
         });
     }

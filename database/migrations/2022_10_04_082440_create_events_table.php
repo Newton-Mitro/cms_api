@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Schema;
  *========================================================================**/
 
 return new class extends Migration {
-    
+
     public function up() {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('event_title');
             $table->dateTime('event_date');
             $table->text('event_details');
-            $table->binary('event_image');
+            $table->string('event_image');
             $table->timestamps();
         });
     }
