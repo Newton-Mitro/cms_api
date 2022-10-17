@@ -11,7 +11,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @repo           :
  * @createdOn      : 3-10-2022
  * @updatedBy      : Newton Mitro
- * @UpdatedAt      : 15-10-2022
+ * @UpdatedAt      : 16-10-2022
  * @description    : User update request information validation..
  *========================================================================**/
 
@@ -23,17 +23,17 @@ class UpdateJobCircularRequest extends FormRequest {
 
     public function rules() {
         return [
-            'JobPositionId'                 => 'required',
-            'TotalNumberVacancy'            => 'required',
-            'JobResponsibility'             => 'required',
-            'EmploymentStatus'              => 'required',
-            'EducationalRequirement'        => 'required',
-            'ExperienceRequirements'        => 'required',
-            'AdditionalRequirements'        => 'required',
-            'Salary'                        => 'required',
-            'CompensationAndOtherBenefits'  => 'required',
-            'ApplicationDeadline'           => 'required',
-            'PublishedDate'                 => 'required',
+            'jobPosition' => 'required',
+            'totalNumberVacancy' => 'required',
+            'jobResponsibility' => 'required',
+            'employmentStatus' => 'required',
+            'educationalRequirement' => 'required',
+            'experienceRequirements' => 'required',
+            'additionalRequirements' => 'required',
+            'salary' => 'required',
+            'compensationAndOtherBenefits' => 'required',
+            'applicationDeadline' => 'required',
+            'publishedDate' => 'required',
         ];
     }
 }

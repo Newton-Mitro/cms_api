@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\JobCircular;
 
+use App\Utilities\LinkObject;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**========================================================================
@@ -19,18 +20,22 @@ class JobCircularCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'JobCircularPostId' => $this->id,
-            'JobPositionId' => $this->job_position_id,
-            'TotalNumberVacancy' => $this->vacancy,
-            'JobResponsibility' => $this->job_responsibility,
-            'EmploymentStatus' => $this->employment_status,
-            'EducationalRequirement' => $this->educational_requirement,
-            'ExperienceRequirements' => $this->experience_requirements,
-            'AdditionalRequirements' => $this->additional_requirements,
-            'Salary' => $this->salary,
-            'CompensationAndOtherBenefits' => $this->compensation_and_benefits,
-            'ApplicationDeadline' => $this->application_deadline,
-            'PublishedDate' => $this->published_on,
+            'jobCircularId' => $this->id,
+            'jobPosition' => $this->job_position_id,
+            'totalNumberVacancy' => $this->vacancy,
+            'jobResponsibility' => $this->job_responsibility,
+            'employmentStatus' => $this->employment_status,
+            'educationalRequirement' => $this->educational_requirement,
+            'experienceRequirements' => $this->experience_requirements,
+            'additionalRequirements' => $this->additional_requirements,
+            'salary' => $this->salary,
+            'compensationAndOtherBenefits' => $this->compensation_and_benefits,
+            'applicationDeadline' => $this->application_deadline,
+            'publishedDate' => $this->published_on,
+            'links'         => [
+                new LinkObject("JobCircularResource", "View Job Circular", route('job-circulars.show', $this->id), "GET"),
+                new LinkObject("JobCircularResource", "Delete Job Circular", route('job-circulars.destroy', $this->id), "DELETE"),
+            ],
         ];
     }
 }

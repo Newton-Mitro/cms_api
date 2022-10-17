@@ -18,4 +18,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class JobCircular extends Model {
     use HasFactory;
+
+    public function applicants() {
+        return $this->hasMany(Applicant::class);
+    }
 }

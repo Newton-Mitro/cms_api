@@ -56,7 +56,6 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     public function update($request, $post) {
-        $post = Post::find($post->id);
         $filePath =  'public/images/' . date_timestamp_get(date_create()) . '.jpg';
         Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
         $post->post_slug = Str::slug($request->postTitle, '-');
@@ -70,7 +69,6 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     public function destroy($post) {
-        $post = Post::find($post->id);
-        $post->delete();
+        return $post->delete();
     }
 }

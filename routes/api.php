@@ -14,6 +14,8 @@ use App\Http\Controllers\JobCircularController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ServiceCenterController;
 use App\Http\Controllers\StaffSocialLinkController;
+use App\Models\Post;
+use App\Models\PostType;
 
 /**========================================================================
  * ?                                ABOUT
