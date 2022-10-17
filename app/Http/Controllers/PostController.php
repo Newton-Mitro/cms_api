@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Utilities\LinkObject;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use App\Http\Resources\Post\AdminPostCollection;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostCollection;
+use App\Http\Resources\Post\AdminPostCollection;
 use App\Repositories\Interfaces\PostRepositoryInterface;
 
 /**========================================================================
@@ -31,11 +32,25 @@ class PostController extends Controller {
     }
 
     public function index($post_type) {
-        return PostCollection::collection($this->postRepository->all($post_type));
+        return PostCollection::collection($this->postRepository->all($post_type))->additional([
+            "error" => null,
+            "message" => "Post retrieved successfully.",
+            "links"     => [
+                new LinkObject("Self", "All", route('posts.all', $post_type), "GET"),
+                new LinkObject("Store", "Create New", route('posts.store'), "POST"),
+            ]
+        ]);;
     }
 
     public function getPostsByPostType($post_type) {
-        return PostCollection::collection($this->postRepository->getPostsByPostType($post_type));
+        return PostCollection::collection($this->postRepository->getPostsByPostType($post_type))->additional([
+            "error" => null,
+            "message" => "Post retrieved successfully.",
+            "links"     => [
+                new LinkObject("Self", "All", route('posts.getPostsByPostType', $post_type), "GET"),
+                new LinkObject("Store", "Create New", route('posts.store'), "POST"),
+            ]
+        ]);
     }
 
     public function store(StorePostRequest $request) {
@@ -47,6 +62,11 @@ class PostController extends Controller {
     }
 
     public function getPostByPostSlug($post_slug) {
+        return response()->json([
+            "data" => new PostResource($this->postRepository->getPostByPostSlug($post_slug)),
+            "message" => "Post retrieved successfully",
+            'errors' => null,
+        ]);
         return new PostResource($this->postRepository->getPostByPostSlug($post_slug));
     }
 
@@ -62,7 +82,7 @@ class PostController extends Controller {
     }
 
     public function destroy(Post $post) {
-        if ($this->JobCircularRepository->destroy($post)) {
+        if ($this->postRepository->destroy($post)) {
             return response()->json([
                 "data" => null,
                 "message" => "Post deleted successfully",
