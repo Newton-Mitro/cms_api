@@ -2,12 +2,9 @@
 
 namespace App\Repositories;
 
-use Exception;
-use PDOException;
 use App\Models\Post;
 use App\Models\PostType;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Interfaces\PostRepositoryInterface;
 
@@ -43,7 +40,7 @@ class PostRepository implements PostRepositoryInterface {
 
     public function store($request) {
         $post = new Post();
-        $filePath =  'public/images/' . date_timestamp_get(date_create()) . '.jpg';
+        $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
         Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
         $post->post_slug = Str::slug($request->postTitle, '-');
         $post->post_image = Storage::url($filePath);
@@ -56,7 +53,7 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     public function update($request, $post) {
-        $filePath =  'public/images/' . date_timestamp_get(date_create()) . '.jpg';
+        $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
         Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
         $post->post_slug = Str::slug($request->postTitle, '-');
         $post->post_image =  Storage::url($filePath);

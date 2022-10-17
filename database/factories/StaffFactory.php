@@ -37,7 +37,7 @@ class StaffFactory extends Factory {
                 return StaffType::all()->random();
             },
             'about_the_staff' => $about,
-            'staff_image' => '/storage/images/cat.jpg',
+            'staff_image' => '/public/cat.jpg',
         ];
     }
 }

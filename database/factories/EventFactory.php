@@ -33,7 +33,7 @@ class EventFactory extends Factory {
             'event_title' => $this->faker->words(3, true),
             'event_date' =>  $this->faker->dateTimeBetween('-36 week', '+60 week'),
             'event_details' => $event,
-            'event_image' => '/storage/images/cat.jpg',
+            'event_image' => '/public/cat.jpg',
         ];
     }
 }

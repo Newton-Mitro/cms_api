@@ -50,6 +50,7 @@ Route::get('post-types/posts/{slug}', [PostController::class, 'getPostByPostSlug
 
 Route::ApiResource('job-circulars', JobCircularController::class);
 Route::ApiResource('applicants', ApplicantController::class);
+Route::get('application/{applicant_id}/status/{status_id}', [ApplicantController::class, 'updateApplicationStatus'])->name('application.updateApplicationStatus');
 
 Route::ApiResource('menu', MenuController::class);
 Route::ApiResource('service-centers', ServiceCenterController::class);

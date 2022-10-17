@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Applicant;
 
+use App\Utilities\LinkObject;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**========================================================================
@@ -16,39 +17,26 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *========================================================================**/
 
 class ApplicantCollection extends JsonResource {
-    
+
     public function toArray($request) {
         return [
-            'Id' => $this->id,
-            'Image' => base64_encode($this->image),
-            'FullName' => $this->name,
-            'Email' => $this->email,
-            'PhoneNumber' => $this->phone_number,
-            'EmergencyContact' => $this->emergency_contact,
-            'FatherName' => $this->father_name,
-            'MotherName' => $this->mother_name,
-            'SpouseName' => $this->spouse_name,
-            'PresentAddress1' => $this->present_address_1,
-            'PresentAddress2' => $this->present_address_2,
-            'PresentAddress3' => $this->present_address_3,
-            'PresentAddress4' => $this->present_address_4,
-            'PermanentAddress1' => $this->permanent_address_1,
-            'PermanentAddress2' => $this->permanent_address_2,
-            'PermanentAddress3' => $this->permanent_address_3,
-            'PermanentAddress4' => $this->permanent_address_4,
-            'BloodGroup' => $this->blood_group,
-            'DateOfBirth' => $this->date_of_birth,
-            'Gender' => $this->gender,
-            'Religion' => $this->religion,
-            'Nationality' => $this->nationality,
-            'MaritalStatus' => $this->marital_status,
-            'ExpectedSalary' => $this->expected_salary,
-            'Cv' => $this->cv,
-            'href' => [
-                'ViewEduction' => route('eductions.show', $this->id),
-                'ViewTraining' => route('trainings.show', $this->id),
-                'ViewJobHistory' => route('jobhistories.show', $this->id),
-
+            'applicantId' => $this->id,
+            'applicantFullName' => $this->applicant_name,
+            'applicantEmail' => $this->applicant_email,
+            'applicantPhoneNumber' => $this->applicant_phone_number,
+            'applicantEmergencyContact' => $this->applicant_emergency_contact,
+            'presentAddress' => $this->present_address_1 . ', ' . $this->present_address_2 . ', ' . $this->present_address_3 . ', ' . $this->present_address_4,
+            'permanentAddress' => $this->permanent_address_1 . ', ' . $this->permanent_address_2 . ', ' . $this->permanent_address_3 . ', ' . $this->permanent_address_4,
+            'bloodGroup' => $this->blood_group,
+            'dateOfBirth' => $this->date_of_birth,
+            'gender' => $this->gender,
+            'religion' => $this->religion,
+            'maritalStatus' => $this->marital_status,
+            'jobCircularId' => $this->job_circular_id,
+            'expectedSalary' => $this->expected_salary,
+            'links'         => [
+                new LinkObject("ApplicantResource", "View Applicant", route('applicants.show', $this->id), "GET"),
+                new LinkObject("ApplicantResource", "Delete Applicant", route('applicants.destroy', $this->id), "DELETE"),
             ],
         ];
     }

@@ -35,7 +35,7 @@ class PostFactory extends Factory {
             'post_slug' => Str::slug($slug, '-'),
             'post_title' => $slug,
             'post_content' => $post,
-            'post_image' => '/storage/images/cat.jpg',
+            'post_image' => '/public/cat.jpg',
             'post_type_id' => function () {
                 return PostType::all()->random();
             },
