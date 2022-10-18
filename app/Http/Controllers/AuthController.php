@@ -30,9 +30,11 @@ class AuthController extends Controller {
                 'errors' => null,
             ]);
         } catch (QueryException $exception) {
-            return response()->json(
-                $exception
-            );
+            return response()->json([
+                'data' => $request->all(),
+                'message' => $exception->errorInfo[2],
+                'errors' => null,
+            ]);
         }
     }
 
@@ -42,7 +44,11 @@ class AuthController extends Controller {
             return $this->respondWithToken($token);
         }
 
-        return response()->json(['message' => 'Invalid email or password'], 401);
+        return response()->json([
+            'data' => $request->all(),
+            'message' => 'Invalid email or password',
+            'errors' => null,
+        ], 401);
     }
 
     public function respondWithToken($token) {
@@ -57,16 +63,14 @@ class AuthController extends Controller {
             "message" => 'Login success',
             'errors' => null
         ], Response::HTTP_OK);
-
-        // return response()->json([
-        //     'access_token' => $token,
-        //     'token_type' => 'bearer',
-        //     'expires_in' => $this->guard()->factory()->getTTL() * 60,
-        // ]);
     }
 
     public function user() {
-        return response()->json($this->guard()->user());
+        return response()->json([
+            'data' => $this->guard()->user(),
+            'message' => 'User information retrieve successfully.',
+            'errors' => null,
+        ], 200);
     }
 
     public function refresh() {
@@ -74,8 +78,11 @@ class AuthController extends Controller {
     }
 
     public function logout() {
-        $this->guard()->logout();
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json([
+            'data' => $this->guard()->logout(),
+            'message' => 'Successfully logged out.',
+            'errors' => null,
+        ], 200);
     }
 
     public function guard() {

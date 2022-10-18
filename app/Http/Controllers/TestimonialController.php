@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Utilities\LinkObject;
 use App\Http\Requests\StoreTestimonialRequest;
 use App\Http\Requests\UpdateTestimonialRequest;
+use App\Http\Resources\Testimonial\TestimonialResource;
+use App\Http\Resources\Testimonial\TestimonialCollection;
 use App\Repositories\Interfaces\TestimonialRepositoryInterface;
 
 /**========================================================================
@@ -13,8 +16,8 @@ use App\Repositories\Interfaces\TestimonialRepositoryInterface;
  * @repo           : 
  * @createdOn      : 03-10-2022
  * @updatedBy      : Newton Mitro
- * @UpdatedAt      : 15-10-2022
- * @description    : Application stage seeder
+ * @UpdatedAt      : 18-10-2022
+ * @description    : 
  *========================================================================**/
 
 class TestimonialController extends Controller {
@@ -26,22 +29,46 @@ class TestimonialController extends Controller {
     }
 
     public function index() {
-        return $this->TestimonialRepository->all();
+        return response()->json([
+            'data'      => TestimonialCollection::collection($this->TestimonialRepository->all()),
+            'message'   => "Testimonials retrieved successfully",
+            'errors'    => null,
+            'links'     => [
+                new LinkObject("Self", "Testimonials", route('testimonials.index'), "GET"),
+                new LinkObject("Store", "New Testimonial", route('testimonials.store'), "POST"),
+            ]
+        ]);;
     }
 
     public function store(StoreTestimonialRequest $request) {
-        return $this->TestimonialRepository->store($request);
+        return response()->json([
+            'data'      => new TestimonialResource($this->TestimonialRepository->store($request)),
+            'message'   => "Testimonial created successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function show($testimonial) {
-        return $this->TestimonialRepository->show($testimonial);
+        return response()->json([
+            'data'      => new TestimonialResource($this->TestimonialRepository->show($testimonial)),
+            'message'   => "Testimonial retrieved successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function update(UpdateTestimonialRequest $request,  $testimonial) {
-        return $this->TestimonialRepository->update($request,  $testimonial);
+        return response()->json([
+            'data' => new TestimonialResource($this->TestimonialRepository->update($request,  $testimonial)),
+            'message' => "Testimonial updated successfully",
+            'errors' => null,
+        ]);
     }
 
     public function destroy($testimonial) {
-        return $this->TestimonialRepository->destroy($testimonial);
+        return response()->json([
+            'data' => $this->TestimonialRepository->destroy($testimonial),
+            'message' => "Testimonial deleted successfully",
+            'errors' => null,
+        ]);
     }
 }

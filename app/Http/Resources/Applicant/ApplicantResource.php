@@ -22,7 +22,8 @@ class ApplicantResource extends JsonResource {
     public function toArray($request) {
         return [
             'applicantId'                   => $this->id,
-            'applicantPhoto'                => base64_encode(Storage::get(str_replace("storage", "public", $this->applicant_photo))),
+            'applicantPhoto'                => base64_encode($this->applicant_photo),
+            // 'applicantPhoto'                => base64_encode(Storage::get(str_replace("storage", "public", $this->applicant_photo))),
             'applicantFullName'             => $this->applicant_name,
             'applicantEmail'                => $this->applicant_email,
             'applicantPhoneNumber'          => $this->applicant_phone_number,
@@ -44,7 +45,8 @@ class ApplicantResource extends JsonResource {
             'religion'                      => $this->religion,
             'nationality'                   => $this->nationality,
             'maritalStatus'                 => $this->marital_status,
-            'attachedResume'                => base64_encode(Storage::get(str_replace("storage", "public", $this->attached_resume))),
+            'attachedResume'                => base64_encode($this->attached_resume),
+            // 'attachedResume'                => base64_encode(Storage::get(str_replace("storage", "public", $this->attached_resume))),
             'coverLetter'                   => $this->cover_letter,
             'expectedSalary'                => $this->expected_salary,
             'educations'                    => $this->educations,

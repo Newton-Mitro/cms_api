@@ -20,10 +20,10 @@ class TrainingCollection extends JsonResource {
     public function toArray($request) {
         return [
             'TrainingTitle' => $this->training_title,
-            'NameTopic' => $this->topic,
+            'NameTopic'     => $this->topic,
             'InstituteName' => $this->institute_name,
-            'Year' => $this->year,
-            'Duration' => $this->duration,
+            'Year'          => $this->year,
+            'Duration'      => $this->duration,
         ];
     }
 }

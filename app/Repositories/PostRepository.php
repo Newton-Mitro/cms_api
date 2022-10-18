@@ -15,8 +15,8 @@ use App\Repositories\Interfaces\PostRepositoryInterface;
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @UpdatedAt      :  15-10-2022
- * @description    :  Implements post interface
+ * @UpdatedAt      :  18-10-2022
+ * @description    :  
  *========================================================================**/
 
 class PostRepository implements PostRepositoryInterface {
@@ -40,10 +40,11 @@ class PostRepository implements PostRepositoryInterface {
 
     public function store($request) {
         $post = new Post();
-        $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
-        Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
+        // $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
+        // Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
         $post->post_slug = Str::slug($request->postTitle, '-');
-        $post->post_image = Storage::url($filePath);
+        // $post->post_image = Storage::url($filePath);
+        $post->post_image = base64_decode($request->postImage, false);
         $post->post_icon = $request->postIcon;
         $post->post_title = $request->postTitle;
         $post->post_content = $request->postContent;
@@ -53,14 +54,16 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     public function update($request, $post) {
-        $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
-        Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
+        return $post;
+        // $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
+        // Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
         $post->post_slug = Str::slug($request->postTitle, '-');
-        $post->post_image =  Storage::url($filePath);
+        $post->post_image =  base64_decode($request->postImage, false);
+        // $post->post_image =  Storage::url($filePath);
         $post->post_icon = $request->postIcon;
         $post->post_title = $request->postTitle;
         $post->post_content = $request->postContent;
-        $post->post_type_id = $request->postTypeId;
+        $post->post_type_id = $post->postTypeId;
         $post->update();
         return $post;
     }

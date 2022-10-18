@@ -16,14 +16,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *========================================================================**/
 
 class EductionCollection extends JsonResource {
-    
+
     public function toArray($request) {
         return [
-            'NameOfDegree' => $this->name_of_degree,
+            'NameOfDegree'  => $this->name_of_degree,
             'InstituteName' => $this->institute_name,
-            'Major' => $this->major,
+            'Major'         => $this->major,
             'EductionBoard' => $this->board,
-            'Result' => $this->result,
+            'Result'        => $this->result,
         ];
     }
 }

@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->string('event_title');
             $table->dateTime('event_date');
             $table->text('event_details');
-            $table->string('event_image');
+            $table->binary('event_image');
             $table->timestamps();
         });
     }

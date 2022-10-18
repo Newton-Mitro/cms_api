@@ -14,8 +14,6 @@ use App\Http\Controllers\JobCircularController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ServiceCenterController;
 use App\Http\Controllers\StaffSocialLinkController;
-use App\Models\Post;
-use App\Models\PostType;
 
 /**========================================================================
  * ?                                ABOUT
@@ -42,8 +40,10 @@ Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers',], funct
 
 Route::ApiResource('users', UserController::class);
 
-Route::ApiResource('post-types', PostTypeController::class);
+Route::ApiResource('menus', MenuController::class);
+Route::get('root/menus', [MenuController::class, 'rootMenus'])->name('menus.rootMenus');
 
+Route::ApiResource('post-types', PostTypeController::class);
 Route::ApiResource('posts', PostController::class);
 Route::get('post-types/{PostType}/posts', [PostController::class, 'getPostsByPostType'])->name('posts.getPostsByPostType');
 Route::get('post-types/posts/{slug}', [PostController::class, 'getPostByPostSlug'])->name('posts.getPostByPostSlug');
@@ -52,10 +52,10 @@ Route::ApiResource('job-circulars', JobCircularController::class);
 Route::ApiResource('applicants', ApplicantController::class);
 Route::get('application/{applicant_id}/status/{status_id}', [ApplicantController::class, 'updateApplicationStatus'])->name('application.updateApplicationStatus');
 
-Route::ApiResource('menu', MenuController::class);
 Route::ApiResource('service-centers', ServiceCenterController::class);
+
 Route::ApiResource('events', EventController::class);
+
 Route::ApiResource('testimonials', TestimonialController::class);
 
-Route::ApiResource('social-link', StaffSocialLinkController::class);
 Route::ApiResource('staffs', StaffsController::class);

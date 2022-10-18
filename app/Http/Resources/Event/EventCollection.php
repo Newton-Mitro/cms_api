@@ -19,11 +19,10 @@ class EventCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'Id' => $this->id,
-            'Title' => $this->title,
+            'Id'        => $this->id,
+            'Title'     => $this->title,
             'EventDate' => $this->event_date,
-            'Content' => $this->content,
-            'Image' => base64_encode($this->image),
+            'Content'   => $this->content,
         ];
     }
 }

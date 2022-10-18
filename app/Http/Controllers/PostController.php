@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Utilities\LinkObject;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostCollection;
-use App\Http\Resources\Post\AdminPostCollection;
+use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Post\UpdatePostRequest;
 use App\Repositories\Interfaces\PostRepositoryInterface;
 
 /**========================================================================
@@ -18,8 +17,8 @@ use App\Repositories\Interfaces\PostRepositoryInterface;
  * @repo           :  
  * @createdOn      : 10-03-2022 
  * @updatedBy      : Newton Mitro
- * @UpdatedAt      : 17-10-2022
- * @description    : This Controller handle all user request  
+ * @UpdatedAt      : 18-10-2022
+ * @description    : 
  *========================================================================**/
 
 class PostController extends Controller {
@@ -31,63 +30,65 @@ class PostController extends Controller {
         $this->postRepository = $postRepository;
     }
 
-    public function index($post_type) {
-        return PostCollection::collection($this->postRepository->all($post_type))->additional([
-            "error" => null,
-            "message" => "Post retrieved successfully.",
-            "links"     => [
-                new LinkObject("Self", "All", route('posts.all', $post_type), "GET"),
-                new LinkObject("Store", "Create New", route('posts.store'), "POST"),
-            ]
-        ]);;
-    }
-
-    public function getPostsByPostType($post_type) {
-        return PostCollection::collection($this->postRepository->getPostsByPostType($post_type))->additional([
-            "error" => null,
-            "message" => "Post retrieved successfully.",
-            "links"     => [
-                new LinkObject("Self", "All", route('posts.getPostsByPostType', $post_type), "GET"),
-                new LinkObject("Store", "Create New", route('posts.store'), "POST"),
+    public function index() {
+        return PostCollection::collection($this->postRepository->all())->additional([
+            'error'     => null,
+            'message'   => "Post retrieved successfully.",
+            'links'     => [
+                new LinkObject("Self", "All", route('posts.index'), "GET"),
+                new LinkObject("Store", "New Post", route('posts.store'), "POST"),
             ]
         ]);
     }
 
     public function store(StorePostRequest $request) {
-        return new PostResource($this->postRepository->store($request));
+        return response()->json([
+            'data'      => new PostResource($this->postRepository->store($request)),
+            'message'   => "Post created successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function show(Post $post) {
-        return new PostResource($this->postRepository->show($post));
+        return response()->json([
+            'data'      => new PostResource($this->postRepository->show($post)),
+            'message'   => "Post retrieved successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function getPostByPostSlug($post_slug) {
         return response()->json([
-            "data" => new PostResource($this->postRepository->getPostByPostSlug($post_slug)),
-            "message" => "Post retrieved successfully",
-            'errors' => null,
+            'data'      => new PostResource($this->postRepository->getPostByPostSlug($post_slug)),
+            'message'   => "Post retrieved successfully",
+            'errors'    => null,
         ]);
-        return new PostResource($this->postRepository->getPostByPostSlug($post_slug));
     }
 
     public function update(UpdatePostRequest $request, Post $post) {
-        $result = $this->postRepository->update($request, $post);
-        if ($result) {
-            return response()->json([
-                "data" => $result,
-                "message" => "Post updated successfully",
-                'errors' => null,
-            ]);
-        }
+        return response()->json([
+            'data'      =>  new PostResource($this->postRepository->update($request, $post)),
+            'message'   => "Post updated successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function destroy(Post $post) {
-        if ($this->postRepository->destroy($post)) {
-            return response()->json([
-                "data" => null,
-                "message" => "Post deleted successfully",
-                'errors' => null,
-            ]);
-        }
+        return response()->json([
+            "data"      => $this->postRepository->destroy($post),
+            "message"   => "Post deleted successfully",
+            'errors'    => null,
+        ]);
+    }
+
+    public function getPostsByPostType($post_type) {
+        return PostCollection::collection($this->postRepository->getPostsByPostType($post_type))->additional([
+            'error'     => null,
+            'message'   => "Post retrieved successfully.",
+            'links'     => [
+                new LinkObject("Self", "All", route('posts.getPostsByPostType', $post_type), "GET"),
+                new LinkObject("Store", "New Post", route('posts.store'), "POST"),
+            ]
+        ]);
     }
 }

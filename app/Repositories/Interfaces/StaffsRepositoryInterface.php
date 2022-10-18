@@ -10,13 +10,13 @@ namespace App\Repositories\Interfaces;
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
  * @UpdatedAt      :  15-10-2022
- * @description    :  Management Executive Repository Interface
+ * @description    :  Staff Repository Interface
  *========================================================================**/
 
 interface StaffsRepositoryInterface {
     public function all();
     public function store($request);
-    public function show($managementExecutives);
-    public function update($request,  $managementExecutives);
+    public function show($staff);
+    public function update($request,  $staff);
     public function destroy($staff);
 }

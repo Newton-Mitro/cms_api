@@ -18,23 +18,24 @@ use App\Repositories\Interfaces\ApplicantRepositoryInterface;
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @UpdatedAt      :  15-10-2022
- * @description    :  Implements applicant interface
+ * @UpdatedAt      :  18-10-2022
+ * @description    :  
  *------------------------------------------------------------------------**/
 
 class ApplicantRepository implements ApplicantRepositoryInterface {
 
     public function all() {
-        return Applicant::all();
+        return Applicant::paginate(10);
     }
 
     public function store($request) {
         $applicant = new Applicant;
-        $photoFilePath =  'public/images/application/photos/' . date_timestamp_get(date_create()) . '.jpg';
-        $resumeFilePath =  'public/documents/application/resumes/' . date_timestamp_get(date_create()) . '.pdf';
-        Storage::disk('local')->put($photoFilePath, base64_decode($request->applicantPhoto, false));
-        Storage::disk('local')->put($resumeFilePath, base64_decode($request->attachedResume, false));
-        $applicant->applicant_photo = Storage::url($photoFilePath);
+        // $photoFilePath =  'public/images/application/photos/' . date_timestamp_get(date_create()) . '.jpg';
+        // $resumeFilePath =  'public/documents/application/resumes/' . date_timestamp_get(date_create()) . '.pdf';
+        // Storage::disk('local')->put($photoFilePath, base64_decode($request->applicantPhoto, false));
+        // Storage::disk('local')->put($resumeFilePath, base64_decode($request->attachedResume, false));
+        // $applicant->applicant_photo = Storage::url($photoFilePath);
+        $applicant->applicant_photo = base64_decode($request->applicantPhoto, false);
         $applicant->applicant_name = $request->applicantFullName;
         $applicant->applicant_email = $request->applicantEmail;
         $applicant->applicant_phone_number = $request->applicantPhoneNumber;
@@ -57,7 +58,7 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
         $applicant->nationality = $request->nationality;
         $applicant->marital_status = $request->maritalStatus;
         $applicant->job_circular_id = $request->jobCircularId;
-        $applicant->attached_resume = Storage::url($resumeFilePath);
+        $applicant->attached_resume = base64_decode($request->attachedResume, false);
         $applicant->cover_letter = $request->coverLetter;
         $applicant->expected_salary = $request->expectedSalary;
         $applicant->save();

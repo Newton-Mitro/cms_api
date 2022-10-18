@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobCircular;
+use App\Utilities\LinkObject;
 use App\Http\Requests\StoreJobCircularRequest;
-use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\UpdateJobCircularRequest;
 use App\Http\Resources\JobCircular\JobCircularResource;
 use App\Http\Resources\JobCircular\JobCircularCollection;
@@ -17,8 +17,8 @@ use App\Repositories\Interfaces\JobCircularRepositoryInterface;
  * @repo           :  
  * @createdOn      : 10-03-2022 
  * @updatedBy      : Newton Mitro
- * @UpdatedAt      : 17-10-2022
- * @description    : This Controller handle all user request  
+ * @UpdatedAt      : 18-10-2022
+ * @description    : 
  *========================================================================**/
 
 class JobCircularController extends Controller {
@@ -30,35 +30,45 @@ class JobCircularController extends Controller {
     }
 
     public function index() {
-        return JobCircularCollection::collection($this->JobCircularRepository->all());
+        return JobCircularCollection::collection($this->JobCircularRepository->all())->additional([
+            'error'     => null,
+            'message'   => "Job circulars retrieved successfully.",
+            'links'     => [
+                new LinkObject("Self", "All", route('job-circulars.index'), "GET"),
+                new LinkObject("Store", "New Job Circular", route('job-circulars.store'), "POST"),
+            ]
+        ]);
     }
 
     public function store(StoreJobCircularRequest $request) {
-        return new JobCircularResource($this->JobCircularRepository->store($request));
+        return response()->json([
+            'data'      => new JobCircularResource($this->JobCircularRepository->store($request)),
+            'message'   => "Job circular created successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function show(JobCircular $jobCircular) {
-        return  new JobCircularResource($this->JobCircularRepository->show($jobCircular));
+        return response()->json([
+            'data'      => new JobCircularResource($this->JobCircularRepository->show($jobCircular)),
+            'message'   => "Job circular retrieved successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function update(UpdateJobCircularRequest $request, JobCircular $jobCircular) {
-        $result = $this->JobCircularRepository->update($request,  $jobCircular);
-        if ($result) {
-            return response()->json([
-                "data" => $result,
-                "message" => "Job circular updated successfully",
-                'errors' => null,
-            ]);
-        }
+        return response()->json([
+            "data" => $this->JobCircularRepository->update($request,  $jobCircular),
+            "message" => "Job circular updated successfully",
+            'errors' => null,
+        ]);
     }
 
     public function destroy(JobCircular $jobCircular) {
-        if ($this->JobCircularRepository->destroy($jobCircular)) {
-            return response()->json([
-                "data" => null,
-                "message" => "Job circular deleted successfully",
-                'errors' => null,
-            ]);
-        }
+        return response()->json([
+            "data" => $this->JobCircularRepository->destroy($jobCircular),
+            "message" => "Job circular deleted successfully",
+            'errors' => null,
+        ]);
     }
 }

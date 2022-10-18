@@ -27,20 +27,21 @@ use Database\Seeders\ServiceCenterTypeSeeder;
  *========================================================================**/
 
 class DatabaseSeeder extends Seeder {
-    
+
     public function run() {
         $this->call([
             UserSeeder::class,
+            StaffTypeSeeder::class,
             SocialMediaTypeSeeder::class,
             ServiceCenterTypeSeeder::class,
             ApplicationStageSeeder::class,
             PostTypeSeeder::class,
-            MenuSeeder::class,
-            PostSeeder::class,
-            EventSeeder::class,
-            StaffTypeSeeder::class,
-            StaffSeeder::class,
-            StaffSocialLinkSeeder::class,
+
+            // MenuSeeder::class,
+            // PostSeeder::class,
+            // EventSeeder::class,
+            // StaffSeeder::class,
+            // StaffSocialLinkSeeder::class,
         ]);
     }
 }

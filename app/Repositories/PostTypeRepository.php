@@ -12,8 +12,8 @@ use App\Repositories\Interfaces\PostTypeRepositoryInterface;
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @UpdatedAt      :  15-10-2022
- * @description    :  Implements postType interface 
+ * @UpdatedAt      :  18-10-2022
+ * @description    :  
  *========================================================================**/
 
 

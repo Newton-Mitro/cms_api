@@ -11,28 +11,28 @@ use App\Models\Staff;
  * @email          :  israfil@cccul.com
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @updatedAt      :  14-10-2022
+ * @updatedAt      :  18-10-2022
  * @description    :  This repository will handle all database operation for Staffs data.
  *------------------------------------------------------------------------**/
 
 class StaffsRepository implements StaffsRepositoryInterface {
 
     public function all() {
-        return Staff::all();
+        return Staff::paginate(10);
     }
 
     public function store($request) {
         $staff = new Staff();
         $staff->name = $request->Name;
-        $staff->image = base64_decode($request->Image);
+        $staff->image = base64_decode($request->Image, false);
         $staff->designation = $request->Designation;
         $staff->content = $request->Content;
         $staff->save();
-        return $staff->save();
+        return $staff;
     }
 
     public function show($staff) {
-        return Staff::find($staff);
+        return $staff;
     }
 
     public function update($request,  $staff) {
@@ -41,13 +41,12 @@ class StaffsRepository implements StaffsRepositoryInterface {
         $staff->designation = $request->Designation;
         $staff->content = $request->Content;
         $staff->link_type_id = $request->Link_Type_Id;
-        $staff->image = base64_decode($request->Image);
+        $staff->image = base64_decode($request->Image, false);
         $staff->update();
-        return  $staff->update();
+        return  $staff;
     }
 
     public function destroy($staff) {
-        $staff = Staff::find($staff);
-        $staff->delete();
+        return $staff->delete();
     }
 }

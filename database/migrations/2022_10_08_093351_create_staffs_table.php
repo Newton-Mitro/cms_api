@@ -21,7 +21,7 @@ return new class extends Migration {
         Schema::create('staffs', function (Blueprint $table) {
             $table->id();
             $table->string('staff_name');
-            $table->string('staff_image');
+            $table->binary('staff_image');
             $table->string('staff_designation');
             $table->text('about_the_staff');
             $table->unsignedBigInteger('staff_type_id');

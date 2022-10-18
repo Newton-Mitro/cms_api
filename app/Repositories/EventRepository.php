@@ -13,14 +13,14 @@ use App\Repositories\Interfaces\EventRepositoryInterface;
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @UpdatedAt      :  15-10-2022
- * @description    :  Implements EventRepository
+ * @UpdatedAt      :  18-10-2022
+ * @description    :  
  *========================================================================**/
 
 class EventRepository implements EventRepositoryInterface {
 
     public function all() {
-        return Event::all();
+        return Event::paginate(10);
     }
 
     public function store($request) {
@@ -28,25 +28,25 @@ class EventRepository implements EventRepositoryInterface {
         $event->title = $request->Title;
         $event->event_date = $request->EventDate;
         $event->content = $request->Content;
-        $event->image = base64_decode($request->Image);
-        return $event->save();
+        $event->image = base64_decode($request->Image, false);
+        $event->save();
+        return $event;
     }
 
-    public function  update(UpdateEventRequest $request,  $event) {
-        $event = Event::find($event);
+    public function  update($request,  $event) {
         $event->title = $request->Title;
         $event->event_date = $request->EventDate;
         $event->content = $request->Content;
-        $event->image = base64_decode($request->Image);
-        return $event->update();
+        $event->image = base64_decode($request->Image, false);
+        $event->update();
+        return $event;
     }
 
     public function show($event) {
-        return Event::find($event);
+        return $event;
     }
 
     public function destroy($event) {
-        $event = Event::find($event);
-        $event->delete();
+        return $event->delete();
     }
 }

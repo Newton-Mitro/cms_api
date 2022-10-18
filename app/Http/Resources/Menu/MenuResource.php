@@ -18,10 +18,11 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class MenuResource extends JsonResource {
     public function toArray($request) {
         return [
-            'Id' => $this->id,
-            'MenuTitle' => $this->menu_name,
-            'Url' => $this->link_to,
-            'Icon' => $this->icon,
+            'menuId'    => $this->id,
+            'menuTitle' => $this->menu_name,
+            'url'       => $this->link_to,
+            'icon'      => $this->icon,
+            'parentId'  => $this->parent_id,
         ];
     }
 }

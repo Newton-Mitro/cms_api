@@ -19,11 +19,11 @@ class EventResource extends JsonResource {
 
     public function toArray($request) {
         return [
-            'id' => $this->id,
-            'Title' => $this->title,
+            'id'        => $this->id,
+            'Title'     => $this->title,
             'EventDate' => $this->event_date,
-            'Content' => $this->content,
-            'Image' => base64_encode($this->image),
+            'Content'   => $this->content,
+            'Image'     => base64_encode($this->image),
         ];
     }
 }

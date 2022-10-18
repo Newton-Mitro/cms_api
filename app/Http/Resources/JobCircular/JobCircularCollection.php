@@ -20,21 +20,21 @@ class JobCircularCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'jobCircularId' => $this->id,
-            'jobPosition' => $this->job_position_id,
-            'totalNumberVacancy' => $this->vacancy,
-            'jobResponsibility' => $this->job_responsibility,
-            'employmentStatus' => $this->employment_status,
-            'educationalRequirement' => $this->educational_requirement,
-            'experienceRequirements' => $this->experience_requirements,
-            'additionalRequirements' => $this->additional_requirements,
-            'salary' => $this->salary,
-            'compensationAndOtherBenefits' => $this->compensation_and_benefits,
-            'applicationDeadline' => $this->application_deadline,
-            'publishedDate' => $this->published_on,
-            'links'         => [
-                new LinkObject("JobCircularResource", "View Job Circular", route('job-circulars.show', $this->id), "GET"),
-                new LinkObject("JobCircularResource", "Delete Job Circular", route('job-circulars.destroy', $this->id), "DELETE"),
+            'jobCircularId'                 => $this->id,
+            'jobPosition'                   => $this->job_position_id,
+            'totalNumberVacancy'            => $this->vacancy,
+            'jobResponsibility'             => $this->job_responsibility,
+            'employmentStatus'              => $this->employment_status,
+            'educationalRequirement'        => $this->educational_requirement,
+            'experienceRequirements'        => $this->experience_requirements,
+            'additionalRequirements'        => $this->additional_requirements,
+            'salary'                        => $this->salary,
+            'compensationAndOtherBenefits'  => $this->compensation_and_benefits,
+            'applicationDeadline'           => $this->application_deadline,
+            'publishedDate'                 => $this->published_on,
+            'links'                         => [
+                new LinkObject("View", "View", route('job-circulars.show', $this->id), "GET"),
+                new LinkObject("Destroy", "Delete", route('job-circulars.destroy', $this->id), "DELETE"),
             ],
         ];
     }

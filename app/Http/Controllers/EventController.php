@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Utilities\LinkObject;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Http\Resources\Event\EventCollection;
+use App\Http\Resources\Event\EventResource;
 use App\Repositories\Interfaces\EventRepositoryInterface;
 
 /**========================================================================
@@ -13,8 +16,8 @@ use App\Repositories\Interfaces\EventRepositoryInterface;
  * @repo           : 
  * @createdOn      : 03-10-2022
  * @updatedBy      : Newton Mitro
- * @UpdatedAt      : 15-10-2022
- * @description    : Application stage seeder
+ * @UpdatedAt      : 18-10-2022
+ * @description    : 
  *========================================================================**/
 
 class EventController extends Controller {
@@ -26,22 +29,45 @@ class EventController extends Controller {
     }
 
     public function index() {
-        return $this->EventRepository->all();
+        return EventCollection::collection($this->EventRepository->all())->additional([
+            'error'     => null,
+            'message'   => "Events retrieved successfully.",
+            'links'     => [
+                new LinkObject("Self", "All", route('events.index'), "GET"),
+                new LinkObject("Store", "New Event", route('events.store'), "POST"),
+            ]
+        ]);
     }
 
     public function store(StoreEventRequest $request) {
-        return $this->EventRepository->store($request);
+        return response()->json([
+            'data'      => new EventResource($this->EventRepository->store($request)),
+            'message'   => "Event created successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function show($event) {
-        return $this->EventRepository->show($event);
+        return response()->json([
+            'data'      => new EventResource($this->EventRepository->show($event)),
+            'message'   => "Event retrieved successfully",
+            'errors'    => null,
+        ]);
     }
 
     public function update(UpdateEventRequest $request,  $event) {
-        return $this->EventRepository->update($request,  $event);
+        return response()->json([
+            'data' => new EventResource($this->EventRepository->update($request,  $event)),
+            'message' => "Event updated successfully",
+            'errors' => null,
+        ]);
     }
 
     public function destroy($event) {
-        return $this->EventRepository->destroy($event);
+        return response()->json([
+            'data' => $this->EventRepository->destroy($event),
+            'message' => "Event deleted successfully",
+            'errors' => null,
+        ]);
     }
 }

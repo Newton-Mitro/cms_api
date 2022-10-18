@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->string('client_name');
             $table->text('client_testimonial');
             $table->integer('rating');
-            $table->string('client_image');
+            $table->binary('client_image');
             $table->timestamps();
         });
     }

@@ -12,14 +12,14 @@ use App\Repositories\Interfaces\JobCircularRepositoryInterface;
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @UpdatedAt      :  17-10-2022
- * @description    :  Implements job circular interface
+ * @UpdatedAt      :  18-10-2022
+ * @description    :  
  *========================================================================**/
 
 class JobCircularRepository implements JobCircularRepositoryInterface {
 
     public function all() {
-        return JobCircular::all();
+        return JobCircular::paginate(10);
     }
 
     public function show($jobCircular) {
@@ -60,6 +60,6 @@ class JobCircularRepository implements JobCircularRepositoryInterface {
     }
 
     public function destroy($jobCircular) {
-        $jobCircular->delete();
+        return $jobCircular->delete();
     }
 }

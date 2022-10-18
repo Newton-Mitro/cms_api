@@ -20,7 +20,7 @@ return new class extends Migration {
     public function up() {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
-            $table->string('applicant_photo');
+            $table->binary('applicant_photo');
             $table->string('applicant_name');
             $table->string('applicant_email');
             $table->string('applicant_phone_number');
@@ -42,7 +42,7 @@ return new class extends Migration {
             $table->string('religion');
             $table->string('nationality');
             $table->string('marital_status');
-            $table->string('attached_resume')->nullable();
+            $table->binary('attached_resume')->nullable();
             $table->text('cover_letter')->nullable();
             $table->decimal('expected_salary')->nullable();
             $table->unsignedBigInteger('job_circular_id');

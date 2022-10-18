@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Utilities\LinkObject;
 use App\Http\Requests\StoreMenuRequest;
+use App\Http\Requests\UpdateMenuRequest;
+use App\Http\Resources\Menu\MenuCollection;
+use App\Http\Resources\Menu\MenuResource;
+use App\Models\Menu;
 use App\Repositories\Interfaces\MenuRepositoryInterface;
 
 /**========================================================================
@@ -12,26 +17,69 @@ use App\Repositories\Interfaces\MenuRepositoryInterface;
  * @repo           :  
  * @createdOn      : 10-03-2022 
  * @updatedBy      : Newton Mitro
- * @UpdatedAt      : 15-10-2022
- * @description    : This Controller handle all user request  
+ * @UpdatedAt      : 18-10-2022
+ * @description    :  
  *========================================================================**/
 
 class MenuController extends Controller {
-    
-    private $MenuRepository;
+
+    private $menuRepository;
 
     public function __construct(MenuRepositoryInterface $MenuRepository) {
-        $this->MenuRepository = $MenuRepository;
+        $this->menuRepository = $MenuRepository;
     }
+
     public function index() {
-        return $this->MenuRepository->all();
+        return MenuResource::collection($this->menuRepository->all())->additional([
+            'error'     => null,
+            'message'   => "Menus retrieved successfully.",
+            'links'     => [
+                new LinkObject("Self", "All", route('menus.index'), "GET"),
+                new LinkObject("Store", "New Menu", route('menus.store'), "POST"),
+            ]
+        ]);
+    }
+
+    public function rootMenus() {
+        return MenuCollection::collection($this->menuRepository->rootMenus())->additional([
+            'error'     => null,
+            'message'   => "Menus retrieved successfully.",
+            'links'     => [
+                new LinkObject("Self", "All", route('menus.index'), "GET"),
+                new LinkObject("Store", "New Menu", route('menus.store'), "POST"),
+            ]
+        ]);
     }
 
     public function store(StoreMenuRequest $request) {
-        return $this->MenuRepository->store($request);
+        return response()->json([
+            'data'      => new MenuResource($this->menuRepository->store($request)),
+            'message'   => "Menu created successfully",
+            'errors'    => null,
+        ]);
     }
 
-    public function show($menu) {
-        return $this->MenuRepository->show($menu);
+    public function update(UpdateMenuRequest $request, Menu $menu) {
+        return response()->json([
+            'data'      => new MenuResource($this->menuRepository->update($request, $menu)),
+            'message'   => "Menu updated successfully",
+            'errors'    => null,
+        ]);
+    }
+
+    public function show(Menu $menu) {
+        return response()->json([
+            'data'      => new MenuResource($this->menuRepository->show($menu)),
+            'message'   => "Menu retrieved successfully",
+            'errors'    => null,
+        ]);
+    }
+
+    public function destroy(Menu $menu) {
+        return response()->json([
+            'data'      => $this->menuRepository->destroy($menu),
+            'message'   => "Menu deleted successfully",
+            'errors'    => null,
+        ]);
     }
 }

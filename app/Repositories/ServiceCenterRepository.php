@@ -13,14 +13,14 @@ use App\Repositories\Interfaces\ServiceCenterRepositoryInterface;
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @UpdatedAt      :  15-10-2022
- * @description    :  Implements ServiceCenterRepository 
+ * @UpdatedAt      :  18-10-2022
+ * @description    :   
  *========================================================================**/
 
 class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
 
     public function all() {
-        return ServiceCenter::all();
+        return ServiceCenter::paginate(10);
     }
 
     public function store($request) {
@@ -40,10 +40,10 @@ class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
         $ServiceCenter->in_charge_designation = $request->InChargeDesignation;
         $ServiceCenter->service_center_type_id = $request->ServiceCenterTypeId;
         $ServiceCenter->save();
-        return $ServiceCenter->save();
+        return $ServiceCenter;
     }
-    
-    public function  update(UpdateServiceCenterRequest $request, $serviceCenter) {
+
+    public function  update($request, $serviceCenter) {
         $service = ServiceCenter::find($serviceCenter);
         $service->service_center_name = $request->ServiceCenterName;
         $service->address = $request->Address;
@@ -60,15 +60,14 @@ class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
         $service->in_charge_designation = $request->InChargeDesignation;
         $service->service_center_type_id = $request->ServiceCenterTypeId;
         $service->update();
-        return $service->update();
+        return $service;
     }
 
     public function show($serviceCenter) {
-        return  ServiceCenter::find($serviceCenter);
+        return  $serviceCenter;
     }
 
     public function destroy($serviceCenter) {
-        $service = ServiceCenter::find($serviceCenter);
-        $service->delete();
+        return $serviceCenter->delete();
     }
 }

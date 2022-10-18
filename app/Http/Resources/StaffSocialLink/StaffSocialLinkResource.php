@@ -21,8 +21,8 @@ class StaffSocialLinkResource extends JsonResource {
         return [
             'ID' => $this->id,
             'ManagementExecutiveId' => $this->management_executive_id,
-            'SocialLinkTypeId' => $this->social_link_type_id,
-            'SocialLink' => $this->social_link,
+            'SocialLinkTypeId'      => $this->social_link_type_id,
+            'SocialLink'            => $this->social_link,
         ];
     }
 }

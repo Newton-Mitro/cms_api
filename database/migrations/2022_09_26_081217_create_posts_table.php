@@ -21,7 +21,7 @@ return new class extends Migration {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('post_slug')->unique();
-            $table->string('post_image');
+            $table->binary('post_image')->nullable();
             $table->string('post_title');
             $table->string('post_icon')->nullable();
             $table->text('post_content');

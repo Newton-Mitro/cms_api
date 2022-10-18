@@ -23,7 +23,8 @@ class PostResource extends JsonResource {
         return [
             'postId'        => $this->id,
             'postSlug'      => $this->post_slug,
-            'postImage'     => base64_encode(Storage::get(str_replace("storage", "public", $this->post_image))),
+            'postImage'     => base64_encode($this->post_image),
+            // 'postImage'     => base64_encode(Storage::get(str_replace("storage", "public", $this->post_image))),
             'postIcon'      => $this->post_icon,
             'postTitle'     => $this->post_title,
             'postContent'   => $this->post_content,

@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**========================================================================
  * ?                                ABOUT
@@ -12,18 +12,16 @@ use Illuminate\Database\Eloquent\Model;
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @UpdatedAt      :  15-10-2022
+ * @UpdatedAt      :  18-10-2022
  * @description    :  Menu model 
  *========================================================================**/
 
 class Menu extends Model {
     use HasFactory;
 
-    public function children() {
-        return $this->hasMany('App\Models\Menu', 'parent_id', 'id');
-    }
+    protected $table = 'menus';
 
-    public function parent() {
-        return $this->hasOne('App\Models\Menu', 'id', 'parent_id');
+    public function children() {
+        return $this->hasMany('App\Models\Menu', 'parent_id', 'id')->with('children');
     }
 }

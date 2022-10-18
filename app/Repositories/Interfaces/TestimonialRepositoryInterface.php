@@ -2,8 +2,6 @@
 
 namespace App\Repositories\Interfaces;
 
-use App\Http\Requests\UpdateTestimonialRequest;
-
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -11,14 +9,14 @@ use App\Http\Requests\UpdateTestimonialRequest;
  * @repo           :  
  * @createdOn      :  03-10-2022
  * @updatedBy      :  Newton Mitro
- * @UpdatedAt      :  15-10-2022
+ * @UpdatedAt      :  18-10-2022
  * @description    :  Testimonial Repository Interface
  *========================================================================**/
 
 interface TestimonialRepositoryInterface {
     public function all();
     public function store($request);
-    public function  update(UpdateTestimonialRequest $request,  $testimonial);
+    public function update($request,  $testimonial);
     public function destroy($testimonial);
     public function show($testimonial);
 }
