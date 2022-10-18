@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Applicant;
 use App\Utilities\LinkObject;
-use App\Http\Requests\StoreApplicantRequest;
+
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Applicant\ApplicantResource;
 use App\Http\Resources\Applicant\ApplicantCollection;
+use App\Http\Requests\Application\StoreApplicantRequest;
 use App\Repositories\Interfaces\ApplicantRepositoryInterface;
 
 /**========================================================================

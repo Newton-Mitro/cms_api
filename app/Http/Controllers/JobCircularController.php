@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\JobCircular;
 use App\Utilities\LinkObject;
-use App\Http\Requests\StoreJobCircularRequest;
-use App\Http\Requests\UpdateJobCircularRequest;
+
+use App\Http\Controllers\Controller;
 use App\Http\Resources\JobCircular\JobCircularResource;
 use App\Http\Resources\JobCircular\JobCircularCollection;
+use App\Http\Requests\JobCircular\StoreJobCircularRequest;
+use App\Http\Requests\JobCircular\UpdateJobCircularRequest;
 use App\Repositories\Interfaces\JobCircularRepositoryInterface;
 
 /**========================================================================

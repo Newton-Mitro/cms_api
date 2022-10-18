@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
-use App\Http\Requests\StoreStaffsRequest;
-use App\Http\Requests\UpdateStaffsRequest;
 use App\Http\Resources\Staff\StaffResource;
 use App\Http\Resources\Staff\StaffCollection;
+use App\Http\Requests\Staff\StoreStaffsRequest;
+use App\Http\Requests\Staff\UpdateStaffsRequest;
 use App\Repositories\Interfaces\StaffsRepositoryInterface;
 
 /**========================================================================

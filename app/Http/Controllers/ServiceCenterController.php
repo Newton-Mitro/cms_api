@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
-use App\Http\Requests\StoreServiceCenterRequest;
-use App\Http\Requests\UpdateServiceCenterRequest;
 use App\Http\Resources\ServiceCenter\ServiceCenterResource;
 use App\Http\Resources\ServiceCenter\ServiceCenterCollection;
+use App\Http\Requests\ServiceCenter\StoreServiceCenterRequest;
+use App\Http\Requests\ServiceCenter\UpdateServiceCenterRequest;
 use App\Repositories\Interfaces\ServiceCenterRepositoryInterface;
 
 /**========================================================================

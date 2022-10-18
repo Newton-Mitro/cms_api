@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
-use App\Http\Requests\StoreEventRequest;
-use App\Http\Requests\UpdateEventRequest;
-use App\Http\Resources\Event\EventCollection;
+
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Event\EventResource;
+use App\Http\Resources\Event\EventCollection;
+use App\Http\Requests\Event\StoreEventRequest;
+use App\Http\Requests\Event\UpdateEventRequest;
 use App\Repositories\Interfaces\EventRepositoryInterface;
 
 /**========================================================================

@@ -66,6 +66,7 @@ class PostController extends Controller {
     }
 
     public function update(UpdatePostRequest $request, Post $post) {
+        return $post;
         return response()->json([
             'data'      =>  new PostResource($this->postRepository->update($request, $post)),
             'message'   => "Post updated successfully",

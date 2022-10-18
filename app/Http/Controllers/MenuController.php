@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Utilities\LinkObject;
-use App\Http\Requests\StoreMenuRequest;
-use App\Http\Requests\UpdateMenuRequest;
-use App\Http\Resources\Menu\MenuCollection;
-use App\Http\Resources\Menu\MenuResource;
 use App\Models\Menu;
+use App\Utilities\LinkObject;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Menu\MenuResource;
+use App\Http\Resources\Menu\MenuCollection;
+use App\Http\Requests\Menu\StoreMenuRequest;
+use App\Http\Requests\Menu\UpdateMenuRequest;
 use App\Repositories\Interfaces\MenuRepositoryInterface;
 
 /**========================================================================
