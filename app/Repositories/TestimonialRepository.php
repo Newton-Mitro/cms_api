@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Testimonial;
-use App\Http\Requests\UpdateTestimonialRequest;
 use App\Repositories\Interfaces\TestimonialRepositoryInterface;
 
 /**========================================================================
@@ -34,12 +33,11 @@ class TestimonialRepository implements TestimonialRepositoryInterface {
     }
 
     public function show($testimonialId) {
-        $testimonial = Testimonial::find($testimonialId);
-        return $testimonial;
+        return Testimonial::findOrFail($testimonialId);
     }
 
     public function  update($request,  $testimonialId) {
-        $testimonial = Testimonial::find($testimonialId);
+        $testimonial = Testimonial::findOrFail($testimonialId);
         $testimonial->name = $request->Name;
         $testimonial->content = $request->Content;
         $testimonial->rating = $request->Rating;
@@ -49,7 +47,6 @@ class TestimonialRepository implements TestimonialRepositoryInterface {
     }
 
     public function destroy($testimonialId) {
-        $testimonial = Testimonial::find($testimonialId);
-        return $testimonial->delete();
+        return Testimonial::findOrFail($testimonialId)->delete();
     }
 }

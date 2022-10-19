@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Event;
-use App\Http\Requests\UpdateEventRequest;
 use App\Repositories\Interfaces\EventRepositoryInterface;
 
 /**========================================================================
@@ -25,31 +24,29 @@ class EventRepository implements EventRepositoryInterface {
 
     public function store($request) {
         $event = new Event();
-        $event->title = $request->Title;
-        $event->event_date = $request->EventDate;
-        $event->content = $request->Content;
-        $event->image = base64_decode($request->Image, false);
+        $event->event_title = $request->eventTitle;
+        $event->event_date = $request->eventDate;
+        $event->event_details = $request->eventDetails;
+        $event->event_image = base64_decode($request->eventImage, false);
         $event->save();
         return $event;
     }
 
     public function  update($request,  $eventId) {
-        $event = Event::find($eventId);
-        $event->title = $request->Title;
-        $event->event_date = $request->EventDate;
-        $event->content = $request->Content;
-        $event->image = base64_decode($request->Image, false);
+        $event = Event::findOrFail($eventId);
+        $event->event_title = $request->eventTitle;
+        $event->event_date = $request->eventDate;
+        $event->event_details = $request->eventDetails;
+        $event->event_image = base64_decode($request->eventImage, false);
         $event->update();
         return $event;
     }
 
     public function show($eventId) {
-        $event = Event::find($eventId);
-        return $event;
+        return Event::findOrFail($eventId);
     }
 
     public function destroy($eventId) {
-        $event = Event::find($eventId);
-        return $event->delete();
+        return Event::findOrFail($eventId)->delete();
     }
 }

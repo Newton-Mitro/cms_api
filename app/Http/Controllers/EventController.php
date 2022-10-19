@@ -59,17 +59,18 @@ class EventController extends Controller {
 
     public function update(UpdateEventRequest $request,  $eventId) {
         return response()->json([
-            'data' => new EventResource($this->EventRepository->update($request,  $eventId)),
-            'message' => "Event updated successfully",
-            'errors' => null,
+            'data'      => new EventResource($this->EventRepository->update($request,  $eventId)),
+            'message'   => "Event updated successfully",
+            'errors'    => null,
         ]);
     }
 
     public function destroy($eventId) {
+        $result = $this->EventRepository->destroy($eventId) ? "Event deleted successfully" : "Event not found or unable to delete event";
         return response()->json([
-            'data' => $this->EventRepository->destroy($eventId),
-            'message' => "Event deleted successfully",
-            'errors' => null,
+            'data'      => null,
+            'message'   => $result,
+            'errors'    => null,
         ]);
     }
 }

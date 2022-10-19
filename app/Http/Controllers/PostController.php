@@ -68,27 +68,28 @@ class PostController extends Controller {
     }
 
     public function destroy($postId) {
+        $result = $this->postRepository->destroy($postId) ? "Post deleted successfully" : "Post not found or unable to delete post";
         return response()->json([
-            "data"      => $this->postRepository->destroy($postId),
-            "message"   => "Post deleted successfully",
+            "data"      => null,
+            "message"   => $result,
             'errors'    => null,
         ]);
     }
 
-    public function getPostByPostSlug($post_slug) {
+    public function getPostByPostSlug($slug) {
         return response()->json([
-            'data'      => new PostResource($this->postRepository->getPostByPostSlug($post_slug)),
+            'data'      => new PostResource($this->postRepository->getPostByPostSlug($slug)),
             'message'   => "Post retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function getPostsByPostType($post_type) {
-        return PostCollection::collection($this->postRepository->getPostsByPostType($post_type))->additional([
+    public function getPostsByPostType($postType) {
+        return PostCollection::collection($this->postRepository->getPostsByPostType($postType))->additional([
             'error'     => null,
-            'message'   => "Post retrieved successfully.",
+            'message'   => "Posts retrieved successfully.",
             'links'     => [
-                new LinkObject("Self", "All", route('posts.getPostsByPostType', $post_type), "GET"),
+                new LinkObject("Self", "All", route('posts.getPostsByPostType', $postType), "GET"),
                 new LinkObject("Store", "New Post", route('posts.store'), "POST"),
             ]
         ]);

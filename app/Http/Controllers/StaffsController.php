@@ -60,17 +60,18 @@ class StaffsController extends Controller {
 
     public function update(UpdateStaffsRequest $request,  $staffId) {
         return response()->json([
-            'data' => new StaffResource($this->StaffsRepository->update($request,  $staffId)),
-            'message' => "Staff updated successfully",
-            'errors' => null,
+            'data'      => new StaffResource($this->StaffsRepository->update($request,  $staffId)),
+            'message'   => "Staff updated successfully",
+            'errors'    => null,
         ]);
     }
 
     public function destroy($staffId) {
+        $result = $this->StaffsRepository->destroy($staffId) ? "Staff deleted successfully" : "Staff not found or unable to delete staff";
         return response()->json([
-            'data' => $this->StaffsRepository->destroy($staffId),
-            'message' => "Staff deleted successfully",
-            'errors' => null,
+            'data'      => null,
+            'message'   => $result,
+            'errors'    => null,
         ]);
     }
 }

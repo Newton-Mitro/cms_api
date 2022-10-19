@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\StaffType;
+use App\Models\StaffSocialLink;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**========================================================================
  * ?                                ABOUT
@@ -19,4 +21,12 @@ use Illuminate\Database\Eloquent\Model;
 class Staff extends Model {
     protected $table = 'staffs';
     use HasFactory;
+
+    public function staffType() {
+        return $this->belongsTo(StaffType::class);
+    }
+
+    public function staffSocialLinks() {
+        return $this->hasMany(StaffSocialLink::class);
+    }
 }

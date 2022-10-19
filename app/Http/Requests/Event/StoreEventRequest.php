@@ -23,10 +23,10 @@ class StoreEventRequest extends FormRequest {
 
     public function rules() {
         return [
-            'Title'         => 'required',
-            'EventDate'     => 'required',
-            'Content'       => 'required',
-            'Image'         => 'required',
+            'eventTitle'    => 'required',
+            'eventDate'     => 'required',
+            'eventDetails'  => 'required',
+            'eventImage'    => 'required',
         ];
     }
 }

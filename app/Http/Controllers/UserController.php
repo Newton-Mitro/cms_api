@@ -8,6 +8,7 @@ use App\Http\Resources\User\UserResource;
 use App\Http\Resources\User\UserCollection;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 
 /**========================================================================
  * ?                                ABOUT
@@ -22,15 +23,15 @@ use App\Http\Requests\User\UpdateUserRequest;
 
 class UserController extends Controller {
 
-    private $UsersRepository;
+    private $UserRepository;
 
-    public function __construct(UsersRepositoryInterface $usersRepository) {
-        return $this->UsersRepository = $usersRepository;
+    public function __construct(UserRepositoryInterface $userRepository) {
+        return $this->UserRepository = $userRepository;
     }
 
     public function index() {
         return response()->json([
-            'data'      => UserCollection::collection($this->UsersRepository->all()),
+            'data'      => UserCollection::collection($this->UserRepository->all()),
             'message'   => "Users retrieved successfully",
             'errors'    => null,
             'links'     => [
@@ -42,7 +43,7 @@ class UserController extends Controller {
 
     public function store(StoreUserRequest $request) {
         return response()->json([
-            'data'      => new UserResource($this->UsersRepository->store($request)),
+            'data'      => new UserResource($this->UserRepository->store($request)),
             'message'   => "User created successfully",
             'errors'    => null,
         ]);
@@ -50,7 +51,7 @@ class UserController extends Controller {
 
     public function show($userId) {
         return response()->json([
-            'data'      => new UserResource($this->UsersRepository->show($userId)),
+            'data'      => new UserResource($this->UserRepository->show($userId)),
             'message'   => "User retrieved successfully",
             'errors'    => null,
         ]);
@@ -58,17 +59,18 @@ class UserController extends Controller {
 
     public function update(UpdateUserRequest $request,  $userId) {
         return response()->json([
-            'data' => new UserResource($this->UsersRepository->update($request,  $userId)),
-            'message' => "User updated successfully",
-            'errors' => null,
+            'data'      => new UserResource($this->UserRepository->update($request,  $userId)),
+            'message'   => "User updated successfully",
+            'errors'    => null,
         ]);
     }
 
     public function destroy($userId) {
+        $result = $this->UserRepository->destroy($userId) ? "User deleted successfully" : "User not found or unable to delete user";
         return response()->json([
-            'data' => $this->UsersRepository->destroy($userId),
-            'message' => "User deleted successfully",
-            'errors' => null,
+            'data'      => null,
+            'message'   => $result,
+            'errors'    => null,
         ]);
     }
 }

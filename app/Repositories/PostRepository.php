@@ -7,6 +7,7 @@ use App\Models\PostType;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Interfaces\PostRepositoryInterface;
+use Exception;
 
 /**========================================================================
  * ?                                ABOUT
@@ -26,17 +27,17 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     public function getPostsByPostType($post_type_name) {
-        $postType = PostType::where('post_type_name', $post_type_name)->first();
+        $postType = PostType::where('post_type_name', $post_type_name)->firstOrFail();
         return Post::where('post_type_id', $postType->id)->paginate(10);
     }
 
     public function show($postId) {
-        $post = Post::find($postId);
+        $post = Post::findOrFail($postId);
         return $post;
     }
 
     public function getPostByPostSlug($post_slug) {
-        return Post::where('post_slug', $post_slug)->get()->first();
+        return Post::where('post_slug', $post_slug)->get()->firstOrFail();
     }
 
     public function store($request) {
@@ -55,10 +56,7 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     public function update($request, $postId) {
-
-        $post = Post::find($postId);
-        // $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
-        // Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
+        $post = Post::findOrFail($postId);
         $post->post_slug = Str::slug($request->postTitle, '-');
         $post->post_image =  base64_decode($request->postImage, false);
         // $post->post_image =  Storage::url($filePath);
@@ -71,7 +69,6 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     public function destroy($postId) {
-        $post = Post::find($postId);
-        return $post->delete();
+        return Post::findOrFail($postId)->delete();
     }
 }

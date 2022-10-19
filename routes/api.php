@@ -44,9 +44,9 @@ Route::ApiResource('menus', MenuController::class);
 Route::get('root/menus', [MenuController::class, 'rootMenus'])->name('menus.rootMenus');
 
 Route::ApiResource('post-types', PostTypeController::class);
-Route::ApiResource('posts', 'App\Http\Controllers\PostController');
-Route::get('post-types/{PostType}/posts', [PostController::class, 'getPostsByPostType'])->name('posts.getPostsByPostType');
-Route::get('post-types/posts/{slug}', [PostController::class, 'getPostByPostSlug'])->name('posts.getPostByPostSlug');
+Route::ApiResource('posts', PostController::class);
+Route::get('posts/post-types/{PostType}', [PostController::class, 'getPostsByPostType'])->name('posts.getPostsByPostType');
+Route::get('posts/post-slug/{slug}', [PostController::class, 'getPostByPostSlug'])->name('posts.getPostByPostSlug');
 
 Route::ApiResource('job-circulars', JobCircularController::class);
 Route::ApiResource('applicants', ApplicantController::class);

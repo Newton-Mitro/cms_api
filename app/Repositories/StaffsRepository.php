@@ -32,12 +32,11 @@ class StaffsRepository implements StaffsRepositoryInterface {
     }
 
     public function show($staffId) {
-        $staff = Staff::find($staffId);
-        return $staff;
+        return Staff::findOrFail($staffId);
     }
 
     public function update($request,  $staffId) {
-        $staff = Staff::find($staff);
+        $staff = Staff::findOrFail($staffId);
         $staff->name = $request->Name;
         $staff->designation = $request->Designation;
         $staff->content = $request->Content;
@@ -48,7 +47,6 @@ class StaffsRepository implements StaffsRepositoryInterface {
     }
 
     public function destroy($staffId) {
-        $staff = Staff::find($staffId);
-        return $staff->delete();
+        return Staff::findOrFail($staffId)->delete();
     }
 }

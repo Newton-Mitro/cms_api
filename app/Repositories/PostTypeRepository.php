@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\PostType;
 use App\Repositories\Interfaces\PostTypeRepositoryInterface;
 
+
 /**========================================================================
  * ?                                ABOUT
  * @author         :  Israfil
@@ -21,10 +22,5 @@ class PostTypeRepository implements PostTypeRepositoryInterface {
 
     public function all() {
         return PostType::all();
-    }
-
-    public function show($postTypeId) {
-        $postType = PostType::find($postTypeId);
-        return $postType;
     }
 }

@@ -60,17 +60,18 @@ class ServiceCenterController extends Controller {
 
     public function update(UpdateServiceCenterRequest $request, $serviceCenterId) {
         return response()->json([
-            'data' => new ServiceCenterResource($this->ServiceCenterRepository->update($request,  $serviceCenterId)),
-            'message' => "Service center updated successfully",
-            'errors' => null,
+            'data'      => new ServiceCenterResource($this->ServiceCenterRepository->update($request,  $serviceCenterId)),
+            'message'   => "Service center updated successfully",
+            'errors'    => null,
         ]);
     }
 
     public function destroy($serviceCenterId) {
+        $result = $this->ServiceCenterRepository->destroy($serviceCenterId) ? "Service center deleted successfully" : "Service center not found or unable to delete service center";
         return response()->json([
-            'data' => $this->ServiceCenterRepository->destroy($serviceCenterId),
-            'message' => "Service center deleted successfully",
-            'errors' => null,
+            'data'      => null,
+            'message'   => $result,
+            'errors'    => null,
         ]);
     }
 }

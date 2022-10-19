@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Event;
 
+use App\Utilities\LinkObject;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**========================================================================
@@ -19,10 +20,15 @@ class EventCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'Id'        => $this->id,
-            'Title'     => $this->title,
-            'EventDate' => $this->event_date,
-            'Content'   => $this->content,
+            'eventId'        => $this->id,
+            'eventTitle'     => $this->event_title,
+            'eventDate'      => $this->event_date,
+            'eventDetails'   => $this->event_details,
+            'links'         => [
+                new LinkObject("show", "View Event", route('events.show', $this->id), "GET"),
+                new LinkObject("update", "Update Event", route('events.update', $this->id), "PUT"),
+                new LinkObject("delete", "Delete Event", route('events.destroy', $this->id), "DELETE"),
+            ],
         ];
     }
 }

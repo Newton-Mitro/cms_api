@@ -2,40 +2,42 @@
 
 namespace App\Providers;
 
-use App\Repositories\ApplicantRepository;
 use App\Repositories\AuthRepository;
-use App\Repositories\EductionRepository;
-use App\Repositories\EventRepository;
-use App\Repositories\StaffSocialLinkRepository;
-use App\Repositories\Interfaces\ApplicantRepositoryInterface;
-use App\Repositories\Interfaces\AuthRepositoryInterface;
-use App\Repositories\Interfaces\EductionRepositoryInterface;
-use App\Repositories\Interfaces\EventRepositoryInterface;
-use App\Repositories\Interfaces\StaffSocialLinkRepositoryInterface;
-use App\Repositories\Interfaces\JobCircularRepositoryInterface;
-use App\Repositories\Interfaces\JobHistoryRepositoryInterface;
-use App\Repositories\Interfaces\JobPositionRepositoryInterface;
-use App\Repositories\Interfaces\StaffsRepositoryInterface;
-use App\Repositories\Interfaces\MenuRepositoryInterface;
-use App\Repositories\Interfaces\PostRepositoryInterface;
-use App\Repositories\Interfaces\PostTypeRepositoryInterface;
-use App\Repositories\Interfaces\ServiceCenterRepositoryInterface;
-use App\Repositories\Interfaces\TestimonialRepositoryInterface;
-use App\Repositories\Interfaces\TrainingRepositoryInterface;
-use App\Repositories\JobCircularRepository;
-use App\Repositories\JobHistoryRepository;
-use App\Repositories\JobPositionRepository;
-use App\Repositories\StaffsRepository;
 use App\Repositories\MenuRepository;
 use App\Repositories\PostRepository;
-use App\Repositories\PostTypeRepository;
-use App\Repositories\ServiceCenterRepository;
-use App\Repositories\TestimonialRepository;
-use App\Repositories\TrainingRepository;
+use App\Repositories\UserRepository;
+use App\Repositories\EventRepository;
+use App\Repositories\StaffsRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\EductionRepository;
+use App\Repositories\PostTypeRepository;
+use App\Repositories\TrainingRepository;
+use App\Repositories\ApplicantRepository;
+use App\Repositories\JobHistoryRepository;
+use App\Repositories\JobCircularRepository;
+use App\Repositories\JobPositionRepository;
+use App\Repositories\TestimonialRepository;
+use App\Repositories\ServiceCenterRepository;
+use App\Repositories\StaffSocialLinkRepository;
+use App\Repositories\Interfaces\AuthRepositoryInterface;
+use App\Repositories\Interfaces\MenuRepositoryInterface;
+use App\Repositories\Interfaces\PostRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Repositories\Interfaces\EventRepositoryInterface;
+use App\Repositories\Interfaces\StaffsRepositoryInterface;
+use App\Repositories\Interfaces\EductionRepositoryInterface;
+use App\Repositories\Interfaces\PostTypeRepositoryInterface;
+use App\Repositories\Interfaces\TrainingRepositoryInterface;
+use App\Repositories\Interfaces\ApplicantRepositoryInterface;
+use App\Repositories\Interfaces\JobHistoryRepositoryInterface;
+use App\Repositories\Interfaces\JobCircularRepositoryInterface;
+use App\Repositories\Interfaces\JobPositionRepositoryInterface;
+use App\Repositories\Interfaces\TestimonialRepositoryInterface;
+use App\Repositories\Interfaces\ServiceCenterRepositoryInterface;
+use App\Repositories\Interfaces\StaffSocialLinkRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider {
-    
+
     public function register() {
         $this->app->bind(StaffsRepositoryInterface::class, StaffsRepository::class);
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
@@ -52,6 +54,7 @@ class AppServiceProvider extends ServiceProvider {
         $this->app->bind(PostTypeRepositoryInterface::class, PostTypeRepository::class);
         $this->app->bind(JobPositionRepositoryInterface::class, JobPositionRepository::class);
         $this->app->bind(PostRepositoryInterface::class, PostRepository::class);
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
     }
 
     public function boot() {

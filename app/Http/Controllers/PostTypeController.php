@@ -34,7 +34,6 @@ class PostTypeController extends Controller {
             'errors'    => null,
             'links'     => [
                 new LinkObject("Self", "Post Types", route('post-types.index'), "GET"),
-                new LinkObject("Store", "New Post Type", route('post-types'), "POST"),
                 new LinkObject("All", "Posts", route('posts.index'), "GET"),
             ]
         ]);

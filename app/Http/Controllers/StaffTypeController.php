@@ -24,7 +24,7 @@ class StaffTypeController extends Controller {
 
     private $StaffTypesRepository;
 
-    public function __construct(StaffTypesRepositoryInterface $staffTypesRepository) {
+    public function __construct(StaffTypeRepositoryInterface $staffTypesRepository) {
         return $this->StaffTypesRepository = $staffTypesRepository;
     }
 
@@ -52,24 +52,25 @@ class StaffTypeController extends Controller {
     public function show($staffTypeId) {
         return response()->json([
             'data'      => new StaffTypeResource($this->StaffTypesRepository->show($staffTypeId)),
-            'message'   => "Staff retrieved successfully",
+            'message'   => "Staff type retrieved successfully",
             'errors'    => null,
         ]);
     }
 
     public function update(UpdateStaffTypeRequest $request,  $staffTypeId) {
         return response()->json([
-            'data' => new StaffTypeResource($this->StaffTypesRepository->update($request,  $staffTypeId)),
-            'message' => "Staff updated successfully",
-            'errors' => null,
+            'data'      => new StaffTypeResource($this->StaffTypesRepository->update($request,  $staffTypeId)),
+            'message'   => "Staff type updated successfully",
+            'errors'    => null,
         ]);
     }
 
     public function destroy($staffTypeId) {
+        $result = $this->StaffTypesRepository->destroy($staffTypeId) ? "Staff type deleted successfully" : "Staff type not found or unable to delete staff type";
         return response()->json([
-            'data' => $this->StaffTypesRepository->destroy($staffTypeId),
-            'message' => "Staff deleted successfully",
-            'errors' => null,
+            'data'      => null,
+            'message'   => $result,
+            'errors'    => null,
         ]);
     }
 }

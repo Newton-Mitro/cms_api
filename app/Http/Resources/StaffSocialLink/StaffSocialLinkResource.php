@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\ExecutiveSocialLink;
+namespace App\Http\Resources\StaffSocialLink;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,10 +19,10 @@ class StaffSocialLinkResource extends JsonResource {
 
     public function toArray($request) {
         return [
-            'ID' => $this->id,
-            'ManagementExecutiveId' => $this->management_executive_id,
-            'SocialLinkTypeId'      => $this->social_link_type_id,
-            'SocialLink'            => $this->social_link,
+            'staffSocialLinkId'     => $this->id,
+            'staffId'               => $this->staff_id,
+            'socialMediaTypeId'     => $this->social_media_type_id,
+            'socialLink'            => $this->social_link,
         ];
     }
 }

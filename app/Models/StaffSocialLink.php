@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Staff;
+use App\Models\SocialMediaType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**========================================================================
  * ?                                ABOUT
@@ -18,4 +20,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class StaffSocialLink extends Model {
     use HasFactory;
+
+    public function staff() {
+        return $this->belongsTo(Staff::class);
+    }
+
+    public function socialMediaType() {
+        return $this->belongsTo(SocialMediaType::class);
+    }
 }

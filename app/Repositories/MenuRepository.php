@@ -37,7 +37,7 @@ class MenuRepository implements MenuRepositoryInterface {
     }
 
     public function  update($request,  $menuId) {
-        $menu = Menu::find($menuId);
+        $menu = Menu::findOrFail($menuId);
         $menu->menu_name = $request->menuTitle;
         $menu->link_to = $request->url;
         $menu->icon = $request->icon;
@@ -47,12 +47,10 @@ class MenuRepository implements MenuRepositoryInterface {
     }
 
     public function show($menuId) {
-        $menu = Menu::find($menuId);
-        return $menu;
+        return Menu::findOrFail($menuId);
     }
 
     public function destroy($menuId) {
-        $menu = Menu::find($menuId);
-        return $menu->delete();
+        return Menu::findOrFail($menuId)->delete();
     }
 }

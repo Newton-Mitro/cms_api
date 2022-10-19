@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\ServiceCenter;
-use App\Http\Requests\UpdateServiceCenterRequest;
 use App\Repositories\Interfaces\ServiceCenterRepositoryInterface;
 
 /**========================================================================
@@ -44,7 +43,7 @@ class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
     }
 
     public function  update($request, $serviceCenterId) {
-        $service = ServiceCenter::find($serviceCenterId);
+        $service = ServiceCenter::findOrFail($serviceCenterId);
         $service->service_center_name = $request->ServiceCenterName;
         $service->address = $request->Address;
         $service->latitude = $request->Latitude;
@@ -64,12 +63,10 @@ class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
     }
 
     public function show($serviceCenterId) {
-        $serviceCenter = ServiceCenter::find($serviceCenterId);
-        return  $serviceCenter;
+        return  ServiceCenter::findOrFail($serviceCenterId);
     }
 
     public function destroy($serviceCenterId) {
-        $serviceCenter = ServiceCenter::find($serviceCenterId);
-        return $serviceCenter->delete();
+        return ServiceCenter::findOrFail($serviceCenterId)->delete();
     }
 }

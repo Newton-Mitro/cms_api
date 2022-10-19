@@ -19,10 +19,11 @@ class StaffCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'id'            => $this->id,
-            'Name'          => $this->name,
-            'Designation'   => $this->designation,
-            'Content'       => $this->content,
+            'staffId'               => $this->id,
+            'staffName'             => $this->staff_name,
+            'staffDesignation'      => $this->staff_designation,
+            'aboutTheStaff'         => $this->about_the_staff,
+            'staffType'             => $this->staffType->staff_type_name,
         ];
     }
 }

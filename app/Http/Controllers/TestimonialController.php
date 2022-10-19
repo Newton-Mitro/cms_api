@@ -59,17 +59,18 @@ class TestimonialController extends Controller {
 
     public function update(UpdateTestimonialRequest $request,  $testimonialId) {
         return response()->json([
-            'data' => new TestimonialResource($this->TestimonialRepository->update($request,  $testimonialId)),
-            'message' => "Testimonial updated successfully",
-            'errors' => null,
+            'data'      => new TestimonialResource($this->TestimonialRepository->update($request,  $testimonialId)),
+            'message'   => "Testimonial updated successfully",
+            'errors'    => null,
         ]);
     }
 
     public function destroy($testimonialId) {
+        $result = $this->TestimonialRepository->destroy($testimonialId) ? "Testimonial deleted successfully" : "Testimonial not found or unable to delete testimonial";
         return response()->json([
-            'data' => $this->TestimonialRepository->destroy($testimonialId),
-            'message' => "Testimonial deleted successfully",
-            'errors' => null,
+            'data'      => null,
+            'message'   => $result,
+            'errors'    => null,
         ]);
     }
 }

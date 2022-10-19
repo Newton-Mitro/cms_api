@@ -78,9 +78,10 @@ class MenuController extends Controller {
     }
 
     public function destroy($menuId) {
+        $result = $this->menuRepository->destroy($menuId) ? "Menu deleted successfully" : "Menu not found or unable to delete menu";
         return response()->json([
-            'data'      => $this->menuRepository->destroy($menuId),
-            'message'   => "Menu deleted successfully",
+            'data'      => null,
+            'message'   => $result,
             'errors'    => null,
         ]);
     }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Applicant;
 use App\Utilities\LinkObject;
 
 use App\Http\Controllers\Controller;
@@ -59,17 +58,18 @@ class ApplicantController extends Controller {
 
     public function updateApplicationStatus($applicantId, $statusId) {
         return response()->json([
-            'data' => new ApplicantResource($this->ApplicantRepository->updateApplicationStatus($applicantId, $statusId)),
-            'message' => "Application updated successfully",
-            'errors' => null,
+            'data'      => new ApplicantResource($this->ApplicantRepository->updateApplicationStatus($applicantId, $statusId)),
+            'message'   => "Application updated successfully",
+            'errors'    => null,
         ]);
     }
 
     public function destroy($applicantId) {
+        $result = $this->ApplicantRepository->destroy($applicantId) ? "Application deleted successfully" : "Application not found or unable to delete applicant";
         return response()->json([
-            'data' => $this->ApplicantRepository->destroy($applicantId),
-            'message' => "Applicant deleted successfully",
-            'errors' => null,
+            'data'      => null,
+            'message'   => $result,
+            'errors'    => null,
         ]);
     }
 }

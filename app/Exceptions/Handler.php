@@ -2,12 +2,15 @@
 
 namespace App\Exceptions;
 
+use Error;
 use Exception;
 use Throwable;
 use ParseError;
 use PDOException;
 use ErrorException;
+use Psr\Log\LogLevel;
 use Illuminate\Http\Response;
+use Illuminate\Support\ItemNotFoundException;
 use Illuminate\Database\Eloquent\JsonEncodingException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -47,12 +50,13 @@ class Handler extends ExceptionHandler {
     public function register() {
         $this->renderable(function (Exception $exception, $request) {
             if ($request->expectsJson()) {
+
                 if ($exception instanceof ModelNotFoundException) {
                     return response()->json([
                         "data" => null,
                         "message" => 'Model not found',
                         'errors' => null,
-                    ], Response::HTTP_NOT_FOUND);
+                    ], Response::HTTP_INTERNAL_SERVER_ERROR);
                 }
 
                 if ($exception instanceof NotFoundHttpException) {
@@ -60,7 +64,7 @@ class Handler extends ExceptionHandler {
                         "data" => null,
                         "message" => $exception->getMessage(),
                         'errors' => null,
-                    ], Response::HTTP_NO_CONTENT);
+                    ], Response::HTTP_INTERNAL_SERVER_ERROR);
                 }
 
                 if ($exception instanceof AccessDeniedHttpException) {
@@ -76,7 +80,7 @@ class Handler extends ExceptionHandler {
                         "data" => null,
                         "message" => $exception->errorInfo[2],
                         'errors' => null
-                    ], Response::HTTP_NOT_FOUND);
+                    ], Response::HTTP_INTERNAL_SERVER_ERROR);
                 }
 
                 if ($exception instanceof JsonEncodingException) {
@@ -84,7 +88,7 @@ class Handler extends ExceptionHandler {
                         "data" => null,
                         "message" => $exception->getMessage(),
                         'errors' => null,
-                    ], Response::HTTP_NOT_FOUND);
+                    ], Response::HTTP_INTERNAL_SERVER_ERROR);
                 }
 
                 if ($exception instanceof ErrorException) {
@@ -92,13 +96,21 @@ class Handler extends ExceptionHandler {
                         "data" => null,
                         "message" => $exception->getMessage(),
                         'errors' => null,
-                    ], Response::HTTP_NOT_FOUND);
+                    ], Response::HTTP_INTERNAL_SERVER_ERROR);
                 }
 
                 if ($exception instanceof ParseError) {
                     return response()->json([
                         "data" => null,
                         "message" => $exception->getMessage(),
+                        'errors' => null,
+                    ], Response::HTTP_INTERNAL_SERVER_ERROR);
+                }
+
+                if ($exception instanceof ItemNotFoundException) {
+                    return response()->json([
+                        "data" => null,
+                        "message" => "Content not found",
                         'errors' => null,
                     ], Response::HTTP_NOT_FOUND);
                 }

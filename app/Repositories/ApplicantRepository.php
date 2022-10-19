@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Models\Training;
 use App\Models\Applicant;
 use App\Models\Education;
+use App\Models\JobCircular;
 use App\Models\JobHistory;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Interfaces\ApplicantRepositoryInterface;
@@ -30,6 +31,7 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
 
     public function store($request) {
         $applicant = new Applicant;
+        $jobCircular = JobCircular::findOrFail($request->jobCircularId);
         // $photoFilePath =  'public/images/application/photos/' . date_timestamp_get(date_create()) . '.jpg';
         // $resumeFilePath =  'public/documents/application/resumes/' . date_timestamp_get(date_create()) . '.pdf';
         // Storage::disk('local')->put($photoFilePath, base64_decode($request->applicantPhoto, false));
@@ -101,19 +103,17 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
     }
 
     public function updateApplicationStatus($applicant_id, $status_id) {
-        $applicant = Applicant::find($applicant_id);
+        $applicant = Applicant::findOrFail($applicant_id);
         $applicant->application_stage_id = $status_id;
         $applicant->update();
         return $applicant;
     }
 
     public function destroy($applicantId) {
-        $applicant = Applicant::find($applicantId);
-        return $applicant->delete();
+        return Applicant::findOrFail($applicantId)->delete();
     }
 
     public function show($applicantId) {
-        $applicant = Applicant::find($applicantId);
-        return $applicant;
+        return Applicant::findOrFail($applicantId);
     }
 }

@@ -60,17 +60,18 @@ class JobCircularController extends Controller {
 
     public function update(UpdateJobCircularRequest $request, $jobCircularId) {
         return response()->json([
-            "data" => $this->JobCircularRepository->update($request,  $jobCircularId),
-            "message" => "Job circular updated successfully",
-            'errors' => null,
+            "data"      => $this->JobCircularRepository->update($request,  $jobCircularId),
+            "message"   => "Job circular updated successfully",
+            'errors'    => null,
         ]);
     }
 
     public function destroy($jobCircularId) {
+        $result = $this->JobCircularRepository->destroy($jobCircularId) ? "Job circular deleted successfully" : "Job circular not found or unable to delete job circular";
         return response()->json([
-            "data" => $this->JobCircularRepository->destroy($jobCircularId),
-            "message" => "Job circular deleted successfully",
-            'errors' => null,
+            "data"      => null,
+            "message"   => $result,
+            'errors'    => null,
         ]);
     }
 }
