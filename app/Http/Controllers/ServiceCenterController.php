@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\ServiceCenter\ServiceCenterResource;
 use App\Http\Resources\ServiceCenter\ServiceCenterCollection;
 use App\Http\Requests\ServiceCenter\StoreServiceCenterRequest;
@@ -49,25 +50,25 @@ class ServiceCenterController extends Controller {
         return $this->ServiceCenterRepository->store($request);
     }
 
-    public function show($serviceCenter) {
+    public function show($serviceCenterId) {
         return response()->json([
-            'data'      => new ServiceCenterResource($this->ServiceCenterRepository->show($serviceCenter)),
+            'data'      => new ServiceCenterResource($this->ServiceCenterRepository->show($serviceCenterId)),
             'message'   => "Service center retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function update(UpdateServiceCenterRequest $request, $serviceCenter) {
+    public function update(UpdateServiceCenterRequest $request, $serviceCenterId) {
         return response()->json([
-            'data' => new ServiceCenterResource($this->ServiceCenterRepository->update($request,  $serviceCenter)),
+            'data' => new ServiceCenterResource($this->ServiceCenterRepository->update($request,  $serviceCenterId)),
             'message' => "Service center updated successfully",
             'errors' => null,
         ]);
     }
 
-    public function destroy($serviceCenter) {
+    public function destroy($serviceCenterId) {
         return response()->json([
-            'data' => $this->ServiceCenterRepository->destroy($serviceCenter),
+            'data' => $this->ServiceCenterRepository->destroy($serviceCenterId),
             'message' => "Service center deleted successfully",
             'errors' => null,
         ]);

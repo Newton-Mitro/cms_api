@@ -16,7 +16,7 @@ namespace App\Repositories\Interfaces;
 interface TestimonialRepositoryInterface {
     public function all();
     public function store($request);
-    public function update($request,  $testimonial);
-    public function destroy($testimonial);
-    public function show($testimonial);
+    public function update($request,  $testimonialId);
+    public function destroy($testimonialId);
+    public function show($testimonialId);
 }

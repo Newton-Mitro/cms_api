@@ -17,6 +17,6 @@ interface ApplicantRepositoryInterface {
     public function all();
     public function store($request);
     public function updateApplicationStatus($application_id, $status_id);
-    public function destroy($applicant);
-    public function show($applicant);
+    public function destroy($application_id);
+    public function show($application_id);
 }

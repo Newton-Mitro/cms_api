@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
-use App\Http\Requests\StoreTestimonialRequest;
-use App\Http\Requests\UpdateTestimonialRequest;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Testimonial\TestimonialResource;
 use App\Http\Resources\Testimonial\TestimonialCollection;
+use App\Http\Requests\Testimonial\StoreTestimonialRequest;
+use App\Http\Requests\Testimonial\UpdateTestimonialRequest;
 use App\Repositories\Interfaces\TestimonialRepositoryInterface;
 
 /**========================================================================
@@ -48,25 +49,25 @@ class TestimonialController extends Controller {
         ]);
     }
 
-    public function show($testimonial) {
+    public function show($testimonialId) {
         return response()->json([
-            'data'      => new TestimonialResource($this->TestimonialRepository->show($testimonial)),
+            'data'      => new TestimonialResource($this->TestimonialRepository->show($testimonialId)),
             'message'   => "Testimonial retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function update(UpdateTestimonialRequest $request,  $testimonial) {
+    public function update(UpdateTestimonialRequest $request,  $testimonialId) {
         return response()->json([
-            'data' => new TestimonialResource($this->TestimonialRepository->update($request,  $testimonial)),
+            'data' => new TestimonialResource($this->TestimonialRepository->update($request,  $testimonialId)),
             'message' => "Testimonial updated successfully",
             'errors' => null,
         ]);
     }
 
-    public function destroy($testimonial) {
+    public function destroy($testimonialId) {
         return response()->json([
-            'data' => $this->TestimonialRepository->destroy($testimonial),
+            'data' => $this->TestimonialRepository->destroy($testimonialId),
             'message' => "Testimonial deleted successfully",
             'errors' => null,
         ]);

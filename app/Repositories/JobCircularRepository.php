@@ -22,7 +22,8 @@ class JobCircularRepository implements JobCircularRepositoryInterface {
         return JobCircular::paginate(10);
     }
 
-    public function show($jobCircular) {
+    public function show($jobCircularId) {
+        $jobCircular = JobCircular::find($jobCircularId);
         return $jobCircular;
     }
 
@@ -43,7 +44,8 @@ class JobCircularRepository implements JobCircularRepositoryInterface {
         return $jobCircular;
     }
 
-    public function update($request, $jobCircular) {
+    public function update($request, $jobCircularId) {
+        $jobCircular = JobCircular::find($jobCircularId);
         $jobCircular->job_position = $request->jobPosition;
         $jobCircular->vacancy = $request->totalNumberVacancy;
         $jobCircular->job_responsibility = $request->jobResponsibility;
@@ -59,7 +61,8 @@ class JobCircularRepository implements JobCircularRepositoryInterface {
         return $jobCircular;
     }
 
-    public function destroy($jobCircular) {
+    public function destroy($jobCircularId) {
+        $jobCircular = JobCircular::find($jobCircularId);
         return $jobCircular->delete();
     }
 }

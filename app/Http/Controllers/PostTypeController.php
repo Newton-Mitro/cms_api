@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\PostType\PostTypeCollection;
 use App\Repositories\Interfaces\PostTypeRepositoryInterface;
 

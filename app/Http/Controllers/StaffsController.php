@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Staff\StaffResource;
 use App\Http\Resources\Staff\StaffCollection;
 use App\Http\Requests\Staff\StoreStaffsRequest;
@@ -49,25 +50,25 @@ class StaffsController extends Controller {
         ]);
     }
 
-    public function show($staff) {
+    public function show($staffId) {
         return response()->json([
-            'data'      => new StaffResource($this->StaffsRepository->show($staff)),
+            'data'      => new StaffResource($this->StaffsRepository->show($staffId)),
             'message'   => "Staff retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function update(UpdateStaffsRequest $request,  $staff) {
+    public function update(UpdateStaffsRequest $request,  $staffId) {
         return response()->json([
-            'data' => new StaffResource($this->StaffsRepository->update($request,  $staff)),
+            'data' => new StaffResource($this->StaffsRepository->update($request,  $staffId)),
             'message' => "Staff updated successfully",
             'errors' => null,
         ]);
     }
 
-    public function destroy($staff) {
+    public function destroy($staffId) {
         return response()->json([
-            'data' => $this->StaffsRepository->destroy($staff),
+            'data' => $this->StaffsRepository->destroy($staffId),
             'message' => "Staff deleted successfully",
             'errors' => null,
         ]);

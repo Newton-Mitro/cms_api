@@ -15,8 +15,8 @@ namespace App\Repositories\Interfaces;
 
 interface JobCircularRepositoryInterface {
     public function all();
-    public function show($jobCircular);
+    public function show($jobCircularId);
     public function store($request);
-    public function update($request, $jobCircular);
-    public function destroy($jobCircular);
+    public function update($request, $jobCircularId);
+    public function destroy($jobCircularId);
 }

@@ -17,7 +17,7 @@ interface MenuRepositoryInterface {
     public function all();
     public function rootMenus();
     public function store($request);
-    public function  update($request,  $menu);
-    public function show($menu);
-    public function destroy($menu);
+    public function  update($request,  $menuId);
+    public function show($menuId);
+    public function destroy($menuId);
 }

@@ -30,7 +30,8 @@ class PostRepository implements PostRepositoryInterface {
         return Post::where('post_type_id', $postType->id)->paginate(10);
     }
 
-    public function show($post) {
+    public function show($postId) {
+        $post = Post::find($postId);
         return $post;
     }
 
@@ -53,8 +54,9 @@ class PostRepository implements PostRepositoryInterface {
         return $post;
     }
 
-    public function update($request, $post) {
-        return $post;
+    public function update($request, $postId) {
+
+        $post = Post::find($postId);
         // $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
         // Storage::disk('local')->put($filePath, base64_decode($request->postImage, false));
         $post->post_slug = Str::slug($request->postTitle, '-');
@@ -63,12 +65,13 @@ class PostRepository implements PostRepositoryInterface {
         $post->post_icon = $request->postIcon;
         $post->post_title = $request->postTitle;
         $post->post_content = $request->postContent;
-        $post->post_type_id = $post->postTypeId;
+        $post->post_type_id = $request->postTypeId;
         $post->update();
         return $post;
     }
 
-    public function destroy($post) {
+    public function destroy($postId) {
+        $post = Post::find($postId);
         return $post->delete();
     }
 }

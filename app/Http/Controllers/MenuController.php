@@ -61,25 +61,25 @@ class MenuController extends Controller {
         ]);
     }
 
-    public function update(UpdateMenuRequest $request, Menu $menu) {
+    public function update(UpdateMenuRequest $request, $menuId) {
         return response()->json([
-            'data'      => new MenuResource($this->menuRepository->update($request, $menu)),
+            'data'      => new MenuResource($this->menuRepository->update($request, $menuId)),
             'message'   => "Menu updated successfully",
             'errors'    => null,
         ]);
     }
 
-    public function show(Menu $menu) {
+    public function show($menuId) {
         return response()->json([
-            'data'      => new MenuResource($this->menuRepository->show($menu)),
+            'data'      => new MenuResource($this->menuRepository->show($menuId)),
             'message'   => "Menu retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function destroy(Menu $menu) {
+    public function destroy($menuId) {
         return response()->json([
-            'data'      => $this->menuRepository->destroy($menu),
+            'data'      => $this->menuRepository->destroy($menuId),
             'message'   => "Menu deleted successfully",
             'errors'    => null,
         ]);

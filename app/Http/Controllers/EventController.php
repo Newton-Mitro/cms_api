@@ -49,25 +49,25 @@ class EventController extends Controller {
         ]);
     }
 
-    public function show($event) {
+    public function show($eventId) {
         return response()->json([
-            'data'      => new EventResource($this->EventRepository->show($event)),
+            'data'      => new EventResource($this->EventRepository->show($eventId)),
             'message'   => "Event retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function update(UpdateEventRequest $request,  $event) {
+    public function update(UpdateEventRequest $request,  $eventId) {
         return response()->json([
-            'data' => new EventResource($this->EventRepository->update($request,  $event)),
+            'data' => new EventResource($this->EventRepository->update($request,  $eventId)),
             'message' => "Event updated successfully",
             'errors' => null,
         ]);
     }
 
-    public function destroy($event) {
+    public function destroy($eventId) {
         return response()->json([
-            'data' => $this->EventRepository->destroy($event),
+            'data' => $this->EventRepository->destroy($eventId),
             'message' => "Event deleted successfully",
             'errors' => null,
         ]);

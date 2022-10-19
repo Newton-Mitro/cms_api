@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder {
             ApplicationStageSeeder::class,
             PostTypeSeeder::class,
 
-            // MenuSeeder::class,
+            MenuSeeder::class,
             // PostSeeder::class,
             // EventSeeder::class,
             // StaffSeeder::class,

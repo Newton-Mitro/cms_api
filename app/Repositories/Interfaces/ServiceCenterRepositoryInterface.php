@@ -16,7 +16,7 @@ namespace App\Repositories\Interfaces;
 interface ServiceCenterRepositoryInterface {
     public function all();
     public function store($request);
-    public function update($request, $serviceCenter);
-    public function destroy($serviceCenter);
-    public function show($serviceCenter);
+    public function update($request, $serviceCenterId);
+    public function destroy($serviceCenterId);
+    public function show($serviceCenterId);
 }

@@ -107,11 +107,13 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
         return $applicant;
     }
 
-    public function destroy($applicant) {
+    public function destroy($applicantId) {
+        $applicant = Applicant::find($applicantId);
         return $applicant->delete();
     }
 
-    public function show($applicant) {
+    public function show($applicantId) {
+        $applicant = Applicant::find($applicantId);
         return $applicant;
     }
 }

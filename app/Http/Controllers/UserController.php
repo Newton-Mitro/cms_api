@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UserResource;
 use App\Http\Resources\User\UserCollection;
 use App\Http\Requests\User\StoreUserRequest;
@@ -20,6 +21,12 @@ use App\Http\Requests\User\UpdateUserRequest;
  *========================================================================**/
 
 class UserController extends Controller {
+
+    private $UsersRepository;
+
+    public function __construct(UsersRepositoryInterface $usersRepository) {
+        return $this->UsersRepository = $usersRepository;
+    }
 
     public function index() {
         return response()->json([
@@ -41,25 +48,25 @@ class UserController extends Controller {
         ]);
     }
 
-    public function show($user) {
+    public function show($userId) {
         return response()->json([
-            'data'      => new UserResource($this->UsersRepository->show($user)),
+            'data'      => new UserResource($this->UsersRepository->show($userId)),
             'message'   => "User retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function update(UpdateUserRequest $request,  $user) {
+    public function update(UpdateUserRequest $request,  $userId) {
         return response()->json([
-            'data' => new UserResource($this->UsersRepository->update($request,  $user)),
+            'data' => new UserResource($this->UsersRepository->update($request,  $userId)),
             'message' => "User updated successfully",
             'errors' => null,
         ]);
     }
 
-    public function destroy($user) {
+    public function destroy($userId) {
         return response()->json([
-            'data' => $this->UsersRepository->destroy($user),
+            'data' => $this->UsersRepository->destroy($userId),
             'message' => "User deleted successfully",
             'errors' => null,
         ]);

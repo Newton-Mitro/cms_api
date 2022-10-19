@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Post;
 use App\Utilities\LinkObject;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostCollection;
 use App\Http\Requests\Post\StorePostRequest;
@@ -49,10 +51,26 @@ class PostController extends Controller {
         ]);
     }
 
-    public function show(Post $post) {
+    public function show($postId) {
         return response()->json([
-            'data'      => new PostResource($this->postRepository->show($post)),
+            'data'      => new PostResource($this->postRepository->show($postId)),
             'message'   => "Post retrieved successfully",
+            'errors'    => null,
+        ]);
+    }
+
+    public function update(UpdatePostRequest $request, $postId) {
+        return response()->json([
+            'data'      =>  new PostResource($this->postRepository->update($request, $postId)),
+            'message'   => "Post updated successfully",
+            'errors'    => null,
+        ]);
+    }
+
+    public function destroy($postId) {
+        return response()->json([
+            "data"      => $this->postRepository->destroy($postId),
+            "message"   => "Post deleted successfully",
             'errors'    => null,
         ]);
     }
@@ -61,23 +79,6 @@ class PostController extends Controller {
         return response()->json([
             'data'      => new PostResource($this->postRepository->getPostByPostSlug($post_slug)),
             'message'   => "Post retrieved successfully",
-            'errors'    => null,
-        ]);
-    }
-
-    public function update(UpdatePostRequest $request, Post $post) {
-        return $post;
-        return response()->json([
-            'data'      =>  new PostResource($this->postRepository->update($request, $post)),
-            'message'   => "Post updated successfully",
-            'errors'    => null,
-        ]);
-    }
-
-    public function destroy(Post $post) {
-        return response()->json([
-            "data"      => $this->postRepository->destroy($post),
-            "message"   => "Post deleted successfully",
             'errors'    => null,
         ]);
     }

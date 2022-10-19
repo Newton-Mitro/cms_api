@@ -23,7 +23,8 @@ class PostTypeRepository implements PostTypeRepositoryInterface {
         return PostType::all();
     }
 
-    public function show($postType) {
+    public function show($postTypeId) {
+        $postType = PostType::find($postTypeId);
         return $postType;
     }
 }

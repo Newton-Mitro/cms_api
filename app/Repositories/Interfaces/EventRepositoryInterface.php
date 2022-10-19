@@ -16,7 +16,7 @@ namespace App\Repositories\Interfaces;
 interface EventRepositoryInterface {
     public function all();
     public function store($request);
-    public function update($request,  $event);
-    public function destroy($event);
-    public function show($event);
+    public function update($request,  $eventId);
+    public function destroy($eventId);
+    public function show($eventId);
 }

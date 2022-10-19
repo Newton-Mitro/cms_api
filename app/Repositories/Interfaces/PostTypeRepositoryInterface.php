@@ -15,5 +15,5 @@ namespace App\Repositories\Interfaces;
 
 interface PostTypeRepositoryInterface {
     public function all();
-    public function show($postType);
+    public function show($postTypeId);
 }

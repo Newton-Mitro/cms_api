@@ -43,8 +43,8 @@ class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
         return $ServiceCenter;
     }
 
-    public function  update($request, $serviceCenter) {
-        $service = ServiceCenter::find($serviceCenter);
+    public function  update($request, $serviceCenterId) {
+        $service = ServiceCenter::find($serviceCenterId);
         $service->service_center_name = $request->ServiceCenterName;
         $service->address = $request->Address;
         $service->latitude = $request->Latitude;
@@ -63,11 +63,13 @@ class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
         return $service;
     }
 
-    public function show($serviceCenter) {
+    public function show($serviceCenterId) {
+        $serviceCenter = ServiceCenter::find($serviceCenterId);
         return  $serviceCenter;
     }
 
-    public function destroy($serviceCenter) {
+    public function destroy($serviceCenterId) {
+        $serviceCenter = ServiceCenter::find($serviceCenterId);
         return $serviceCenter->delete();
     }
 }

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\StaffType\StaffTypeResource;
+use App\Http\Resources\StaffType\StaffTypeCollection;
+use App\Http\Requests\StaffType\StoreStaffTypeRequest;
+use App\Http\Requests\StaffType\UpdateStaffTypeRequest;
 
 /**========================================================================
  * ?                                ABOUT
@@ -17,9 +22,15 @@ use App\Utilities\LinkObject;
 
 class StaffTypeController extends Controller {
 
+    private $StaffTypesRepository;
+
+    public function __construct(StaffTypesRepositoryInterface $staffTypesRepository) {
+        return $this->StaffTypesRepository = $staffTypesRepository;
+    }
+
     public function index() {
         return response()->json([
-            'data'      => StaffTypeCollection::collection($this->StaffsRepository->all()),
+            'data'      => StaffTypeCollection::collection($this->StaffTypesRepository->all()),
             'message'   => "Staffs retrieved successfully",
             'errors'    => null,
             'links'     => [
@@ -30,33 +41,33 @@ class StaffTypeController extends Controller {
         ]);
     }
 
-    public function store(StoreStaffTypesRequest $request) {
+    public function store(StoreStaffTypeRequest $request) {
         return response()->json([
-            'data'      => new StaffResource($this->StaffsRepository->store($request)),
+            'data'      => new StaffTypeResource($this->StaffTypesRepository->store($request)),
             'message'   => "Staff created successfully",
             'errors'    => null,
         ]);
     }
 
-    public function show($staff) {
+    public function show($staffTypeId) {
         return response()->json([
-            'data'      => new StaffTypeResource($this->StaffsRepository->show($staff)),
+            'data'      => new StaffTypeResource($this->StaffTypesRepository->show($staffTypeId)),
             'message'   => "Staff retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function update(UpdateStaffTypesRequest $request,  $staff) {
+    public function update(UpdateStaffTypeRequest $request,  $staffTypeId) {
         return response()->json([
-            'data' => new StaffTypeResource($this->StaffsRepository->update($request,  $staff)),
+            'data' => new StaffTypeResource($this->StaffTypesRepository->update($request,  $staffTypeId)),
             'message' => "Staff updated successfully",
             'errors' => null,
         ]);
     }
 
-    public function destroy($staff) {
+    public function destroy($staffTypeId) {
         return response()->json([
-            'data' => $this->StaffsRepository->destroy($staff),
+            'data' => $this->StaffTypesRepository->destroy($staffTypeId),
             'message' => "Staff deleted successfully",
             'errors' => null,
         ]);

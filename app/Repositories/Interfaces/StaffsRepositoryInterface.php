@@ -16,7 +16,7 @@ namespace App\Repositories\Interfaces;
 interface StaffsRepositoryInterface {
     public function all();
     public function store($request);
-    public function show($staff);
-    public function update($request,  $staff);
-    public function destroy($staff);
+    public function show($staffId);
+    public function update($request,  $staffId);
+    public function destroy($staffId);
 }

@@ -50,25 +50,25 @@ class JobCircularController extends Controller {
         ]);
     }
 
-    public function show(JobCircular $jobCircular) {
+    public function show($jobCircularId) {
         return response()->json([
-            'data'      => new JobCircularResource($this->JobCircularRepository->show($jobCircular)),
+            'data'      => new JobCircularResource($this->JobCircularRepository->show($jobCircularId)),
             'message'   => "Job circular retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function update(UpdateJobCircularRequest $request, JobCircular $jobCircular) {
+    public function update(UpdateJobCircularRequest $request, $jobCircularId) {
         return response()->json([
-            "data" => $this->JobCircularRepository->update($request,  $jobCircular),
+            "data" => $this->JobCircularRepository->update($request,  $jobCircularId),
             "message" => "Job circular updated successfully",
             'errors' => null,
         ]);
     }
 
-    public function destroy(JobCircular $jobCircular) {
+    public function destroy($jobCircularId) {
         return response()->json([
-            "data" => $this->JobCircularRepository->destroy($jobCircular),
+            "data" => $this->JobCircularRepository->destroy($jobCircularId),
             "message" => "Job circular deleted successfully",
             'errors' => null,
         ]);

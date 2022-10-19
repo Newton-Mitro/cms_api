@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Post extends Model {
     use HasFactory;
 
+    protected $table = 'posts';
+
     public function postType() {
         return $this->belongsTo(PostType::class);
     }

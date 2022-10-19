@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Utilities\LinkObject;
 use App\Models\SocialMediaType;
+use App\Http\Controllers\Controller;
 
 /**========================================================================
  * ?                                ABOUT

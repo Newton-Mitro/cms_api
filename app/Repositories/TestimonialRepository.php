@@ -33,12 +33,13 @@ class TestimonialRepository implements TestimonialRepositoryInterface {
         return $testimonial;
     }
 
-    public function show($testimonial) {
+    public function show($testimonialId) {
+        $testimonial = Testimonial::find($testimonialId);
         return $testimonial;
     }
 
-    public function  update($request,  $testimonial) {
-        $testimonial = Testimonial::find($testimonial);
+    public function  update($request,  $testimonialId) {
+        $testimonial = Testimonial::find($testimonialId);
         $testimonial->name = $request->Name;
         $testimonial->content = $request->Content;
         $testimonial->rating = $request->Rating;
@@ -47,7 +48,8 @@ class TestimonialRepository implements TestimonialRepositoryInterface {
         return $testimonial;
     }
 
-    public function destroy($testimonial) {
+    public function destroy($testimonialId) {
+        $testimonial = Testimonial::find($testimonialId);
         return $testimonial->delete();
     }
 }

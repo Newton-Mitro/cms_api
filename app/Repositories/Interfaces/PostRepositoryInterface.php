@@ -16,9 +16,9 @@ namespace App\Repositories\Interfaces;
 interface PostRepositoryInterface {
     public function all();
     public function getPostsByPostType($post_type);
-    public function show($post);
+    public function show($postId);
     public function getPostByPostSlug($post_slug);
     public function store($request);
-    public function update($request, $post);
-    public function destroy($post);
+    public function update($request, $postId);
+    public function destroy($postId);
 }

@@ -49,25 +49,25 @@ class ApplicantController extends Controller {
         ]);
     }
 
-    public function show(Applicant $applicant) {
+    public function show($applicantId) {
         return response()->json([
-            'data'      => new ApplicantResource($this->ApplicantRepository->show($applicant)),
+            'data'      => new ApplicantResource($this->ApplicantRepository->show($applicantId)),
             'message'   => "Application retrieved successfully",
             'errors'    => null,
         ]);
     }
 
-    public function updateApplicationStatus($application_id, $status_id) {
+    public function updateApplicationStatus($applicantId, $statusId) {
         return response()->json([
-            'data' => new ApplicantResource($this->ApplicantRepository->updateApplicationStatus($application_id, $status_id)),
+            'data' => new ApplicantResource($this->ApplicantRepository->updateApplicationStatus($applicantId, $statusId)),
             'message' => "Application updated successfully",
             'errors' => null,
         ]);
     }
 
-    public function destroy($applicant) {
+    public function destroy($applicantId) {
         return response()->json([
-            'data' => $this->ApplicantRepository->destroy($applicant),
+            'data' => $this->ApplicantRepository->destroy($applicantId),
             'message' => "Applicant deleted successfully",
             'errors' => null,
         ]);

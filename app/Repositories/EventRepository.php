@@ -33,7 +33,8 @@ class EventRepository implements EventRepositoryInterface {
         return $event;
     }
 
-    public function  update($request,  $event) {
+    public function  update($request,  $eventId) {
+        $event = Event::find($eventId);
         $event->title = $request->Title;
         $event->event_date = $request->EventDate;
         $event->content = $request->Content;
@@ -42,11 +43,13 @@ class EventRepository implements EventRepositoryInterface {
         return $event;
     }
 
-    public function show($event) {
+    public function show($eventId) {
+        $event = Event::find($eventId);
         return $event;
     }
 
-    public function destroy($event) {
+    public function destroy($eventId) {
+        $event = Event::find($eventId);
         return $event->delete();
     }
 }
