@@ -38,10 +38,10 @@ class DatabaseSeeder extends Seeder {
             PostTypeSeeder::class,
 
             MenuSeeder::class,
-            // PostSeeder::class,
-            // EventSeeder::class,
-            // StaffSeeder::class,
-            // StaffSocialLinkSeeder::class,
+            PostSeeder::class,
+            EventSeeder::class,
+            StaffSeeder::class,
+            StaffSocialLinkSeeder::class,
         ]);
     }
 }

@@ -43,7 +43,7 @@ class MenuSeeder extends Seeder {
             'menu_name' => 'Mission',
             'link_to' => 'mission',
             'icon' => '',
-            'parent_id' => 1,
+            'parent_id' => 2,
             "created_at" => \Carbon\Carbon::now(),
             "updated_at" => \Carbon\Carbon::now(),
 
@@ -63,7 +63,7 @@ class MenuSeeder extends Seeder {
             'menu_name' => 'Vision',
             'link_to' => 'vision',
             'icon' => '',
-            'parent_id' => 1,
+            'parent_id' => 2,
             "created_at" => \Carbon\Carbon::now(),
             "updated_at" => \Carbon\Carbon::now(),
 
