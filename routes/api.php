@@ -14,6 +14,7 @@ use App\Http\Controllers\JobCircularController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ServiceCenterController;
 use App\Http\Controllers\StaffSocialLinkController;
+use App\Http\Controllers\StaffTypeController;
 
 /**========================================================================
  * ?                                ABOUT
@@ -58,4 +59,5 @@ Route::ApiResource('events', EventController::class);
 
 Route::ApiResource('testimonials', TestimonialController::class);
 
+Route::ApiResource('staff-types', StaffTypeController::class);
 Route::ApiResource('staffs', StaffsController::class);

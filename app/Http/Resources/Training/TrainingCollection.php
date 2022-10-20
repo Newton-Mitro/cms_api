@@ -22,8 +22,9 @@ class TrainingCollection extends JsonResource {
             'TrainingTitle' => $this->training_title,
             'NameTopic'     => $this->topic,
             'InstituteName' => $this->institute_name,
-            'Year'          => $this->year,
-            'Duration'      => $this->duration,
+            'fromDate'      => $this->from_date,
+            'toDate'        => $this->to_date,
+            'applicantId'   => $this->applicant_id,
         ];
     }
 }

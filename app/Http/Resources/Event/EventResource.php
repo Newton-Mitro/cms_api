@@ -25,10 +25,10 @@ class EventResource extends JsonResource {
             'eventDate'      => $this->event_date,
             'eventDetails'   => $this->event_details,
             'eventImage'     => base64_encode($this->event_image),
-            'links'         => [
-                new LinkObject("Store", "New Event", route('events.store'), "POST"),
-                new LinkObject("Update", "Update Event", route('events.update', $this->id), "PUT"),
-                new LinkObject("Delete", "Delete Event", route('events.destroy', $this->id), "DELETE"),
+            'links'          => [
+                new LinkObject("index", "Events", route('events.index'), "GET"),
+                new LinkObject("update", "Update Event", route('events.update', $this->id), "PUT"),
+                new LinkObject("destroy", "Delete Event", route('events.destroy', $this->id), "DELETE"),
             ],
         ];
     }

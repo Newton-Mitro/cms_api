@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Staff;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**========================================================================
  * ?                                ABOUT
@@ -12,10 +13,14 @@ use Illuminate\Database\Eloquent\Model;
  * @repo           :
  * @createdOn      : 3-10-2022
  * @updatedBy      : Newton Mitro
- * @UpdatedAt      : 15-10-2022
+ * @UpdatedAt      : 20-10-2022
  * @description    : job circular resource collection.
  *========================================================================**/
 
 class StaffType extends Model {
     use HasFactory;
+
+    public function staffs() {
+        return $this->hasMany(Staff::class);
+    }
 }

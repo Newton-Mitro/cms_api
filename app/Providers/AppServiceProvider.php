@@ -13,6 +13,7 @@ use App\Repositories\EductionRepository;
 use App\Repositories\PostTypeRepository;
 use App\Repositories\TrainingRepository;
 use App\Repositories\ApplicantRepository;
+use App\Repositories\StaffTypeRepository;
 use App\Repositories\JobHistoryRepository;
 use App\Repositories\JobCircularRepository;
 use App\Repositories\JobPositionRepository;
@@ -29,6 +30,7 @@ use App\Repositories\Interfaces\EductionRepositoryInterface;
 use App\Repositories\Interfaces\PostTypeRepositoryInterface;
 use App\Repositories\Interfaces\TrainingRepositoryInterface;
 use App\Repositories\Interfaces\ApplicantRepositoryInterface;
+use App\Repositories\Interfaces\StaffTypeRepositoryInterface;
 use App\Repositories\Interfaces\JobHistoryRepositoryInterface;
 use App\Repositories\Interfaces\JobCircularRepositoryInterface;
 use App\Repositories\Interfaces\JobPositionRepositoryInterface;
@@ -41,6 +43,7 @@ class AppServiceProvider extends ServiceProvider {
     public function register() {
         $this->app->bind(StaffsRepositoryInterface::class, StaffsRepository::class);
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
+        $this->app->bind(StaffTypeRepositoryInterface::class, StaffTypeRepository::class);
         $this->app->bind(StaffSocialLinkRepositoryInterface::class, StaffSocialLinkRepository::class);
         $this->app->bind(MenuRepositoryInterface::class, MenuRepository::class);
         $this->app->bind(TestimonialRepositoryInterface::class, TestimonialRepository::class);

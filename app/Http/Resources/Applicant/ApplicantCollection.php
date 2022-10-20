@@ -35,8 +35,8 @@ class ApplicantCollection extends JsonResource {
             'jobCircularId'                 => $this->job_circular_id,
             'expectedSalary'                => $this->expected_salary,
             'links'                         => [
-                new LinkObject("ApplicantResource", "View Applicant", route('applicants.show', $this->id), "GET"),
-                new LinkObject("ApplicantResource", "Delete Applicant", route('applicants.destroy', $this->id), "DELETE"),
+                new LinkObject("show", "View Application", route('applicants.show', $this->id), "GET"),
+                new LinkObject("destroy", "Delete Application", route('applicants.destroy', $this->id), "DELETE"),
             ],
         ];
     }

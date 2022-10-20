@@ -30,7 +30,7 @@ class PostResource extends JsonResource {
             'postContent'   => $this->post_content,
             'postTypeId'    => $this->post_type_id,
             'links'         => [
-                new LinkObject("store", "New Post", route('posts.store'), "POST"),
+                new LinkObject("index", "Posts", route('posts.index'), "GET"),
                 new LinkObject("update", "Update Post", route('posts.update', $this->id), "PUT"),
                 new LinkObject("destroy", "Delete Post", route('posts.destroy', $this->id), "DELETE"),
             ],

@@ -19,11 +19,12 @@ class JobHistoryCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'OrganizationName'  => $this->organization_name,
-            'Designation'       => $this->designation,
-            'Responsibilities'  => $this->responsibilities,
-            'ReasonForLeaving'  => $this->resignation_for_leaving,
-            'Salary'            => $this->salary,
+            'organizationName'  => $this->organization_name,
+            'designation'       => $this->designation,
+            'responsibilities'  => $this->responsibilities,
+            'reasonForLeaving'  => $this->resignation_for_leaving,
+            'salary'            => $this->salary,
+            'applicantId'       => $this->applicant_id,
         ];
     }
 }

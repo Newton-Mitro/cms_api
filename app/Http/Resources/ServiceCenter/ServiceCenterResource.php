@@ -19,20 +19,20 @@ class ServiceCenterResource extends JsonResource {
 
     public function toArray($request) {
         return [
-            'ServiceCenterId'       => $this->id,
-            'ServiceCenterName'     => $this->service_center_name,
-            'Address'               => $this->address,
-            'Latitude'              => $this->latitude,
-            'Longitude'             => $this->longitude,
-            'PhoneNumber'           => $this->phone_number,
-            'Fax'                   => $this->fax,
-            'Email'                 => $this->email,
-            'WorkDays'              => $this->work_days,
-            'OpeningTime'           => $this->opening_time,
-            'ClosingTime'           => $this->closing_time,
-            'ActingInCharge'        => $this->acting_in_charge,
-            'InChargeDesignation'   => $this->in_charge_designation,
-            'ServiceCenterTypeId'   => $this->service_center_type_id,
+            'serviceCenterId'       => $this->id,
+            'serviceCenterName'     => $this->service_center_name,
+            'address'               => $this->address,
+            'latitude'              => $this->latitude,
+            'longitude'             => $this->longitude,
+            'phoneNumber'           => $this->phone_number,
+            'fax'                   => $this->fax,
+            'email'                 => $this->email,
+            'workDays'              => $this->work_days,
+            'openingTime'           => $this->opening_time,
+            'closingTime'           => $this->closing_time,
+            'actingInCharge'        => $this->acting_in_charge,
+            'inChargeDesignation'   => $this->in_charge_designation,
+            'serviceCenterTypeId'   => $this->service_center_type_id,
         ];
     }
 }

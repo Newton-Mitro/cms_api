@@ -8,6 +8,7 @@ use App\Http\Resources\StaffType\StaffTypeResource;
 use App\Http\Resources\StaffType\StaffTypeCollection;
 use App\Http\Requests\StaffType\StoreStaffTypeRequest;
 use App\Http\Requests\StaffType\UpdateStaffTypeRequest;
+use App\Repositories\Interfaces\StaffTypeRepositoryInterface;
 
 /**========================================================================
  * ?                                ABOUT
@@ -16,7 +17,7 @@ use App\Http\Requests\StaffType\UpdateStaffTypeRequest;
  * @repo           : 
  * @createdOn      : 03-10-2022
  * @updatedBy      : Newton Mitro
- * @UpdatedAt      : 15-10-2022
+ * @UpdatedAt      : 20-10-2022
  * @description    : 
  *========================================================================**/
 
@@ -34,9 +35,8 @@ class StaffTypeController extends Controller {
             'message'   => "Staffs retrieved successfully",
             'errors'    => null,
             'links'     => [
-                new LinkObject("Self", "Staff Types", route('staff-types.index'), "GET"),
-                new LinkObject("Store", "New Staff Type", route('staff-types'), "POST"),
-                new LinkObject("All", "Staffs", route('staffs.index'), "GET"),
+                new LinkObject("store", "New Staff Type", route('staff-types.store'), "POST"),
+                new LinkObject("index", "Staffs", route('staffs.index'), "GET"),
             ]
         ]);
     }

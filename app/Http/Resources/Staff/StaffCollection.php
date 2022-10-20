@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Staff;
 
+use App\Utilities\LinkObject;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**========================================================================
@@ -24,6 +25,11 @@ class StaffCollection extends JsonResource {
             'staffDesignation'      => $this->staff_designation,
             'aboutTheStaff'         => $this->about_the_staff,
             'staffType'             => $this->staffType->staff_type_name,
+            'links'                 => [
+                new LinkObject("show", "View Staff", route('staffs.show', $this->id), "GET"),
+                new LinkObject("update", "Update Staff", route('staffs.update', $this->id), "PUT"),
+                new LinkObject("destroy", "Delete Staff", route('staffs.destroy', $this->id), "DELETE"),
+            ],
         ];
     }
 }

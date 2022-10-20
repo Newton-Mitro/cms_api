@@ -19,11 +19,12 @@ class EductionCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'NameOfDegree'  => $this->name_of_degree,
-            'InstituteName' => $this->institute_name,
-            'Major'         => $this->major,
-            'EductionBoard' => $this->board,
-            'Result'        => $this->result,
+            'nameOfDegree'  => $this->name_of_degree,
+            'instituteName' => $this->institute_name,
+            'major'         => $this->major,
+            'eductionBoard' => $this->board,
+            'result'        => $this->result,
+            'passingYear'   => $this->passing_year,
         ];
     }
 }

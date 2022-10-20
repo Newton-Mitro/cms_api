@@ -53,10 +53,11 @@ class ApplicantResource extends JsonResource {
             'jobHistories'                  => $this->jobHistories,
             'trainings'                     => $this->trainings,
             'links'                         => [
-                new LinkObject("ApplicantResource", "Select For Interview", route('applicants.store'), "PATCH"),
-                new LinkObject("ApplicantResource", "Reject Application", route('applicants.update', $this->id), "PATCH"),
-                new LinkObject("ApplicantResource", "Call For Interview", route('applicants.update', $this->id), "PATCH"),
-                new LinkObject("ApplicantResource", "Delete Applicant", route('applicants.destroy', $this->id), "DELETE"),
+                new LinkObject("index", "Applications", route('applicants.index'), "GET"),
+                new LinkObject("update", "Select For Interview", route('applicants.update', $this->id), "PATCH"),
+                new LinkObject("update", "Reject Application", route('applicants.update', $this->id), "PATCH"),
+                new LinkObject("update", "Call For Interview", route('applicants.update', $this->id), "PATCH"),
+                new LinkObject("destroy", "Delete Application", route('applicants.destroy', $this->id), "DELETE"),
             ],
         ];
     }
