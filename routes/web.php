@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/site-setup', function () {
+    $dbMigrate = Artisan::call('migrate:refresh');
+    echo "Migration Done.";
+
+    $dbSeed = Artisan::call('db:seed');
+    echo "Database Seeding Done.";
+
+    $optimize = Artisan::call('optimize:clear');
+    echo "Optimize For Production Done.";
+
+    $storageLink = Artisan::call('storage:link');
+    echo "Storage Link Created.";
 });
