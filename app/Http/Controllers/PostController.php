@@ -37,8 +37,8 @@ class PostController extends Controller {
             'error'     => null,
             'message'   => "Post retrieved successfully.",
             'links'     => [
-                new LinkObject("Self", "All", route('posts.index'), "GET"),
-                new LinkObject("Store", "New Post", route('posts.store'), "POST"),
+                new LinkObject("self", "Posts", route('posts.index'), "GET"),
+                new LinkObject("store", "New Post", route('posts.store'), "POST"),
             ]
         ]);
     }
@@ -89,8 +89,8 @@ class PostController extends Controller {
             'error'     => null,
             'message'   => "Posts retrieved successfully.",
             'links'     => [
-                new LinkObject("Self", "All", route('posts.getPostsByPostType', $postType), "GET"),
-                new LinkObject("Store", "New Post", route('posts.store'), "POST"),
+                new LinkObject("self", "Posts", route('posts.getPostsByPostType', $postType), "GET"),
+                new LinkObject("store", "New Post", route('posts.store'), "POST"),
             ]
         ]);
     }

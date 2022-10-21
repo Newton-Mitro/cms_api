@@ -25,9 +25,9 @@ class SocialMediaTypeController extends Controller {
             'message'   => "Social media types retrieved successfully",
             'errors'    => null,
             'links'     => [
-                new LinkObject("Self", "Social Media Types", route('social-media-types.index'), "GET"),
-                new LinkObject("Store", "New Social Media Type", route('social-media-types'), "POST"),
-                new LinkObject("All", "Staffs", route('staffs.index'), "GET"),
+                new LinkObject("self", "Social Media Types", route('social-media-types.index'), "GET"),
+                new LinkObject("store", "New Social Media Type", route('social-media-types.store'), "POST"),
+                new LinkObject("index", "Staffs", route('staffs.index'), "GET"),
             ]
         ]);
     }

@@ -35,8 +35,8 @@ class ServiceCenterController extends Controller {
             'message'   => "Service centers retrieved successfully",
             'errors'    => null,
             'links'     => [
-                new LinkObject("Self", "Service Centers", route('service-centers.index'), "GET"),
-                new LinkObject("Store", "New Service Center", route('service-centers.store'), "POST"),
+                new LinkObject("self", "Service Centers", route('service-centers.index'), "GET"),
+                new LinkObject("store", "New Service Center", route('service-centers.store'), "POST"),
             ]
         ]);
     }

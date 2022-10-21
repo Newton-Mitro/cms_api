@@ -33,8 +33,8 @@ class PostTypeController extends Controller {
             'message'   => "Post types retrieved successfully",
             'errors'    => null,
             'links'     => [
-                new LinkObject("Self", "Post Types", route('post-types.index'), "GET"),
-                new LinkObject("All", "Posts", route('posts.index'), "GET"),
+                new LinkObject("self", "Post Types", route('post-types.index'), "GET"),
+                new LinkObject("index", "Posts", route('posts.index'), "GET"),
             ]
         ]);
     }

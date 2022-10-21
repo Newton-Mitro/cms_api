@@ -34,8 +34,8 @@ class ApplicantController extends Controller {
             'error'     => null,
             'message'   => "Applications retrieved successfully.",
             'links'     => [
-                new LinkObject("Self", "All", route('applicants.index'), "GET"),
-                new LinkObject("Store", "New Application", route('applicants.store'), "POST"),
+                new LinkObject("self", "Applications", route('applicants.index'), "GET"),
+                new LinkObject("store", "New Application", route('applicants.store'), "POST"),
             ]
         ]);
     }

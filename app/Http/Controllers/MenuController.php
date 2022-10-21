@@ -36,8 +36,8 @@ class MenuController extends Controller {
             'error'     => null,
             'message'   => "Menus retrieved successfully.",
             'links'     => [
-                new LinkObject("Self", "All", route('menus.index'), "GET"),
-                new LinkObject("Store", "New Menu", route('menus.store'), "POST"),
+                new LinkObject("self", "Menus", route('menus.index'), "GET"),
+                new LinkObject("store", "New Menu", route('menus.store'), "POST"),
             ]
         ]);
     }
@@ -47,8 +47,8 @@ class MenuController extends Controller {
             'error'     => null,
             'message'   => "Menus retrieved successfully.",
             'links'     => [
-                new LinkObject("Self", "All", route('menus.index'), "GET"),
-                new LinkObject("Store", "New Menu", route('menus.store'), "POST"),
+                new LinkObject("self", "Menus", route('menus.rootMenus'), "GET"),
+                new LinkObject("store", "New Menu", route('menus.store'), "POST"),
             ]
         ]);
     }

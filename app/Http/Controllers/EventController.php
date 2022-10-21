@@ -35,8 +35,8 @@ class EventController extends Controller {
             'error'     => null,
             'message'   => "Events retrieved successfully.",
             'links'     => [
-                new LinkObject("Self", "All", route('events.index'), "GET"),
-                new LinkObject("Store", "New Event", route('events.store'), "POST"),
+                new LinkObject("self", "Events", route('events.index'), "GET"),
+                new LinkObject("store", "New Event", route('events.store'), "POST"),
             ]
         ]);
     }

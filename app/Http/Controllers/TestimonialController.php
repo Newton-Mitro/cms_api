@@ -35,8 +35,8 @@ class TestimonialController extends Controller {
             'message'   => "Testimonials retrieved successfully",
             'errors'    => null,
             'links'     => [
-                new LinkObject("Self", "Testimonials", route('testimonials.index'), "GET"),
-                new LinkObject("Store", "New Testimonial", route('testimonials.store'), "POST"),
+                new LinkObject("self", "Testimonials", route('testimonials.index'), "GET"),
+                new LinkObject("store", "New Testimonial", route('testimonials.store'), "POST"),
             ]
         ]);;
     }

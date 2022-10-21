@@ -23,10 +23,11 @@ class UpdateTestimonialRequest extends FormRequest {
 
     public function rules() {
         return [
-            'Name'      => 'required',
-            'Image'     => 'required',
-            'Content'   => 'required',
-            'Rating'    => 'required',
+            'clientName'                    => 'required',
+            'clientProfessionOrDesignation' => 'required',
+            'clientTestimonial'             => 'required',
+            'clientImage'                   => 'required',
+            'clientRating'                  => 'required|nullable',
         ];
     }
 }

@@ -19,9 +19,9 @@ class TrainingCollection extends JsonResource {
 
     public function toArray($request) {
         return [
-            'TrainingTitle' => $this->training_title,
-            'NameTopic'     => $this->topic,
-            'InstituteName' => $this->institute_name,
+            'trainingTitle' => $this->training_title,
+            'nameTopic'     => $this->topic,
+            'instituteName' => $this->institute_name,
             'fromDate'      => $this->from_date,
             'toDate'        => $this->to_date,
             'applicantId'   => $this->applicant_id,

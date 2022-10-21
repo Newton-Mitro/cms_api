@@ -24,10 +24,11 @@ class TestimonialRepository implements TestimonialRepositoryInterface {
 
     public function store($request) {
         $testimonial = new Testimonial();
-        $testimonial->name = $request->Name;
-        $testimonial->content = $request->Content;
-        $testimonial->rating = $request->Rating;
-        $testimonial->image = base64_decode($request->Image, false);
+        $testimonial->client_name = $request->clientName;
+        $testimonial->client_testimonial = $request->clientTestimonial;
+        $testimonial->client_profession_or_designation = $request->clientProfessionOrDesignation;
+        $testimonial->client_rating = $request->clientRating;
+        $testimonial->client_image = base64_decode($request->clientImage, false);
         $testimonial->save();
         return $testimonial;
     }
@@ -38,10 +39,11 @@ class TestimonialRepository implements TestimonialRepositoryInterface {
 
     public function  update($request,  $testimonialId) {
         $testimonial = Testimonial::findOrFail($testimonialId);
-        $testimonial->name = $request->Name;
-        $testimonial->content = $request->Content;
-        $testimonial->rating = $request->Rating;
-        $testimonial->image = base64_decode($request->Image, false);
+        $testimonial->client_name = $request->clientName;
+        $testimonial->client_testimonial = $request->clientTestimonial;
+        $testimonial->client_profession_or_designation = $request->clientProfessionOrDesignation;
+        $testimonial->client_rating = $request->clientRating;
+        $testimonial->client_image = base64_decode($request->clientImage, false);
         $testimonial->update();
         return $testimonial;
     }

@@ -35,7 +35,7 @@ class StaffsController extends Controller {
             'message'   => "Staffs retrieved successfully",
             'errors'    => null,
             'links'     => [
-                new LinkObject("index", "Staffs", route('staffs.index'), "GET"),
+                new LinkObject("self", "Staffs", route('staffs.index'), "GET"),
                 new LinkObject("store", "New Staff", route('staffs.store'), "POST"),
             ]
 

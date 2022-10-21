@@ -35,6 +35,7 @@ class StaffTypeController extends Controller {
             'message'   => "Staffs retrieved successfully",
             'errors'    => null,
             'links'     => [
+                new LinkObject("self", "Staff Types", route('staff-types.index'), "GET"),
                 new LinkObject("store", "New Staff Type", route('staff-types.store'), "POST"),
                 new LinkObject("index", "Staffs", route('staffs.index'), "GET"),
             ]

@@ -7,8 +7,9 @@ namespace App\Repositories;
 use App\Models\Training;
 use App\Models\Applicant;
 use App\Models\Education;
-use App\Models\JobCircular;
 use App\Models\JobHistory;
+use App\Models\JobCircular;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Interfaces\ApplicantRepositoryInterface;
 
@@ -45,7 +46,7 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
         $applicant->father_name = $request->fatherName;
         $applicant->mother_name = $request->motherName;
         $applicant->spouse_name = $request->spouseName;
-        $applicant->present_address_1 = $request->presentAddress1;
+        ($request->presentAddress1 != null || $request->presentAddress1 != "") ? $applicant->present_address_1 = $request->presentAddress1 : null;
         $applicant->present_address_2 = $request->presentAddress2;
         $applicant->present_address_3 = $request->presentAddress3;
         $applicant->present_address_4 = $request->presentAddress4;
@@ -65,6 +66,8 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
         $applicant->expected_salary = $request->expectedSalary;
         $applicant->save();
 
+
+
         foreach ($request->educations as $educationRequestItem) {
             $education = new Education;
             $education->name_of_degree = $educationRequestItem['nameOfDegree'];
@@ -73,6 +76,8 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
             $education->board = $educationRequestItem['eductionBoard'];
             $education->result = $educationRequestItem['result'];
             $education->passing_year = $educationRequestItem['passingYear'];
+            // $applicant->educations()->save($education);
+
             $education->applicant_id = $applicant->id;
             $education->save();
         }
@@ -84,6 +89,8 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
             $history->responsibilities = $jobHistoryRequestItem['responsibilities'];
             $history->reason_for_leaving = $jobHistoryRequestItem['reasonForLeaving'];
             $history->salary = $jobHistoryRequestItem['salary'];
+            // $applicant->jobHistories()->save($history);
+
             $history->applicant_id = $applicant->id;
             $history->save();
         }
@@ -95,6 +102,7 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
             $training->institute_name = $trainingRequestItem['instituteName'];
             $training->from_date = $trainingRequestItem['fromDate'];
             $training->to_date = $trainingRequestItem['toDate'];
+            // $applicant->trainings()->save($training);
             $training->applicant_id = $applicant->id;
             $training->save();
         }

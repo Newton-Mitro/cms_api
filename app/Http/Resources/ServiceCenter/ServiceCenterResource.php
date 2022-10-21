@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\ServiceCenter;
 
+use App\Utilities\LinkObject;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**========================================================================
@@ -33,6 +34,11 @@ class ServiceCenterResource extends JsonResource {
             'actingInCharge'        => $this->acting_in_charge,
             'inChargeDesignation'   => $this->in_charge_designation,
             'serviceCenterTypeId'   => $this->service_center_type_id,
+            'links'                 => [
+                new LinkObject("index", "Service Centers", route('service_centers.index'), "GET"),
+                new LinkObject("update", "Update Service Centers", route('service_centers.update', $this->id), "PUT"),
+                new LinkObject("destroy", "Delete Service Centers", route('service_centers.destroy', $this->id), "DELETE"),
+            ],
         ];
     }
 }

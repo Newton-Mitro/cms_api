@@ -9,8 +9,8 @@ class UserResource extends JsonResource {
     public function toArray($request) {
         return [
             'userId'           => $this->id,
-            'name'             => $this->name,
-            'email'            => $this->email,
+            'userName'         => $this->name,
+            'userEmail'         => $this->email,
             'password'         => $this->password,
             'links'            => [
                 new LinkObject("index", "Users", route('users.index'), "GET"),

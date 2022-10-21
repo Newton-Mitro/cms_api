@@ -36,8 +36,8 @@ class JobCircularController extends Controller {
             'error'     => null,
             'message'   => "Job circulars retrieved successfully.",
             'links'     => [
-                new LinkObject("Self", "All", route('job-circulars.index'), "GET"),
-                new LinkObject("Store", "New Job Circular", route('job-circulars.store'), "POST"),
+                new LinkObject("self", "Job Circulars", route('job-circulars.index'), "GET"),
+                new LinkObject("store", "New Job Circular", route('job-circulars.store'), "POST"),
             ]
         ]);
     }

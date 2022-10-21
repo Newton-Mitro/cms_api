@@ -35,8 +35,8 @@ class UserController extends Controller {
             'message'   => "Users retrieved successfully",
             'errors'    => null,
             'links'     => [
-                new LinkObject("Self", "Users", route('users.index'), "GET"),
-                new LinkObject("Store", "New User", route('users.store'), "POST"),
+                new LinkObject("self", "Users", route('users.index'), "GET"),
+                new LinkObject("store", "New User", route('users.store'), "POST"),
             ]
         ]);
     }

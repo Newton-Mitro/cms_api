@@ -10,8 +10,8 @@ class UserCollection extends ResourceCollection {
     public function toArray($request) {
         return [
             'userId'           => $this->id,
-            'name'             => $this->name,
-            'email'            => $this->email,
+            'userName'         => $this->name,
+            'userEmail'         => $this->email,
             'password'         => $this->password,
             'links'            => [
                 new LinkObject("show", "View User", route('users.show', $this->id), "GET"),
