@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Schema;
  *========================================================================**/
 
 return new class extends Migration {
-    
+
     public function up() {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
@@ -24,6 +24,8 @@ return new class extends Migration {
             $table->string('link_to')->nullable();
             $table->string('icon')->nullable();
             $table->integer('parent_id')->default(0);
+            $table->boolean('admin_menu')->default(false);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

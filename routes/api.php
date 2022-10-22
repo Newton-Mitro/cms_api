@@ -42,7 +42,8 @@ Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers',], funct
 Route::ApiResource('users', UserController::class);
 
 Route::ApiResource('menus', MenuController::class);
-Route::get('root/menus', [MenuController::class, 'rootMenus'])->name('menus.rootMenus');
+Route::get('root/public-menus', [MenuController::class, 'publicRootMenus'])->name('menus.publicRootMenus');
+Route::get('root/admin-menus', [MenuController::class, 'adminRootMenus'])->name('menus.adminRootMenus');
 
 Route::ApiResource('post-types', PostTypeController::class);
 Route::ApiResource('posts', PostController::class);

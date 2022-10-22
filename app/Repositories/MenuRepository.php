@@ -22,8 +22,12 @@ class MenuRepository implements MenuRepositoryInterface {
         return Menu::paginate(10);
     }
 
-    public function rootMenus() {
-        return Menu::where('parent_id', 0)->get();
+    public function publicRootMenus() {
+        return Menu::where([['parent_id', '=', 0], ['active', '=', true], ['admin_menu', '=', false]])->get();
+    }
+
+    public function adminRootMenus() {
+        return Menu::where([['parent_id', '=', 0], ['active', '=', true], ['admin_menu', '=', true]])->get();
     }
 
     public function store($request) {

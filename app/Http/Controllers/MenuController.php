@@ -42,12 +42,23 @@ class MenuController extends Controller {
         ]);
     }
 
-    public function rootMenus() {
-        return MenuCollection::collection($this->menuRepository->rootMenus())->additional([
+    public function publicRootMenus() {
+        return MenuCollection::collection($this->menuRepository->publicRootMenus())->additional([
             'error'     => null,
             'message'   => "Menus retrieved successfully.",
             'links'     => [
-                new LinkObject("self", "Menus", route('menus.rootMenus'), "GET"),
+                new LinkObject("self", "Menus", route('menus.publicRootMenus'), "GET"),
+                new LinkObject("store", "New Menu", route('menus.store'), "POST"),
+            ]
+        ]);
+    }
+
+    public function adminRootMenus() {
+        return MenuCollection::collection($this->menuRepository->adminRootMenus())->additional([
+            'error'     => null,
+            'message'   => "Menus retrieved successfully.",
+            'links'     => [
+                new LinkObject("self", "Menus", route('menus.adminRootMenus'), "GET"),
                 new LinkObject("store", "New Menu", route('menus.store'), "POST"),
             ]
         ]);

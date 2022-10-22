@@ -15,7 +15,8 @@ namespace App\Repositories\Interfaces;
 
 interface MenuRepositoryInterface {
     public function all();
-    public function rootMenus();
+    public function publicRootMenus();
+    public function adminRootMenus();
     public function store($request);
     public function  update($request,  $menuId);
     public function show($menuId);
