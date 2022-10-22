@@ -32,7 +32,7 @@ class EventController extends Controller {
 
     public function index() {
         return EventCollection::collection($this->EventRepository->all())->additional([
-            'error'     => null,
+            'errors'     => null,
             'message'   => "Events retrieved successfully.",
             'links'     => [
                 new LinkObject("self", "Events", route('events.index'), "GET"),

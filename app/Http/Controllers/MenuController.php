@@ -33,7 +33,7 @@ class MenuController extends Controller {
 
     public function index() {
         return MenuResource::collection($this->menuRepository->all())->additional([
-            'error'     => null,
+            'errors'     => null,
             'message'   => "Menus retrieved successfully.",
             'links'     => [
                 new LinkObject("self", "Menus", route('menus.index'), "GET"),
@@ -44,7 +44,7 @@ class MenuController extends Controller {
 
     public function publicRootMenus() {
         return MenuCollection::collection($this->menuRepository->publicRootMenus())->additional([
-            'error'     => null,
+            'errors'     => null,
             'message'   => "Menus retrieved successfully.",
             'links'     => [
                 new LinkObject("self", "Menus", route('menus.publicRootMenus'), "GET"),
@@ -55,7 +55,7 @@ class MenuController extends Controller {
 
     public function adminRootMenus() {
         return MenuCollection::collection($this->menuRepository->adminRootMenus())->additional([
-            'error'     => null,
+            'errors'     => null,
             'message'   => "Menus retrieved successfully.",
             'links'     => [
                 new LinkObject("self", "Menus", route('menus.adminRootMenus'), "GET"),

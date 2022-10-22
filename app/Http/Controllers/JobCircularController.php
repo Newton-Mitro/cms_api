@@ -33,7 +33,7 @@ class JobCircularController extends Controller {
 
     public function index() {
         return JobCircularCollection::collection($this->JobCircularRepository->all())->additional([
-            'error'     => null,
+            'errors'     => null,
             'message'   => "Job circulars retrieved successfully.",
             'links'     => [
                 new LinkObject("self", "Job Circulars", route('job-circulars.index'), "GET"),

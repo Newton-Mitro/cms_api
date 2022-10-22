@@ -34,7 +34,7 @@ class PostController extends Controller {
 
     public function index() {
         return PostCollection::collection($this->postRepository->all())->additional([
-            'error'     => null,
+            'errors'     => null,
             'message'   => "Post retrieved successfully.",
             'links'     => [
                 new LinkObject("self", "Posts", route('posts.index'), "GET"),
@@ -86,7 +86,7 @@ class PostController extends Controller {
 
     public function getPostsByPostType($postType) {
         return PostCollection::collection($this->postRepository->getPostsByPostType($postType))->additional([
-            'error'     => null,
+            'errors'     => null,
             'message'   => "Posts retrieved successfully.",
             'links'     => [
                 new LinkObject("self", "Posts", route('posts.getPostsByPostType', $postType), "GET"),
