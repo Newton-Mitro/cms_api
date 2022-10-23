@@ -16,23 +16,23 @@ use Illuminate\Support\Facades\Schema;
  *========================================================================**/
 
 return new class extends Migration {
-    
+
     public function up() {
         Schema::create('service_centers', function (Blueprint $table) {
             $table->id();
             $table->string('service_center_name');
             $table->string('address');
-            $table->string('phone_number');
-            $table->string('fax');
-            $table->string('email');
-            $table->string('work_days');
-            $table->string('opening_time');
-            $table->string('closing_time');
-            $table->string('acting_in_charge');
-            $table->string('in_charge_designation');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->unsignedBigInteger('service_center_type_id');
+            $table->string('phone_number')->nullable();
+            $table->string('fax')->nullable();
+            $table->string('email')->nullable();
+            $table->string('work_days')->nullable();
+            $table->string('opening_time')->nullable();
+            $table->string('closing_time')->nullable();
+            $table->string('acting_in_charge')->nullable();
+            $table->string('in_charge_designation')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->unsignedBigInteger('service_center_type_id')->nullable();
             $table->timestamps();
             $table->foreign('service_center_type_id')->references('id')->on('service_center_types')->onDelete('cascade');
         });
