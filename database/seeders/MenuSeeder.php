@@ -41,7 +41,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'About Us',
-            'link_to' => 'posts/post-slug/About Us',
+            'link_to' => 'posts/post-slug/about-us',
             'icon' => 'fa-solid fa-circle-question',
             'parent_id' => 2,
             'admin_menu' => false,
@@ -51,7 +51,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Brief Summery',
-            'link_to' => 'posts/post-slug/Brief Summery',
+            'link_to' => 'posts/post-slug/brief-summery',
             'icon' => '',
             'parent_id' => 3,
             'admin_menu' => false,
@@ -61,7 +61,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Founder\'s Profile',
-            'link_to' => 'posts/post-slug/Founder\'s Profile',
+            'link_to' => 'posts/post-slug/founders-profile',
             'icon' => 'fa-duotone fa-bullseye-arrow',
             'parent_id' => 3,
             'admin_menu' => false,
@@ -71,7 +71,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'President Message',
-            'link_to' => 'posts/post-slug/President Message',
+            'link_to' => 'posts/post-slug/president-message',
             'icon' => '',
             'parent_id' => 3,
             'admin_menu' => false,
@@ -81,7 +81,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Our Story',
-            'link_to' => 'posts/post-slug/Our Story',
+            'link_to' => 'posts/post-slug/our-story',
             'icon' => '',
             'parent_id' => 3,
             'admin_menu' => false,
@@ -91,7 +91,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Mission & Vision',
-            'link_to' => 'posts/post-slug/Mission & Vision',
+            'link_to' => 'posts/post-slug/mission-vision',
             'icon' => '',
             'parent_id' => 3,
             'admin_menu' => false,
@@ -101,7 +101,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Core Values',
-            'link_to' => 'posts/post-slug/Core Values',
+            'link_to' => 'posts/post-slug/core-values',
             'icon' => '',
             'parent_id' => 3,
             'admin_menu' => false,
@@ -111,7 +111,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Achievements',
-            'link_to' => 'posts/post-slug/Achievements',
+            'link_to' => 'posts/post-slug/achievements',
             'icon' => '',
             'parent_id' => 3,
             'admin_menu' => false,
@@ -121,7 +121,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Women\'s Activity',
-            'link_to' => 'posts/post-slug/Women\'s Activity',
+            'link_to' => 'posts/post-slug/womens-activity',
             'icon' => '',
             'parent_id' => 3,
             'admin_menu' => false,
@@ -131,7 +131,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Board Members',
-            'link_to' => 'posts/post-slug/Board Members',
+            'link_to' => 'posts/post-slug/board-members',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 2,
             'admin_menu' => false,
@@ -141,7 +141,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Office Bearer',
-            'link_to' => 'posts/post-slug/Office Bearer',
+            'link_to' => 'posts/post-slug/office-bearer',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -151,7 +151,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Board of Directors',
-            'link_to' => 'posts/post-slug/Board of Directors',
+            'link_to' => 'posts/post-slug/board-of-directors',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -161,7 +161,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Credit Committee',
-            'link_to' => 'posts/post-slug/Credit Committee',
+            'link_to' => 'posts/post-slug/credit-committee',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -171,7 +171,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Supervisory Committee',
-            'link_to' => 'posts/post-slug/Supervisory Committee',
+            'link_to' => 'posts/post-slug/supervisory-committee',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -181,7 +181,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Our Policies',
-            'link_to' => 'posts/post-slug/Our Policies',
+            'link_to' => 'posts/post-types/Our Policies',
             'icon' => '',
             'parent_id' => 2,
             'admin_menu' => false,
@@ -191,7 +191,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'AGM Reports',
-            'link_to' => 'posts/post-slug/AGM Reports',
+            'link_to' => 'posts/post-types/AGM Reports',
             'icon' => '',
             'parent_id' => 2,
             'admin_menu' => false,

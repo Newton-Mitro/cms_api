@@ -20,7 +20,7 @@ class PostTypeSeeder extends Seeder {
 
     public function run() {
         $post_types = array(
-            "Post", "Page", "Deposit Product", "Loan Product", "Service", "Project", "Notification", "News", "Our-policies"
+            "Post", "Page", "Deposit Product", "Loan Product", "Service", "Project", "Notification", "News", "Our Policies", "AGM Reports"
         );
 
         foreach ($post_types as $post_type) {
