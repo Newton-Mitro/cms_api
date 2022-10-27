@@ -2,8 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Repositories\Interfaces\StaffsRepositoryInterface;
 use App\Models\Staff;
+use Illuminate\Support\Facades\Storage;
+use App\Repositories\Interfaces\StaffsRepositoryInterface;
 
 /**------------------------------------------------------------------------
  * ?                                ABOUT
@@ -23,8 +24,10 @@ class StaffsRepository implements StaffsRepositoryInterface {
 
     public function store($request) {
         $staff = new Staff();
+        $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
+        Storage::disk('local')->put($filePath, base64_decode($request->image, false));
+        $staff->image = Storage::url($filePath);
         $staff->name = $request->Name;
-        $staff->image = base64_decode($request->Image, false);
         $staff->designation = $request->Designation;
         $staff->content = $request->Content;
         $staff->save();
@@ -37,11 +40,13 @@ class StaffsRepository implements StaffsRepositoryInterface {
 
     public function update($request,  $staffId) {
         $staff = Staff::findOrFail($staffId);
+        $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
+        Storage::disk('local')->put($filePath, base64_decode($request->image, false));
+        $staff->image = Storage::url($filePath);
         $staff->name = $request->Name;
         $staff->designation = $request->Designation;
         $staff->content = $request->Content;
         $staff->link_type_id = $request->Link_Type_Id;
-        $staff->image = base64_decode($request->Image, false);
         $staff->update();
         return  $staff;
     }

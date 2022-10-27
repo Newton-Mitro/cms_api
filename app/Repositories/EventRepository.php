@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Event;
+use Illuminate\Support\Facades\Storage;
 use App\Repositories\Interfaces\EventRepositoryInterface;
 
 /**========================================================================
@@ -24,20 +25,24 @@ class EventRepository implements EventRepositoryInterface {
 
     public function store($request) {
         $event = new Event();
+        $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
+        Storage::disk('local')->put($filePath, base64_decode($request->eventImage, false));
+        $event->event_image = Storage::url($filePath);
         $event->event_title = $request->eventTitle;
         $event->event_date = $request->eventDate;
         $event->event_details = $request->eventDetails;
-        $event->event_image = base64_decode($request->eventImage, false);
         $event->save();
         return $event;
     }
 
     public function  update($request,  $eventId) {
         $event = Event::findOrFail($eventId);
+        $filePath =  'public/images/post/' . date_timestamp_get(date_create()) . '.jpg';
+        Storage::disk('local')->put($filePath, base64_decode($request->eventImage, false));
+        $event->event_image = Storage::url($filePath);
         $event->event_title = $request->eventTitle;
         $event->event_date = $request->eventDate;
         $event->event_details = $request->eventDetails;
-        $event->event_image = base64_decode($request->eventImage, false);
         $event->update();
         return $event;
     }

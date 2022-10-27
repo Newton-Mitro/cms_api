@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Repositories;
 
 use App\Models\Training;
@@ -9,7 +7,6 @@ use App\Models\Applicant;
 use App\Models\Education;
 use App\Models\JobHistory;
 use App\Models\JobCircular;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Interfaces\ApplicantRepositoryInterface;
 
@@ -33,12 +30,11 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
     public function store($request) {
         $applicant = new Applicant;
         $jobCircular = JobCircular::findOrFail($request->jobCircularId);
-        // $photoFilePath =  'public/images/application/photos/' . date_timestamp_get(date_create()) . '.jpg';
-        // $resumeFilePath =  'public/documents/application/resumes/' . date_timestamp_get(date_create()) . '.pdf';
-        // Storage::disk('local')->put($photoFilePath, base64_decode($request->applicantPhoto, false));
-        // Storage::disk('local')->put($resumeFilePath, base64_decode($request->attachedResume, false));
-        // $applicant->applicant_photo = Storage::url($photoFilePath);
-        $applicant->applicant_photo = base64_decode($request->applicantPhoto, false);
+        $photoFilePath =  'public/images/application/photos/' . date_timestamp_get(date_create()) . '.jpg';
+        $resumeFilePath =  'public/documents/application/resumes/' . date_timestamp_get(date_create()) . '.pdf';
+        Storage::disk('local')->put($photoFilePath, base64_decode($request->applicantPhoto, false));
+        Storage::disk('local')->put($resumeFilePath, base64_decode($request->attachedResume, false));
+        $applicant->applicant_photo = Storage::url($photoFilePath);
         $applicant->applicant_name = $request->applicantFullName;
         $applicant->applicant_email = $request->applicantEmail;
         $applicant->applicant_phone_number = $request->applicantPhoneNumber;
@@ -61,7 +57,7 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
         $applicant->nationality = $request->nationality;
         $applicant->marital_status = $request->maritalStatus;
         $applicant->job_circular_id = $request->jobCircularId;
-        $applicant->attached_resume = base64_decode($request->attachedResume, false);
+        $applicant->attached_resume = Storage::url($resumeFilePath);
         $applicant->cover_letter = $request->coverLetter;
         $applicant->expected_salary = $request->expectedSalary;
         $applicant->save();
@@ -76,8 +72,6 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
             $education->board = $educationRequestItem['eductionBoard'];
             $education->result = $educationRequestItem['result'];
             $education->passing_year = $educationRequestItem['passingYear'];
-            // $applicant->educations()->save($education);
-
             $education->applicant_id = $applicant->id;
             $education->save();
         }
@@ -89,8 +83,6 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
             $history->responsibilities = $jobHistoryRequestItem['responsibilities'];
             $history->reason_for_leaving = $jobHistoryRequestItem['reasonForLeaving'];
             $history->salary = $jobHistoryRequestItem['salary'];
-            // $applicant->jobHistories()->save($history);
-
             $history->applicant_id = $applicant->id;
             $history->save();
         }
@@ -102,7 +94,6 @@ class ApplicantRepository implements ApplicantRepositoryInterface {
             $training->institute_name = $trainingRequestItem['instituteName'];
             $training->from_date = $trainingRequestItem['fromDate'];
             $training->to_date = $trainingRequestItem['toDate'];
-            // $applicant->trainings()->save($training);
             $training->applicant_id = $applicant->id;
             $training->save();
         }
