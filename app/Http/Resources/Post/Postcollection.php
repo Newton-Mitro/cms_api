@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Post;
 
 use App\Utilities\LinkObject;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**========================================================================
@@ -23,6 +24,7 @@ class PostCollection extends JsonResource {
             'postSlug'      => $this->post_slug,
             'postTitle'     => $this->post_title,
             'postIcon'      => $this->post_icon,
+            'postImage'     => base64_encode(Storage::get(str_replace("storage", "public", $this->post_image))),
             'postContent'   => $this->post_content,
             'postType'      => $this->postType->post_type_name,
             'links'         => [
