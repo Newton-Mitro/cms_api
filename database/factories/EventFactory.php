@@ -23,7 +23,7 @@ class EventFactory extends Factory {
     public function definition() {
         $slug = $this->faker->realText(10);
 
-        $paragraphs = $this->faker->paragraphs(rand(2, 6));
+        $paragraphs = $this->faker->paragraphs(rand(2, 10));
         $event = "<h1>{$slug}</h1>";
         foreach ($paragraphs as $para) {
             $event .= "<p>{$para}</p>";

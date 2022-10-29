@@ -161,7 +161,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Credit Committee',
-            'link_to' => 'posts/post-slug/credit-committee',
+            'link_to' => 'posts/post-slug/credit committee',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -171,7 +171,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Supervisory Committee',
-            'link_to' => 'posts/post-slug/supervisory-committee',
+            'link_to' => 'posts/post-slug/supervisory committee',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -181,7 +181,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Our Policies',
-            'link_to' => 'posts/post-types/Our Policies',
+            'link_to' => 'posts/post-types/policy',
             'icon' => '',
             'parent_id' => 2,
             'admin_menu' => false,
@@ -191,7 +191,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'AGM Reports',
-            'link_to' => 'posts/post-types/AGM Reports',
+            'link_to' => 'posts/post-types/agm report',
             'icon' => '',
             'parent_id' => 2,
             'admin_menu' => false,
@@ -211,7 +211,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Deposit Products',
-            'link_to' => 'posts/post-types/Deposit Products',
+            'link_to' => 'posts/post-types/deposit product',
             'icon' => 'fa-sharp fa-solid fa-piggy-bank',
             'parent_id' => 19,
             'admin_menu' => false,
@@ -221,7 +221,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Loan Products',
-            'link_to' => 'posts/post-types/Loan Products',
+            'link_to' => 'posts/post-types/loan product',
             'icon' => 'fa-sharp fa-solid fa-piggy-bank',
             'parent_id' => 19,
             'admin_menu' => false,
@@ -231,7 +231,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Projects',
-            'link_to' => 'posts/post-types/Projects',
+            'link_to' => 'posts/post-types/project',
             'icon' => 'fa-solid fa-address-book',
             'parent_id' => 0,
             'admin_menu' => false,
@@ -241,7 +241,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Service',
-            'link_to' => 'posts/post-types/Service',
+            'link_to' => 'posts/post-types/service',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 0,
             'admin_menu' => false,
