@@ -42,6 +42,17 @@ class StaffsController extends Controller {
         ]);
     }
 
+    public function getStaffsByType($staffType) {
+        return StaffCollection::collection($this->StaffsRepository->getStaffsByType($staffType))->additional([
+            'errors'     => null,
+            'message'   => "Staffs retrieved successfully.",
+            'links'     => [
+                new LinkObject("self", "Staffs", route('staffs.getStaffsByType', $staffType), "GET"),
+                new LinkObject("store", "New Staff", route('staffs.store'), "POST"),
+            ]
+        ]);
+    }
+
     public function store(StoreStaffsRequest $request) {
         return response()->json([
             'data'      => new StaffResource($this->StaffsRepository->store($request)),

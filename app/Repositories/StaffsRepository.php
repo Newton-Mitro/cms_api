@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Staff;
+use App\Models\StaffType;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Interfaces\StaffsRepositoryInterface;
 
@@ -20,6 +21,11 @@ class StaffsRepository implements StaffsRepositoryInterface {
 
     public function all() {
         return Staff::paginate(10);
+    }
+
+    public function getStaffsByType($staffType){
+        $staffType = StaffType::where('staff_type_name', $staffType)->firstOrFail();
+        return Staff::where('staff_type_id', $staffType->id)->paginate(10);
     }
 
     public function store($request) {

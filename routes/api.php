@@ -62,3 +62,4 @@ Route::ApiResource('testimonials', TestimonialController::class);
 
 Route::ApiResource('staff-types', StaffTypeController::class);
 Route::ApiResource('staffs', StaffsController::class);
+Route::get('staffs/staff-types/{StaffType}', [StaffsController::class, 'getStaffsByType'])->name('staffs.getStaffsByType');

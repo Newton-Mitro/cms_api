@@ -131,7 +131,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Board Members',
-            'link_to' => 'posts/post-slug/board-members',
+            'link_to' => null,
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 2,
             'admin_menu' => false,
@@ -141,7 +141,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Office Bearer',
-            'link_to' => 'posts/post-slug/office-bearer',
+            'link_to' => 'staffs/staff-types/office bearer',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -151,7 +151,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Board of Directors',
-            'link_to' => 'posts/post-slug/board-of-directors',
+            'link_to' => 'staffs/staff-types/board of directors',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -161,7 +161,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Credit Committee',
-            'link_to' => 'posts/post-slug/credit committee',
+            'link_to' => 'staffs/staff-types/credit committee',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,
@@ -171,7 +171,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Supervisory Committee',
-            'link_to' => 'posts/post-slug/supervisory committee',
+            'link_to' => 'staffs/staff-types/supervisory committee',
             'icon' => 'fa-solid fa-briefcase',
             'parent_id' => 12,
             'admin_menu' => false,

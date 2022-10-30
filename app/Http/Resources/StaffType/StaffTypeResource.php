@@ -12,9 +12,9 @@ class StaffTypeResource extends JsonResource {
             'staffTypeId'       => $this->id,
             'staffTypeName'     => $this->staff_type_name,
             'links'             => [
-                new LinkObject("index", "Staff Types", route('staff-types.index'), "GET"),
-                new LinkObject("update", "Update Post", route('staff-types.update', $this->id), "PUT"),
-                new LinkObject("destroy", "Delete Post", route('staff-types.destroy', $this->id), "DELETE"),
+                new LinkObject("index", "Staff Types", route('staff-types.index', false), "GET"),
+                new LinkObject("update", "Update Post", route('staff-types.update', $this->id, false), "PUT"),
+                new LinkObject("destroy", "Delete Post", route('staff-types.destroy', $this->id, false), "DELETE"),
             ],
         ];
     }

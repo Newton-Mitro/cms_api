@@ -33,9 +33,9 @@ class JobCircularResource extends JsonResource {
             'applicationDeadline'           => $this->application_deadline,
             'publishedDate'                 => $this->published_on,
             'links'                         => [
-                new LinkObject("index", "Job Circulars", route('job-circulars.index'), "GET"),
-                new LinkObject("update", "Update Job Circular", route('job-circulars.update', $this->id), "PUT"),
-                new LinkObject("destroy", "Delete Job Circular", route('job-circulars.destroy', $this->id), "DELETE"),
+                new LinkObject("index", "Job Circulars", route('job-circulars.index', false), "GET"),
+                new LinkObject("update", "Update Job Circular", route('job-circulars.update', $this->id, false), "PUT"),
+                new LinkObject("destroy", "Delete Job Circular", route('job-circulars.destroy', $this->id, false), "DELETE"),
             ],
         ];
     }

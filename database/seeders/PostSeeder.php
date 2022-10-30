@@ -110,53 +110,7 @@ class PostSeeder extends Seeder {
             'post_type_id' => 1,
         ]);
 
-        DB::table('posts')->insert([
-            'post_slug' => Str::slug('Board Members', '-'),
-            'post_title' => 'Board Members',
-            'post_content' => generateHtml('Board Members'),
-            'post_image' => '/public/cat.jpg',
-            'post_type_id' => 1,
-        ]);
-
-        DB::table('posts')->insert([
-            'post_slug' => Str::slug('Office Bearer', '-'),
-            'post_title' => 'Office Bearer',
-            'post_content' => generateHtml('Office Bearer'),
-            'post_image' => '/public/cat.jpg',
-            'post_type_id' => 1,
-        ]);
-
-        DB::table('posts')->insert([
-            'post_slug' => Str::slug('Board of Directors', '-'),
-            'post_title' => 'Board of Directors',
-            'post_content' => generateHtml('Board of Directors'),
-            'post_image' => '/public/cat.jpg',
-            'post_type_id' => 1,
-        ]);
-
-        DB::table('posts')->insert([
-            'post_slug' => Str::slug('Credit Committee', '-'),
-            'post_title' => 'Credit Committee',
-            'post_content' => generateHtml('Credit Committee'),
-            'post_image' => '/public/cat.jpg',
-            'post_type_id' => 1,
-        ]);
-
-        DB::table('posts')->insert([
-            'post_slug' => Str::slug('Supervisory Committee', '-'),
-            'post_title' => 'Supervisory Committee',
-            'post_content' => generateHtml('Supervisory Committee'),
-            'post_image' => '/public/cat.jpg',
-            'post_type_id' => 1,
-        ]);
-
-        DB::table('posts')->insert([
-            'post_slug' => Str::slug('Our Policies', '-'),
-            'post_title' => 'Our Policies',
-            'post_content' => generateHtml('Our Policies'),
-            'post_image' => '/public/cat.jpg',
-            'post_type_id' => 1,
-        ]);
+    
 
         try {
             Post::factory(250)->create();

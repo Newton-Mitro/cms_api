@@ -35,9 +35,9 @@ class ServiceCenterResource extends JsonResource {
             'inChargeDesignation'   => $this->in_charge_designation,
             'serviceCenterTypeId'   => $this->service_center_type_id,
             'links'                 => [
-                new LinkObject("index", "Service Centers", route('service_centers.index'), "GET"),
-                new LinkObject("update", "Update Service Centers", route('service_centers.update', $this->id), "PUT"),
-                new LinkObject("destroy", "Delete Service Centers", route('service_centers.destroy', $this->id), "DELETE"),
+                new LinkObject("index", "Service Centers", route('service_centers.index', false), "GET"),
+                new LinkObject("update", "Update Service Centers", route('service_centers.update', $this->id, false), "PUT"),
+                new LinkObject("destroy", "Delete Service Centers", route('service_centers.destroy', $this->id, false), "DELETE"),
             ],
         ];
     }

@@ -15,6 +15,7 @@ namespace App\Repositories\Interfaces;
 
 interface StaffsRepositoryInterface {
     public function all();
+    public function getStaffsByType($staffType);
     public function store($request);
     public function show($staffId);
     public function update($request,  $staffId);

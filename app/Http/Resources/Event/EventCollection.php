@@ -25,9 +25,9 @@ class EventCollection extends JsonResource {
             'eventDate'      => $this->event_date,
             'eventDetails'   => $this->event_details,
             'links'         => [
-                new LinkObject("show", "View Event", route('events.show', $this->id), "GET"),
-                new LinkObject("update", "Update Event", route('events.update', $this->id), "PUT"),
-                new LinkObject("delete", "Delete Event", route('events.destroy', $this->id), "DELETE"),
+                new LinkObject("show", "View Event", route('events.show', $this->id, false), "GET"),
+                new LinkObject("update", "Update Event", route('events.update', $this->id, false), "PUT"),
+                new LinkObject("delete", "Delete Event", route('events.destroy', $this->id, false), "DELETE"),
             ],
         ];
     }

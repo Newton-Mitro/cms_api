@@ -27,9 +27,9 @@ class TestimonialResource extends JsonResource {
             'clientImage'                       => $this->client_image,
             'clientProfessionOrDesignation'     => $this->client_profession_or_designation,
             'links'                             => [
-                new LinkObject("index", "Testimonials", route('testimonials.index'), "GET"),
-                new LinkObject("update", "Update Testimonial", route('testimonials.update', $this->id), "PUT"),
-                new LinkObject("destroy", "Delete Testimonial", route('testimonials.destroy', $this->id), "DELETE"),
+                new LinkObject("index", "Testimonials", route('testimonials.index', false), "GET"),
+                new LinkObject("update", "Update Testimonial", route('testimonials.update', $this->id, false), "PUT"),
+                new LinkObject("destroy", "Delete Testimonial", route('testimonials.destroy', $this->id, false), "DELETE"),
             ],
         ];
     }

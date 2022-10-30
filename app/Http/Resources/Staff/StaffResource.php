@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Staff;
 
 use App\Utilities\LinkObject;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\StaffSocialLink\StaffSocialLinkCollection;
 
@@ -23,15 +24,15 @@ class StaffResource extends JsonResource {
         return [
             'staffId'               => $this->id,
             'staffName'             => $this->staff_name,
-            'staffImage'            => base64_encode($this->staff_image),
+            'staffImage'            => base64_encode(Storage::get(str_replace("storage", "public", $this->staff_image))),
             'staffDesignation'      => $this->staff_designation,
             'aboutTheStaff'         => $this->about_the_staff,
             'staffTypeId'           => $this->staff_type_id,
             'staffSocialLinks'      => StaffSocialLinkCollection::collection($this->staffSocialLinks),
             'links'                 => [
-                new LinkObject("index", "Staffs", route('staffs.index'), "GET"),
-                new LinkObject("update", "Update Post", route('staffs.update', $this->id), "PUT"),
-                new LinkObject("destroy", "Delete Post", route('staffs.destroy', $this->id), "DELETE"),
+                new LinkObject("index", "Staffs", route('staffs.index', false), "GET"),
+                new LinkObject("update", "Update Post", route('staffs.update', $this->id, false), "PUT"),
+                new LinkObject("destroy", "Delete Post", route('staffs.destroy', $this->id, false), "DELETE"),
             ],
         ];
     }

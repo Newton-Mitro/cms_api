@@ -12,9 +12,9 @@ class StaffTypeCollection extends JsonResource {
             'staffTypeId'       => $this->id,
             'staffTypeName'     => $this->staff_type_name,
             'links'             => [
-                new LinkObject("show", "View Staff Type", route('staff-types.show', $this->id), "GET"),
-                new LinkObject("update", "Update Staff Type", route('staff-types.update', $this->id), "PUT"),
-                new LinkObject("destroy", "Delete Staff Type", route('staff-types.destroy', $this->id), "DELETE"),
+                new LinkObject("show", "View Staff Type", route('staff-types.show', $this->id, false), "GET"),
+                new LinkObject("update", "Update Staff Type", route('staff-types.update', $this->id, false), "PUT"),
+                new LinkObject("destroy", "Delete Staff Type", route('staff-types.destroy', $this->id, false), "DELETE"),
             ],
         ];
     }
