@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ServiceCenter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**========================================================================
  * ?                                ABOUT
@@ -16,6 +17,12 @@ use Illuminate\Database\Eloquent\Model;
  * @description    :  All service center working area 
  *========================================================================**/
 
-class ServiceCenterType extends Model {
+class ServiceCenterType extends Model
+{
     use HasFactory;
+
+    public function serviceCenters()
+    {
+        return $this->hasMany(ServiceCenter::class);
+    }
 }

@@ -16,13 +16,16 @@ use App\Repositories\Interfaces\ServiceCenterRepositoryInterface;
  * @description    :   
  *========================================================================**/
 
-class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
+class ServiceCenterRepository implements ServiceCenterRepositoryInterface
+{
 
-    public function all() {
+    public function all()
+    {
         return ServiceCenter::paginate(10);
     }
 
-    public function store($request) {
+    public function store($request)
+    {
         $ServiceCenter = new ServiceCenter();
         $ServiceCenter->service_center_name = $request->ServiceCenterName;
         $ServiceCenter->address = $request->Address;
@@ -42,7 +45,8 @@ class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
         return $ServiceCenter;
     }
 
-    public function  update($request, $serviceCenterId) {
+    public function  update($request, $serviceCenterId)
+    {
         $service = ServiceCenter::findOrFail($serviceCenterId);
         $service->service_center_name = $request->ServiceCenterName;
         $service->address = $request->Address;
@@ -62,11 +66,13 @@ class ServiceCenterRepository implements ServiceCenterRepositoryInterface {
         return $service;
     }
 
-    public function show($serviceCenterId) {
+    public function show($serviceCenterId)
+    {
         return  ServiceCenter::findOrFail($serviceCenterId);
     }
 
-    public function destroy($serviceCenterId) {
+    public function destroy($serviceCenterId)
+    {
         return ServiceCenter::findOrFail($serviceCenterId)->delete();
     }
 }

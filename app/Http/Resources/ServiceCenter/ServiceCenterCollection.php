@@ -16,9 +16,11 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @description    : job circular resource collection.
  *========================================================================**/
 
-class ServiceCenterCollection extends JsonResource {
+class ServiceCenterCollection extends JsonResource
+{
 
-    public function toArray($request) {
+    public function toArray($request)
+    {
         return [
             'serviceCenterId'       => $this->id,
             'serviceCenterName'     => $this->service_center_name,
@@ -33,11 +35,11 @@ class ServiceCenterCollection extends JsonResource {
             'closingTime'           => $this->closing_time,
             'actingInCharge'        => $this->acting_in_charge,
             'inChargeDesignation'   => $this->in_charge_designation,
-            'serviceCenterType'     => $this->serviceCenterType->serviceCenterTypeName,
+            'serviceCenterType'     => $this->serviceCenterType->service_center_type,
             'links'                 => [
-                new LinkObject("show", "View Service Center", route('service_centers.show', $this->id, false), "GET"),
-                new LinkObject("update", "Update service Center", route('service_centers.update', $this->id, false), "PUT"),
-                new LinkObject("destroy", "Delete service Center", route('service_centers.destroy', $this->id, false), "DELETE"),
+                new LinkObject("show", "View Service Center", route('service-centers.show', $this->id, false), "GET"),
+                new LinkObject("update", "Update service Center", route('service-centers.update', $this->id, false), "PUT"),
+                new LinkObject("destroy", "Delete service Center", route('service-centers.destroy', $this->id, false), "DELETE"),
             ],
         ];
     }

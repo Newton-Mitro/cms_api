@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ServiceCenterType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**========================================================================
  * ?                                ABOUT
@@ -16,6 +17,11 @@ use Illuminate\Database\Eloquent\Model;
  * @description    : job circular resource collection.
  *========================================================================**/
 
-class ServiceCenter extends Model {
+class ServiceCenter extends Model
+{
     use HasFactory;
+    public function serviceCenterType()
+    {
+        return $this->belongsTo(ServiceCenterType::class);
+    }
 }

@@ -10,6 +10,7 @@ use Database\Seeders\EventSeeder;
 use Database\Seeders\StaffSeeder;
 use Database\Seeders\PostTypeSeeder;
 use Database\Seeders\StaffTypeSeeder;
+use Database\Seeders\ServiceCenterSeeder;
 use Database\Seeders\SocialMediaTypeSeeder;
 use Database\Seeders\StaffSocialLinkSeeder;
 use Database\Seeders\ApplicationStageSeeder;
@@ -26,9 +27,11 @@ use Database\Seeders\ServiceCenterTypeSeeder;
  * @description    :  Database main seeder file
  *========================================================================**/
 
-class DatabaseSeeder extends Seeder {
+class DatabaseSeeder extends Seeder
+{
 
-    public function run() {
+    public function run()
+    {
         $this->call([
             UserSeeder::class,
             StaffTypeSeeder::class,
@@ -42,6 +45,7 @@ class DatabaseSeeder extends Seeder {
             EventSeeder::class,
             StaffSeeder::class,
             StaffSocialLinkSeeder::class,
+            ServiceCenterSeeder::class,
         ]);
     }
 }
