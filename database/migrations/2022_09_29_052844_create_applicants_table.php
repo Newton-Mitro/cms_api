@@ -15,19 +15,35 @@ use Illuminate\Support\Facades\Schema;
  * @description    :  Applicants migration table
  *------------------------------------------------------------------------**/
 
-return new class extends Migration {
+return new class extends Migration
+{
 
-    public function up() {
+    public function up()
+    {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
             $table->string('applicant_photo');
             $table->string('applicant_name');
-            $table->string('applicant_email');
-            $table->string('applicant_phone_number');
-            $table->string('applicant_emergency_contact')->nullable();
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
+            $table->string('gender');
+            $table->string('blood_group');
+            $table->string('date_of_birth');
+            $table->string('national_id')->nullable();
+            $table->string('passport_number')->nullable();
+            $table->string('tin_number')->nullable();
+            $table->string('religion');
+            $table->string('nationality');
+            $table->string('marital_status');
             $table->string('spouse_name')->nullable();
+            $table->string('email_personal');
+            $table->string('email_office')->nullable();
+            $table->string('emergency_contact_name')->nullable();
+            $table->string('emergency_contact_relation')->nullable();
+            $table->string('emergency_contact_number')->nullable();
+            $table->string('contact_number_work')->nullable();
+            $table->string('contact_number_home')->nullable();
+            $table->string('contact_number_cell')->nullable();
             $table->string('present_address_1');
             $table->string('present_address_2')->nullable();
             $table->string('present_address_3')->nullable();
@@ -36,24 +52,14 @@ return new class extends Migration {
             $table->string('permanent_address_2')->nullable();
             $table->string('permanent_address_3')->nullable();
             $table->string('permanent_address_4')->nullable();
-            $table->string('blood_group');
-            $table->string('date_of_birth');
-            $table->string('gender');
-            $table->string('religion');
-            $table->string('nationality');
-            $table->string('marital_status');
-            $table->string('attached_resume')->nullable();
-            $table->text('cover_letter')->nullable();
-            $table->decimal('expected_salary')->nullable();
             $table->unsignedBigInteger('job_circular_id');
-            $table->unsignedBigInteger('application_stage_id')->default(1);
             $table->timestamps();
             $table->foreign('job_circular_id')->references('id')->on('job_circulars')->onDelete('cascade');
-            $table->foreign('application_stage_id')->references('id')->on('application_stages');
         });
     }
 
-    public function down() {
+    public function down()
+    {
         Schema::dropIfExists('applicants');
     }
 };

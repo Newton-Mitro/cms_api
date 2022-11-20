@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\DB;
  * @description    :  MenuSeeder 
  *========================================================================**/
 
-class MenuSeeder extends Seeder {
+class MenuSeeder extends Seeder
+{
 
-    public function run() {
+    public function run()
+    {
         DB::table('menus')->insert([
             'menu_name' => 'Home',
             'link_to' => '/',
@@ -271,7 +273,7 @@ class MenuSeeder extends Seeder {
 
         DB::table('menus')->insert([
             'menu_name' => 'Contact',
-            'link_to' => 'contact',
+            'link_to' => 'service-centers',
             'icon' => 'fa-solid fa-address-book',
             'parent_id' => 0,
             'admin_menu' => false,

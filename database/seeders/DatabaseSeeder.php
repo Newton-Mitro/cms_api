@@ -34,18 +34,19 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            StaffTypeSeeder::class,
-            SocialMediaTypeSeeder::class,
-            ServiceCenterTypeSeeder::class,
+            // StaffTypeSeeder::class,
+            // SocialMediaTypeSeeder::class,
+            // ServiceCenterTypeSeeder::class,
             ApplicationStageSeeder::class,
-            PostTypeSeeder::class,
+            // PostTypeSeeder::class,
 
-            MenuSeeder::class,
-            PostSeeder::class,
-            EventSeeder::class,
-            StaffSeeder::class,
-            StaffSocialLinkSeeder::class,
-            ServiceCenterSeeder::class,
+            // MenuSeeder::class,
+            // PostSeeder::class,
+            // EventSeeder::class,
+            // StaffSeeder::class,
+            // StaffSocialLinkSeeder::class,
+            // ServiceCenterSeeder::class,
+            NoticeSeeder::class
         ]);
     }
 }
